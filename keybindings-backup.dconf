@@ -1,0 +1,67 @@
+[/]
+custom-list=['custom10', 'custom7', 'custom5', 'custom4', 'custom3', 'custom1', 'custom0', '__dummy__', 'custom2', 'custom6', 'custom8', 'custom9']
+
+[custom-keybindings/custom0]
+binding=['<Shift><Super>a']
+command='/usr/bin/atom'
+name='Atom Editor'
+
+[custom-keybindings/custom1]
+binding=['<Super>Return']
+command='/usr/bin/terminator'
+name='Terminator'
+
+[custom-keybindings/custom10]
+binding=['<Shift><Super>v']
+command='/usr/bin/codium'
+name='VSCodium'
+
+[custom-keybindings/custom2]
+binding=['<Shift><Super>b']
+command='/usr/bin/brave-browser-stable'
+name='Brave Browser'
+
+[custom-keybindings/custom3]
+binding=['<Shift><Super>k']
+command='/usr/bin/keepassxc'
+name='KeePassXC'
+
+[custom-keybindings/custom4]
+binding=['<Shift><Super>p']
+command='/usr/bin/password-gorilla'
+name='Password Gorilla'
+
+[custom-keybindings/custom5]
+binding=['<Shift><Super>f']
+command='/usr/bin/firefox'
+name='Firefox'
+
+[custom-keybindings/custom6]
+binding=['<Shift><Super>c']
+command='/usr/bin/google-chrome-stable'
+name='Google Chrome'
+
+[custom-keybindings/custom7]
+binding=['<Shift><Super>m']
+command='/usr/bin/marktext'
+name='Marktext'
+
+[custom-keybindings/custom8]
+binding=['<Shift><Super>x']
+command='/usr/bin/xed'
+name='Xed'
+
+[custom-keybindings/custom9]
+binding=['<Shift><Super>g']
+command='/usr/bin/geany'
+name='Geany'
+
+[wm]
+move-to-workspace-1=['<Primary><Shift><Alt>KP_End']
+move-to-workspace-2=['<Primary><Shift><Alt>KP_Down']
+move-to-workspace-3=['<Primary><Shift><Alt>KP_Next']
+move-to-workspace-4=['<Primary><Shift><Alt>KP_Left']
+switch-to-workspace-1=['<Primary><Alt>KP_1']
+switch-to-workspace-2=['<Primary><Alt>KP_2']
+switch-to-workspace-3=['<Primary><Alt>KP_3']
+switch-to-workspace-4=['<Primary><Alt>KP_4']

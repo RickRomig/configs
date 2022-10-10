@@ -1,0 +1,12 @@
+{
+  "workbench.colorTheme": "Visual Studio Dark",
+  "editor.tabSize": 2,
+  "editor.fontFamily": "'Cascadia Code', 'Droid Sans Mono', monospace",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "'Cascadia Code'",
+  "editor.wordWrap": "on",
+  "editor.fontSize": 16,
+  "window.restoreFullscreen": true,
+  "editor.insertSpaces": false,
+  "window.menuBarVisibility": "toggle"
+}
