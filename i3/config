@@ -210,11 +210,11 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 # Initialize 3 scratchpads with 1 keybinding
 bindsym $mod+Control+Return exec kitty --name dropdown & exec kitty --name textpad -e micro & exec kitty --name ranger -e ranger
-# Dropdown terminal
+# Toggle Dropdown terminal
 bindsym $mod+Shift+Return [instance="dropdown"] scratchpad show; move position center
-# Textpad scratchpad
+# Toggle Textpad scratchpad
 bindsym $mod+shift+m [instance="textpad"] scratchpad show; move position center
-# Ranger file manager
+# Toggle Ranger file manager
 bindsym $mod+shift+f [instance="ranger"] scratchpad show; move position center
 
 # Window rules
