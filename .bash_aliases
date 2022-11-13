@@ -122,8 +122,7 @@ mkcd() {
   mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-ex ()
-{
+ex() {
   if [ -f $1 ]; then
     case $1 in
       *.tar.bz )    tar xjf $1  ;;
