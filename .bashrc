@@ -3,7 +3,7 @@
 # | |\/| |/ _ \/ __| |_ / _` |  \| |/ _ \ __|  rick.romig@gmail.com
 # | |  | | (_) \__ \  _| (_| | |\  |  __/ |_   rick.romig@mymetronet.net
 # |_|  |_|\___/|___/_|  \__,_|_| \_|\___|\__|  @ludditegeek
-########################################################################
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -69,16 +69,16 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# if [ "$color_prompt" = yes ]; then
-    # if [[ ${EUID} == 0 ]] ; then
-        # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \w\n\$\[\033[00m\] '
-    # else
-        # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;37m\]\w\n\$\[\033[00m\] '
-    # fi
-# else
-    # PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
-# fi
-# unset color_prompt force_color_prompt
+if [ "$color_prompt" = yes ]; then
+    if [[ ${EUID} == 0 ]] ; then
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \w\n\$\[\033[00m\] '
+    else
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;37m\]\w\n\$\[\033[00m\] '
+    fi
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
+fi
+unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -92,7 +92,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto --group-directories-first'
+    alias ls='ls -F --color=auto --group-directories-first'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -105,8 +105,8 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alhF'
-alias la='ls -A'
+alias ll='ls -alhF --time-style=long-iso'
+alias la='ls -AF'
 alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -146,11 +146,11 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-# export PS1="\033[01;32m\\u@\h \[\033[34m\]\w\[\033[37m\]\$(parse_git_branch)\[\033[00m\]\n$ 
+# export PS1="\033[01;32m\\u@\h \[\033[34m\]\w\[\033[37m\]\$(parse_git_branch)\[\033[00m\]\n$ "
 tty -s && export PS1="\[\033[38;5;248m\]\342\224\214\342\224\200\342\224\200\[\033[38;5;35m\][\[\033[38;5;35m\]\t\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\[\033[38;5;33m\]\j\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\H:\]\[\033[38;5;33m\]\w\[\033[38;5;35m\[\033[37m\]\$(parse_git_branch)\[\033[38;5;35m\]]\n\[\033[38;5;248m\]\342\224\224\342\224\200\342\224\200|\[$(tput sgr0)\] "
 
 # Neofetch
-[ -x /usr/bin/neofetch ] && /usr/bin/neofetch --source ~/Templates/atheist-40.txt
+[ -x /usr/bin/neofetch ] && /usr/bin/neofetch --source ~/Templates/neo-atheist.txt
 
 # Function Library
 # [ -f ~/bin/functionlib ] && . ~/bin/functionlib
