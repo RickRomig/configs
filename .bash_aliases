@@ -20,6 +20,7 @@ alias shellcheck='shellcheck -x --exclude=SC1001,SC2001'
 alias sdn='sudo shutdown now'
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 alias tb='nc termbin.com 9999'
+alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share/doc/"
 alias tsl="sudo timeshift --list | awk 'NR!=1 && NR!=3'"
 alias txt2pdf='libreoffice --convert-to pdf'
 alias upgrade="sudo apt update && sudo apt dist-upgrade"
