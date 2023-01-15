@@ -17,32 +17,23 @@ super + shift + q
 
 super + r
    kitty -e "ranger"
-   
-super + g
-	google-chrome-stable
-
-super + b
-	brave-browser
 
 super + f
 	thunar
 
-super + e
-	geany
-
-super + v
-	codium
+super + e; {c,g,m}
+	{codium,geany,marktext}
 
 alt + p
  rofi -show
 
 # Application Keybindings
 
-super + w
-    firefox-esr
+super + w; {b,d,g}
+	{brave-browser,firefox-esr,google-chrome-stable}
 
-super + d 
- discord
+# super + d
+ # discord
 
 ctrl + alt + s
     flameshot gui
@@ -106,6 +97,32 @@ super + control + space
 super + alt + a
     i3-msg focus parent
 
+#Scratchpads
+
+super + shift + minus
+	i3-msg move scratchpad
+
+super + minus
+	scratchpad show
+
+super + ctrl + Return
+	kitty --name dropdown
+
+super + shift + Return
+	i3-msg [instance="dropdown"] scratchpad show; move position center
+
+# super + ctrl + r
+	# kitty --name ranger -e "ranger"
+
+# super + shift + r
+	# i-3msg [instance="ranger"] scratchpad show; move position center
+
+super + ctrl + p
+	flatpak run org.keepassxc.KeePassXC
+
+super + shift + p
+	i3-msg [instance="keepassxc"] scratchpad show; move position center
+
 #workspaces
 
 super + {1-9,0}
@@ -113,6 +130,9 @@ super + {1-9,0}
 
 super + shift+{1-9,0}
     i3-msg move container to workspace number {1-9,10}
+
+super + alt + {Right,Left}
+	i3-msg workspace {next,prev}
     
 #movement
 
@@ -127,7 +147,6 @@ super+{Left,Down,Up,Right}
     
 super+shift+{Left,Down,Up,Right}
     i3-msg move {left,down,up,right}
-
 
 #other bindings
 
