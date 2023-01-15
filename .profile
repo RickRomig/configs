@@ -45,7 +45,6 @@ fi
  export XDG_CACHE_HOME="$HOME/.cache"
 
 # Set application specific environmental variables
-export ATOM_HOME="$XDG_DATA_HOME/atom"
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
