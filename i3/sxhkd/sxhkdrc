@@ -21,16 +21,26 @@ super + r
 super + f
 	thunar
 
-super + e; {c,g,m}
-	{codium,geany,marktext}
+# super + e ; {c,g,m}
+#	 {codium,geany,marktext}
 
 alt + p
  rofi -show
 
+
 # Application Keybindings
 
-super + w; {b,d,g}
-	{brave-browser,firefox-esr,google-chrome-stable}
+super + e
+	codium
+
+# super + w ; {b,d,g}
+#	 {brave-browser,firefox-esr,google-chrome-stable}
+
+super + g
+	google-chrome-stable
+
+super + w
+	brave-browser
 
 # super + d
  # discord
@@ -112,10 +122,10 @@ super + shift + Return
 	i3-msg [instance="dropdown"] scratchpad show; move position center
 
 # super + ctrl + r
-	# kitty --name ranger -e "ranger"
+#	 kitty --name ranger -e "ranger"
 
 # super + shift + r
-	# i-3msg [instance="ranger"] scratchpad show; move position center
+#	i-3msg [instance="ranger"] scratchpad show; move position center
 
 super + ctrl + p
 	flatpak run org.keepassxc.KeePassXC
