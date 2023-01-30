@@ -144,27 +144,3 @@ ex() {
     echo "'$1' is not a valid file."
   fi
 }
-
-cdup() {
-	local d=""
-	local limit="$1"
-	# Default to limit of 1
-	if [[ -z "$limit" || "$limit" -le 0 ]]; then
-		limit=1
-	fi
-
-	for (( i=1;i<=limit;i++ )); do
-		d="../$d"
-	done
-
-	# Perform cd. Show error if cd fails.
-	if ! cd "$d"; then
-		echo "Couldn't go up $limit directories."
-	fi
-}
-
-overview() {
-    du -h --max-depth=1 | sed -r '
-    $d; s/^([.0-9]+[KMGPTEZ]\t)\.\//\1/
-    ' | sort -hr | column
-}
