@@ -160,10 +160,10 @@ super+shift+{Left,Down,Up,Right}
 
 #other bindings
 
-super + shift + c
+super + q
     i3-msg kill
 
-super + alt + c
+super + shift + r
     i3-msg reload
 
 super + alt + r
@@ -172,5 +172,6 @@ super + alt + r
 super + ctrl + {Left,Down,Up,Right}
     i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
 
-super + BackSpace
+super + x
 	~/.config/i3/logout
+ 
