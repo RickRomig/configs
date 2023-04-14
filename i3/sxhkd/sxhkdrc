@@ -1,8 +1,5 @@
 super + Escape
     pkill -USR1 -x sxhkd
-
-super + Return
-   kitty
    
 #Rofi & dmenu
 
@@ -15,14 +12,11 @@ super + p
 super + shift + q
      i3-msg exit
 
-super + r
-   kitty -e "ranger"
-
 super + f
 	thunar
 
-# super + e ; {c,g,m}
-#	 {codium,geany,marktext}
+super + r
+    kitty -e "ranger"
 
 alt + p
  rofi -show
@@ -30,20 +24,23 @@ alt + p
 
 # Application Keybindings
 
-super + e
-	codium
+super + Return
+   kitty
 
-# super + w ; {b,d,g}
-#	 {brave-browser,firefox-esr,google-chrome-stable}
+super + e
+	geany
+#   codium
 
 super + g
-	google-chrome-stable
+    chromium
+#   google-chrome-stable
 
 super + w
-	brave-browser
+    firefox
+#	brave-browser
 
-# super + d
- # discord
+alt + k
+    keepassxc
 
 ctrl + alt + s
     flameshot gui
@@ -90,6 +87,7 @@ XF86AudioStop
 alt + {h,j,k,l}
    mpc {prev,next,play,pause}
 
+
 #i3 Specific Keybindings
 
 super + {v,b}
@@ -107,13 +105,14 @@ super + control + space
 super + alt + a
     i3-msg focus parent
 
+
 #Scratchpads
 
 super + shift + minus
 	i3-msg move scratchpad
 
 super + minus
-	scratchpad show
+    i3-msg scratchpad show
 
 super + ctrl + Return
 	kitty --name dropdown
@@ -121,19 +120,23 @@ super + ctrl + Return
 super + shift + Return
 	i3-msg [instance="dropdown"] scratchpad show; move position center
 
-# super + ctrl + r
-#	 kitty --name ranger -e "ranger"
+super + ctrl + c
+    gnome-calculator
 
-# super + shift + r
-#	i-3msg [instance="ranger"] scratchpad show; move position center
+super + shift + c
+    i3-msg [instance="gnome-calculator"] scratchpad show; move position center
 
-super + ctrl + p
-	flatpak run org.keepassxc.KeePassXC
+super + ctrl + f
+    kitty --class "UXTerm" -e "ranger"
+ 
+super + shift + f
+    i3-msg [class="UXTerm"] scratchpad show; move position center
 
-super + shift + p
-	i3-msg [instance="keepassxc"] scratchpad show; move position center
 
 #workspaces
+
+super + shift + b
+    i3-msg move workspace to output next
 
 super + {1-9,0}
     i3-msg workspace {1-9,10}
@@ -141,9 +144,16 @@ super + {1-9,0}
 super + shift+{1-9,0}
     i3-msg move container to workspace number {1-9,10}
 
+alt + {0.1,2.3.4.5.6.7.8.9}
+    i3-msg workspace {20,11,12,13,14,15,16,17.18,19}
+
+alt + shift + {0.1,2.3.4.5.6.7.8.9}
+    i3-msg move containter to workspace number {20,11,12,13,14,15,16,17.18,19}
+
 super + alt + {Right,Left}
 	i3-msg workspace {next,prev}
-    
+
+
 #movement
 
 super+{h,j,k,l}
@@ -157,6 +167,7 @@ super+{Left,Down,Up,Right}
     
 super+shift+{Left,Down,Up,Right}
     i3-msg move {left,down,up,right}
+
 
 #other bindings
 
@@ -174,4 +185,3 @@ super + ctrl + {Left,Down,Up,Right}
 
 super + x
 	~/.config/i3/logout
- 

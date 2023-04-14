@@ -4,7 +4,7 @@
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 # nitrogen --restore; sleep 1; 
 # feh --bg-fill ~/.config/backgrounds/Alice_Greczyn.jpg &
-feh --bg-fill ~/.config/backgrounds/linux020.jpg &
+feh --bg-fill ~/.config/backgrounds/blackcat_1920x1080.png &
 picom -b &
 numlockx on &
 nm-applet &

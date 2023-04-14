@@ -6,8 +6,7 @@ case $option in
         sudo /usr/bin/systemctl suspend ;;
     'lock screen')
         # i3lock -c 000000 ;;
-        # i3lock -i ~/.config/backgrounds/wallhaven-3ke3dd_1920x1080.png ;;
-        i3lock -c 000000 -i ~/.config/backgrounds/thethinkingatheist.png ;;
+        i3lock -c 000000 -i ~/.config/backgrounds/code_1920x1080.png ;;
     logout)
         i3-nagbar -t warning -m 'Are you sure you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' ;;
     reboot)
