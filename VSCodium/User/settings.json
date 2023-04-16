@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorTheme": "Default High Contrast",
   "editor.tabSize": 2,
   "editor.fontFamily": "'Cascadia Code', 'Droid Sans Mono', monospace",
   "editor.fontLigatures": true,
@@ -8,5 +8,5 @@
   "editor.fontSize": 16,
   "window.restoreFullscreen": true,
   "editor.insertSpaces": false,
-  "window.menuBarVisibility": "toggle"
+  "editor.autoClosingQuotes": "always"
 }
