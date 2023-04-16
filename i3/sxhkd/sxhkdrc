@@ -6,8 +6,8 @@ super + Escape
 super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
-super + p
-	dmenu_run
+super + d
+	dmenu_run -b
 
 super + shift + q
      i3-msg exit
@@ -18,7 +18,7 @@ super + f
 super + r
     kitty -e "ranger"
 
-alt + p
+alt + d
  rofi -show
 
 
