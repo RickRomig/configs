@@ -7,7 +7,7 @@ super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + d
-	dmenu_run -b
+	dmenu_run
 
 super + shift + q
      i3-msg exit
