@@ -6,7 +6,7 @@ super + Escape
 super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
-super + d
+super + p
 	dmenu_run
 
 super + shift + q
@@ -18,7 +18,7 @@ super + f
 super + r
     kitty -e "ranger"
 
-alt + d
+alt + p
  rofi -show
 
 
@@ -99,7 +99,7 @@ super + alt + f
 super + alt + space
     i3-msg floating toggle
 
-super + control + space
+super + ctrl + space
     i3-msg focus mode_toggle
 
 super + alt + a
