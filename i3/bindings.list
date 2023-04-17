@@ -1,8 +1,8 @@
 super+Escape|reload sxhkdrc|super+shift+r|reload i3 in-place
 super+alt+r|restrart i3|super+x|logout menu
 super+q|kill window|super+shift+q|exit i3
-super+space|rofi apps|super+p| dmenu
-alt+p|rofi show WS|
+super+space|rofi apps|super+d|dmenu
+super+shift+d|rofi show WS|
 super+f|thunar fm|super+r|Ranger fm
 super+Return|terminal|super+e|editor
 super+g|Chromium|super+w|Firefox
