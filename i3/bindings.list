@@ -1,0 +1,17 @@
+super+Escape|reload sxhkdrc|super+shift+r|reload i3 in-place
+super+alt+r|restrart i3|super+x|logout menu
+super+q|kill window|super+shift+q|exit i3
+super+space|rofi apps|super+p| dmenu
+alt+p|rofi show WS|
+super+f|thunar fm|super+r|Ranger fm
+super+Return|terminal|super+e|editor
+super+g|Chromium|super+w|Firefox
+alt+k|KeePassXC|ctrl+alt+s|Flameshot GUI
+super+shift+minus|move scratchpad|super+minus|toggle scratchpad
+super+ctrl+Return|Dropdown|super+shift+Return|toggle dropdown
+super+ctrl+c|calculator|super+shift+c|toggle calculator
+super+ctrl+f|Ranger|super+shift+f|toggle Ranger
+super+{v,b}|toggle split|super+alt+f|toggle full-screen
+super+alt+space|toggle floating|super+ctrl+space|toggle focus-mode
+super+alt+a|focus parent|
+super+shift+b|WS next monitor|super+alt+{Right,Left}|next/prev WS
