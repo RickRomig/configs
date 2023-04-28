@@ -123,6 +123,10 @@ mkcd() {
   mkdir -p -- "$1" && cd -P -- "$1"
 }
 
+decryptpdf() {
+	qpdf --password="$1" --decrypt "$2".pdf --replace-input
+}
+
 ex() {
   if [ -f $1 ]; then
     case $1 in
