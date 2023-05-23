@@ -1,14 +1,14 @@
-ctrl+shift+c|copy to clipboard
-ctrl+shift+v|paste from clipboard
-ctrl+shift+s|paste from selection
-shift+insert|paste from selection
-ctrl+shift+up|scroll line up
-ctrl+shift+down|scroll line down
-ctrl+shift+page_up|scroll page up
-ctrl+shift+page_down|scroll page down
-ctrl+shift+home|scroll home
-ctrl+shift+end|scroll end
-ctrl+shift+t|new tab
-ctrl+shift+q|close tab
-ctrl+shift+right|next tab
-ctrl+shift+left|previous tab
+ctrl+shift+c|copy to clipboard|ctrl+shift+v|paste from clipboard
+ctrl+shift+s|paste from selection|ctrl+shift+s|paste from selection
+ctrl+shift+up|scroll line up|ctrl+shift+down|scroll line down
+ctrl+shift+page_up|scroll page up|ctrl+shift+page_down|scroll page down
+ctrl+shift+home|scroll home|ctrl+shift+end|scroll end
+ctrl+shift+t|new tab|ctrl+shift+q|close tab
+ctrl+shift+right|next tab|ctrl+shift+left|previous tab
+ctrl+shift+enter|new window|ctrl+shift+w|close window
+ctrl+shift+]|next window|ctrl+shift+[|previous window
+ctrl+shift+1..0|focus window
+ctrl+shift+equal|increase font|ctrl+shift+minus|decrease font
+ctrl+shift+bs|restore font|ctrl+shift+u|insert unicode char
+ctrl+shift+F11|toggle fullscreen|ctrl+shift+F10|toggle maximized
+ctrl+shift+e|open url|ctrl+shift+F2|edit kitty.conf
