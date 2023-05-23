@@ -1,10 +1,14 @@
-ctrl+shift+c|copy_to_clipboard
-ctrl+shift+v|paste_from_clipboard
-ctrl+shift+s|paste_from_selection
-shift+insert|paste_from_selection
-ctrl+shift+up|scroll_line_up
-ctrl+shift+down|scroll_line_down
-ctrl+shift+page_up|scroll_page_up
-ctrl+shift+page_down|scroll_page_down
-ctrl+shift+home|scroll_home
-ctrl+shift+end|scroll_end
+ctrl+shift+c|copy to clipboard
+ctrl+shift+v|paste from clipboard
+ctrl+shift+s|paste from selection
+shift+insert|paste from selection
+ctrl+shift+up|scroll line up
+ctrl+shift+down|scroll line down
+ctrl+shift+page_up|scroll page up
+ctrl+shift+page_down|scroll page down
+ctrl+shift+home|scroll home
+ctrl+shift+end|scroll end
+ctrl+shift+t|new tab
+ctrl+shift+q|close tab
+ctrl+shift+right|next tab
+ctrl+shift+left|previous tab
