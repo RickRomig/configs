@@ -1,10 +1,10 @@
 [/]
-custom-list=['custom10', 'custom7', 'custom5', 'custom4', 'custom3', 'custom1', 'custom0', '__dummy__', 'custom2', 'custom6', 'custom8', 'custom9']
+custom-list=['custom0', 'custom10', 'custom7', 'custom5', 'custom4', 'custom3', 'custom1', '__dummy__', 'custom2', 'custom6', 'custom8', 'custom9', 'custom11']
 
 [custom-keybindings/custom0]
-binding=['<Shift><Super>a']
-command='/usr/bin/atom'
-name='Atom Editor'
+binding=['<Shift><Super>Return']
+command='/usr/bin/kitty'
+name='Kitty'
 
 [custom-keybindings/custom1]
 binding=['<Super>Return']
@@ -15,6 +15,11 @@ name='Terminator'
 binding=['<Shift><Super>v']
 command='/usr/bin/codium'
 name='VSCodium'
+
+[custom-keybindings/custom11]
+binding=['<Shift><Alt>n']
+command='/usr/bin/nemo'
+name='Nemo'
 
 [custom-keybindings/custom2]
 binding=['<Shift><Super>b']
