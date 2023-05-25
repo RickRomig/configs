@@ -144,10 +144,10 @@ super + {1-9,0}
 super + shift+{1-9,0}
     i3-msg move container to workspace number {1-9,10}
 
-alt + {0.1,2,3,4,5,6,7,8,9}
+alt + {0,1,2,3,4,5,6,7,8,9}
     i3-msg workspace {20,11,12,13,14,15,16,17,18,19}
 
-alt + shift + {0.1,2,3,4,5,6,7,8,9}
+alt + shift + {0,1,2,3,4,5,6,7,8,9}
     i3-msg move containter to workspace number {20,11,12,13,14,15,16,17,18,19}
 
 super + alt + {Right,Left}
@@ -168,6 +168,13 @@ super+{Left,Down,Up,Right}
 super+shift+{Left,Down,Up,Right}
     i3-msg move {left,down,up,right}
 
+#monitor brrightness
+
+XF86MonBrightnessUp
+    xbacklight +10
+
+XF86MonBrightnessDown
+    xbacklight -10
 
 #other bindings
 
