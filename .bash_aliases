@@ -94,8 +94,7 @@ rm~() {
 }
 
 cdls() {
-  local dir="$1"
-  local dir="${dir:=$HOME}"
+  local dir="${1:-$HOME}"
   if [[ -d "$dir" ]]; then
      cd "$dir" >/dev/null; ls -CF --group-directories-first --color=auto
   else
