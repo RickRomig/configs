@@ -15,6 +15,8 @@ new_window 1pixel
 gaps inner 8
 gaps outer 4
 
+focus_on_window_activation focus
+
 workspace_auto_back_and_forth yes
 
 # Window rules
