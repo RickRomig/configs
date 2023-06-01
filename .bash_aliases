@@ -4,6 +4,7 @@ alias df='df -h -x tmpfs -x fuse.portal'
 alias free='free -m'
 alias cls='history -w && history -c && clear'
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'
+alias cleancat="grep -Ev '^(#|$)'"
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
 alias glow='glow -p'
