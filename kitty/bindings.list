@@ -7,7 +7,7 @@ ctrl+shift+t|new tab|ctrl+shift+q|close tab
 ctrl+shift+right|next tab|ctrl+shift+left|previous tab
 ctrl+shift+enter|new window|ctrl+shift+w|close window
 ctrl+shift+]|next window|ctrl+shift+[|previous window
-ctrl+shift+1..0|focus window|ctrl+shift+l|chang layout
+ctrl+shift+1..0|focus window|ctrl+shift+l|change layout
 ctrl+shift+equal|increase font|ctrl+shift+minus|decrease font
 ctrl+shift+bs|restore font|ctrl+shift+u|insert unicode char
 ctrl+shift+F11|toggle fullscreen|ctrl+shift+F10|toggle maximized
