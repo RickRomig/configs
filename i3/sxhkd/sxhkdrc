@@ -1,5 +1,8 @@
-super + Escape
+-super + Escape
     pkill -USR1 -x sxhkd
+
+super + Return
+   kitty
    
 #Rofi & dmenu
 
@@ -15,53 +18,50 @@ super + shift + q
 super + f
 	thunar
 
-super + r
-    kitty -e "ranger"
-
 super + shift + d
  rofi -show
 
 
-# Application Keybindings
+##### Application Keybindings #####
 
-super + Return
-   kitty
+super + r
+	kitty -e "ranger"
 
 super + e
-	geany
-#   codium
+	codium
 
-super + g
-    chromium
-#   google-chrome-stable
+super + c
+	chromium
+
+super + b
+	brave-browser
 
 super + w
-    firefox
-#	brave-browser
+	firefox
 
 alt + k
-    keepassxc
+	keepassxc
 
 ctrl + alt + s
     flameshot gui
 
 
-#Audio Keybindings
+##### Audio Keybindings #####
 
 XF86AudioRaiseVolume
-        amixer -c 1 -- sset Master 2db+
+        amixer -c 0 -- sset Master 2db+
 
 XF86AudioLowerVolume
-        amixer -c 1 -- sset Master 2db-
+        amixer -c 0 -- sset Master 2db-
 
-XF86AudioMute
-        amixer -c 1 -- sset Master toggle
+XF86AudioMicMute
+        amixer -c 0 -- sset Master toggle
 
 alt + d
-        amixer -c 1 -- sset Master 2db+
+        amixer -c 0 -- sset Master 2db+
 
 alt + a
-        amixer -c 1 -- sset Master 2db-
+        amixer -c 0 -- sset Master 2db-
 
 XF86AudioPlay
     playerctl play-pause
@@ -88,7 +88,7 @@ alt + {h,j,k,l}
    mpc {prev,next,play,pause}
 
 
-#i3 Specific Keybindings
+##### i3 Specific Keybindings #####
 
 super + {v,b}
     i3-msg split {v,h}
@@ -106,13 +106,13 @@ super + alt + a
     i3-msg focus parent
 
 
-#Scratchpads
+##### Scratchpads #####
 
 super + shift + minus
 	i3-msg move scratchpad
 
 super + minus
-    i3-msg scratchpad show
+	i3-msg scratchpad show
 
 super + ctrl + Return
 	kitty --name dropdown
@@ -121,22 +121,19 @@ super + shift + Return
 	i3-msg [instance="dropdown"] scratchpad show; move position center
 
 super + ctrl + c
-    gnome-calculator
+	gnome-calculator
 
 super + shift + c
-    i3-msg [instance="gnome-calculator"] scratchpad show; move position center
+	i3-msg [instance="gnome-calculator"] scratchpad show; move position center
 
 super + ctrl + f
-    kitty --class "UXTerm" -e "ranger"
- 
+	kitty --class "UXTerm" -e "ranger"
+
 super + shift + f
-    i3-msg [class="UXTerm"] scratchpad show; move position center
+	i3-msg [class="UXTerm"] scratchpad show; move position center
 
 
-#workspaces
-
-super + shift + b
-    i3-msg move workspace to output next
+##### workspaces #####
 
 super + {1-9,0}
     i3-msg workspace {1-9,10}
@@ -144,17 +141,10 @@ super + {1-9,0}
 super + shift+{1-9,0}
     i3-msg move container to workspace number {1-9,10}
 
-alt + {0,1,2,3,4,5,6,7,8,9}
-    i3-msg workspace {20,11,12,13,14,15,16,17,18,19}
-
-alt + shift + {0,1,2,3,4,5,6,7,8,9}
-    i3-msg move containter to workspace number {20,11,12,13,14,15,16,17,18,19}
-
 super + alt + {Right,Left}
 	i3-msg workspace {next,prev}
-
-
-#movement
+    
+##### movement #####
 
 super+{h,j,k,l}
     i3-msg focus {left,down,up,right}
@@ -168,15 +158,15 @@ super+{Left,Down,Up,Right}
 super+shift+{Left,Down,Up,Right}
     i3-msg move {left,down,up,right}
 
-#monitor brrightness
+##### Monitor Brightness #####
 
 XF86MonBrightnessUp
-    xbacklight +10
+	xbacklight +10
 
 XF86MonBrightnessDown
-    xbacklight -10
+	xbacklight -10
 
-#other bindings
+##### other bindings #####
 
 super + q
     i3-msg kill
