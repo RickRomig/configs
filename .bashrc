@@ -153,7 +153,7 @@ parse_git_branch() {
 tty -s && export PS1="\[\033[38;5;248m\]\342\224\214\342\224\200\342\224\200\[\033[38;5;35m\][\[\033[38;5;35m\]\t\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\[\033[38;5;33m\]\j\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\H:\]\[\033[38;5;33m\]\w\[\033[38;5;35m\[\033[37m\]\$(parse_git_branch)\[\033[38;5;35m\]]\n\[\033[38;5;248m\]\342\224\224\342\224\200\342\224\200|\[$(tput sgr0)\] "
 
 # Neofetch
-[ -x /usr/bin/neofetch ] && /usr/bin/neofetch --source ~/Templates/neo-atheist.txt
+[ -x /usr/bin/neofetch ] && /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
 
 # Function Library
 # [ -f ~/bin/functionlib ] && . ~/bin/functionlib
