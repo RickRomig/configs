@@ -1,11 +1,13 @@
 include $HOME/.config/i3/workspaces.conf
 include $HOME/.config/i3/bar.conf
 set $mod Mod4
-# set $lm LVDS-1
-# set $rm VGA-1
+# Uncomment and modified for dual monitor support
+# set $monL LVDS1
+# set $monR VGA1
 # font pango:monospace 8
 font pango:"Cascadia Code" 14
 
+# exec_always --no-startup-id ~/.local/bin/autoxandr.sh
 exec_always --no-startup-id ~/.config/i3/autostart.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
