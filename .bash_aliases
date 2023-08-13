@@ -6,6 +6,7 @@ alias cls='history -w && history -c && clear'
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'
 alias cleancat="grep -Ev '^(#|$)'"
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"
+alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
 alias glow='glow -p'
 alias install="sudo apt install"
@@ -28,8 +29,8 @@ alias term_size='echo "Rows=$(tput lines) Cols=$(tput cols)"'
 alias tsl="sudo timeshift --list | awk 'NR!=1 && NR!=3'"
 alias txt2pdf='libreoffice --convert-to pdf'
 alias upgrade="sudo apt update && sudo apt dist-upgrade"
-alias yt='youtube-dl --add-metadata -ic'
-alias yta='youtube-dl --add-metadata -xic'
+alias yt='yt-dlp --add-metadata -ic'
+alias yta='yt-dlp --add-metadata -xic'
 
 # file aliases
 alias ..='cd ..'
