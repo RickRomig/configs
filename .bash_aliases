@@ -29,6 +29,7 @@ alias term_size='echo "Rows=$(tput lines) Cols=$(tput cols)"'
 alias tsl="sudo timeshift --list | awk 'NR!=1 && NR!=3'"
 alias txt2pdf='libreoffice --convert-to pdf'
 alias upgrade="sudo apt update && sudo apt dist-upgrade"
+alias wifipass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | cut -d'/' -f5 | sed 's/.nmconnection:psk=/ = /'"
 alias yt='yt-dlp --add-metadata -ic'
 alias yta='yt-dlp --add-metadata -xic'
 
