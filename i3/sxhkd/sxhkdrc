@@ -12,9 +12,6 @@ super + space
 super + d
 	dmenu_run
 
-super + shift + q
-     i3-msg exit
-
 super + f
 	thunar
 
@@ -170,6 +167,9 @@ XF86MonBrightnessDown
 
 super + q
     i3-msg kill
+
+super + shift + q
+     i3-msg exit
 
 super + shift + r
     i3-msg reload

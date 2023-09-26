@@ -2,8 +2,8 @@
 # Autostart applications
 # /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1 &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+~/.local/bin/polybar-i3 &
 # nitrogen --restore; sleep 1; 
-# feh --bg-fill ~/.config/backgrounds/Alice_Greczyn.jpg &
 feh --bg-fill ~/.config/backgrounds/blackcat_1920x1080.png &
 picom -b &
 numlockx on &
