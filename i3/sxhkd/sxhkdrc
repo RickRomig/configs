@@ -25,16 +25,16 @@ super + r
 	kitty -e "ranger"
 
 super + e
-	codium
+	wmctrl -a VSCodium || codium
 
 super + c
-	chromium
+    wmctrl -a Chromium || chromium
 
 super + b
-	brave-browser
+    wmctrl -a Brave || brave-browser
 
 super + w
-	firefox
+    wmctrl -a "Mozilla Firefox" || firefox
 
 alt + k
 	keepassxc
