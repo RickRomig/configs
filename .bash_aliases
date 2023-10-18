@@ -54,21 +54,6 @@ alias lslt='ls -lhtrF --time-style=long-iso'
 alias mkd='mkdir -pv'
 alias move='mv -vi'
 
-# git aliases
-# alias ga="git add"
-# alias gaa="git add ."
-# alias gc="git commit"
-# alias gcm="git commit -m"
-# alias gcam="git commit -a -m"
-# alias gs="git status"
-# alias gr="git rm"
-# alias gl="git log"
-# alias gm="git mv"
-alias gpbm="git push bashscripts master"
-alias gpfm="git push FnLoC master"
-alias gpom="git push origin master"
-alias graph="git log --all --decorate --oneline --graph"
-
 # ping aliases
 alias p8='ping -4 -c 8 8.8.8.8'
 alias pho='ping -4 -c 8 127.0.0.1'
