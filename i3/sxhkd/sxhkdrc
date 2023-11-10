@@ -1,5 +1,5 @@
--super + Escape
-    pkill -USR1 -x sxhkd
+super + Escape
+    pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reload config'
 
 super + Return
    kitty
@@ -13,7 +13,7 @@ super + d
 	dmenu_run
 
 super + f
-	thunar
+    wmctrl -a Thunar || thunar
 
 super + shift + d
  rofi -show
@@ -25,10 +25,10 @@ super + r
 	kitty -e "ranger"
 
 super + e
-	wmctrl -a VSCodium || codium
+    wmctrl -a VSCodium || codium
 
 super + c
-    wmctrl -a Chromium || chromium
+	wmctrl -a Chromium || chromium
 
 super + b
     wmctrl -a Brave || brave-browser
@@ -172,13 +172,17 @@ super + shift + q
      i3-msg exit
 
 super + shift + r
-    i3-msg reload
+    i3-msg reload; notify-send 'i3' 'Reloaded'
 
 super + alt + r
-    i3-msg restart
+    i3-msg restart; notify-send 'i3' 'Restarted'
 
 super + ctrl + {Left,Down,Up,Right}
     i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
 
 super + x
 	~/.config/i3/logout
+
+super + t
+    notify-send -t 3500 "$(date '+%a %b %e %r')"
+    
