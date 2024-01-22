@@ -12,6 +12,7 @@ alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
 alias glow='glow -p'
 alias install="sudo apt install"
+alias inrepo="apt-cache show"
 alias lsmount="mount | column -t"
 alias mem5="ps auxf | sort -nr -k 4 | head -5"
 alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
@@ -111,6 +112,10 @@ mvcd() {
 
 mkcd() {
   mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+dcp() {
+	cat "$1" | dsh -g "$2" -i -c 'tee $3/$1'
 }
 
 decryptpdf() {
