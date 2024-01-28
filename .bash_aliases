@@ -4,15 +4,17 @@ alias df='df -h -x tmpfs -x fuse.portal'
 alias free='free -m'
 alias cls='history -w && history -c && clear'
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'
-# alias check-sudo="sudo ls > /dev/null 2>&1; echo $?"
 alias cleancat="grep -Ev '^(#|$)'"
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"
 alias dirs="dirs -v"
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
+alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glow='glow -p'
+alias histg="history | grep"
 alias install="sudo apt install"
 alias inrepo="apt-cache show"
+alias ip='ip -color'
 alias lsmount="mount | column -t"
 alias mem5="ps auxf | sort -nr -k 4 | head -5"
 alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
@@ -54,6 +56,7 @@ alias lslt='ls -lhtrF --time-style=long-iso'
 # alias ll='ls -alF'
 # alias la='ls -A'
 # alias l='ls -CF'
+alias mkdir="mkdir -p"
 alias mkd='mkdir -pv'
 alias move='mv -vi'
 
@@ -115,11 +118,23 @@ mkcd() {
 }
 
 dcp() {
-	cat "$1" | dsh -g "$2" -i -c 'tee $3/$1'
+	cat "$1" | dsh -g "$2" -i -c "tee $3/$(basename "$1")"
 }
 
 decryptpdf() {
 	qpdf --password="$1" --decrypt "$2".pdf --replace-input
+}
+
+function gcommit() {
+	git status
+	git add $1
+	git commit -m "$2"
+}
+
+gcommita() {
+	git status
+	git add -A
+	git commit -m "$1"
 }
 
 ex() {
