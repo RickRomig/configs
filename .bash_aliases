@@ -128,10 +128,10 @@ decryptpdf() {
 function gcommit() {
 	git status
 	git add $1
-	git commit -m "$2"
+	git commit -m "$1 - $2"
 }
 
-gcommita() {
+gcommitall() {
 	git status
 	git add -A
 	git commit -m "$1"
