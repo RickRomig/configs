@@ -43,7 +43,7 @@ shopt -s checkwinsize
 # Set bat as manpager
 [ -x /usr/bin/bat ] && export MANPAGER="sh -c 'col -bx | /usr/bin/bat -l man -p'"
 
-# parse git repository branch prompt
+# parse_git_branch in prompt
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -79,7 +79,8 @@ if [ "$color_prompt" = yes ]; then
         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \w\n\$\[\033[00m\] '
     else
         # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;37m\]\w\n\$\[\033[00m\] '
-        tty -s && export PS1="\[\033[38;5;248m\]\342\224\214\342\224\200\342\224\200\[\033[38;5;35m\][\[\033[38;5;35m\]\t\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\[\033[38;5;33m\]\j\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\H:\]\[\033[38;5;33m\]\w\[\033[38;5;35m\[\033[37m\]\$(parse_git_branch)\[\033[38;5;35m\]]\n\[\033[38;5;248m\]\342\224\224\342\224\200\342\224\200|\[$(tput sgr0)\] "
+				# Custom prompt
+				tty -s && export PS1="\[\033[38;5;248m\]\342\224\214\342\224\200\342\224\200\[\033[38;5;35m\][\[\033[38;5;35m\]\t\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\[\033[38;5;33m\]\j\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\H:\]\[\033[38;5;33m\]\w\[\033[38;5;35m\[\033[37m\]\$(parse_git_branch)\[\033[38;5;35m\]]\n\[\033[38;5;248m\]\342\224\224\342\224\200\342\224\200|\[$(tput sgr0)\] "
     fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
@@ -129,7 +130,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Alias ssh if terminal is kitty
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+[[ "$TERM" = "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -150,8 +151,5 @@ fi
 #      /usr/bin/mint-fortune
 # fi
 
-# Launch Neofetch
+# Neofetch
 [ -x /usr/bin/neofetch ] && /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
-
-# Function Library
-# [ -f ~/bin/functionlib ] && source ~/bin/functionlib
