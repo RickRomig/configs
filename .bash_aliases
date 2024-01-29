@@ -125,7 +125,7 @@ decryptpdf() {
 	qpdf --password="$1" --decrypt "$2".pdf --replace-input
 }
 
-function gcommit() {
+gcommit() {
 	git status
 	git add $1
 	git commit -m "$1 - $2"
