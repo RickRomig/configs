@@ -20,6 +20,7 @@ alias lsmount="mount | column -t"
 alias mem5="ps auxf | sort -nr -k 4 | head -5"
 alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
 alias modalias='nano ~/.bash_aliases; rm ~/.bash_aliases~; source ~/.bash_aliases'
+alias motd='echo "$(shuf -n 1 ~/.local/share/doc/leave.txt)"'
 alias neofetch='neofetch --source ~/.local/share/doc/neo-atheist.txt'
 alias path='echo $PATH | sed "s,:,\n,g"'
 alias rbt='sudo reboot'
