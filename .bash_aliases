@@ -11,6 +11,8 @@ alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias gpush='git push'
+alias grestore='git restore'
+alias gunstage='git restore --staged'
 alias glow='glow -p'
 alias histg="history | grep"
 alias install="sudo apt install"
