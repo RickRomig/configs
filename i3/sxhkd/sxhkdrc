@@ -15,7 +15,7 @@ super + d
 super + shift + e
     ~/.local/bin/dmconf.sh
 
-    super + f
+super + f
     wmctrl -a Thunar || thunar
 
 super + shift + d
