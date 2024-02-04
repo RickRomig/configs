@@ -9,6 +9,7 @@ alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala l
 alias cleancat="grep -Ev '^(#|$)'"
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"
 alias dirs="dirs -v"
+alias dsh-all='dsh -aM -c'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
@@ -134,6 +135,10 @@ mkcd() {
 
 dcp() {
 	cat "$1" | dsh -g "$2" -i -c "tee $3/$(basename "$1")"
+}
+
+dsh-grp() {
+	dsh -M -g $1 -c $2
 }
 
 decryptpdf() {
