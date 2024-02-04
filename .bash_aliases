@@ -1,4 +1,6 @@
 # aliases
+alias bconf='micro ~/.bashrc'
+alias cp='cp -iv'
 alias dc="date +'%A %d %B %Y %R' && cal -3"
 alias df='df -h -x tmpfs -x fuse.portal'
 alias free='free -m'
@@ -18,11 +20,14 @@ alias histg="history | grep"
 alias install="sudo apt install"
 alias inrepo="apt-cache show"
 alias ip='ip -color'
+alias m='micro'
 alias lsmount="mount | column -t"
 alias mem5="ps auxf | sort -nr -k 4 | head -5"
 alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
+alias mkdir='mkdir-ip'
 alias modalias='nano ~/.bash_aliases; rm ~/.bash_aliases~; source ~/.bash_aliases'
 alias motd='echo "$(shuf -n 1 ~/.local/share/doc/leave.txt)"'
+alias mv='mv -iv'
 alias neofetch='neofetch --source ~/.local/share/doc/neo-atheist.txt'
 alias path='echo $PATH | sed "s,:,\n,g"'
 alias rbt='sudo reboot'
@@ -74,6 +79,12 @@ alias pro='ping -4 -c 8 192.168.0.1'
 alias fuck='sudo'
 alias please='sudo'
 alias shit='sudo'
+
+# trash aliases
+alias trash='gio trash'
+alias list-trash='gio trash --list'
+alias empty-trash='gio trash --empty'
+restore-trash() { gio trash --restore trash:///$1; }
 
 # Alias Functions
 exist() {
