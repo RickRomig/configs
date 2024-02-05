@@ -1,12 +1,14 @@
 {
   "workbench.colorTheme": "Default High Contrast",
   "editor.tabSize": 2,
-  "editor.fontFamily": "'Fira Code', 'Cascadia Code', 'Droid Sans Mono', monospace",
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Droid Sans Mono', 'monospace'",
   "editor.fontLigatures": true,
-  "terminal.integrated.fontFamily": "'Cascadia Code'",
+  "terminal.integrated.fontFamily": "'JetBrains Mono'",
   "editor.wordWrap": "on",
   "editor.fontSize": 16,
   "window.restoreFullscreen": true,
   "editor.insertSpaces": false,
-  "editor.autoClosingQuotes": "always"
+  "editor.autoClosingQuotes": "always",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "files.trimTrailingWhitespace": true
 }
