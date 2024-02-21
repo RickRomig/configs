@@ -39,7 +39,7 @@ super + b
 super + w
     wmctrl -a "Mozilla Firefox" || firefox
 
-alt + k
+super + p
 	keepassxc
 
 ctrl + alt + s
@@ -90,19 +90,22 @@ alt + {h,j,k,l}
 
 ##### i3 Specific Keybindings #####
 
-super + {v,b}
-    i3-msg split {v,h}
+super + v
+    i3-msg split v; notify-send 'vertical split'
+
+super + shift + v; notify-send 'horizonal split'
+    i3-msg split h
 
 super + alt + f
     i3-msg fullscreen toggle
 
-super + alt + space
+super + shift + space
     i3-msg floating toggle
 
 super + control + space
     i3-msg focus mode_toggle
 
-super + alt + a
+super + a
     i3-msg focus parent
 
 
