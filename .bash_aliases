@@ -3,6 +3,7 @@ alias bconf='micro ~/.bashrc'
 alias cp='cp -iv'
 alias dc="date +'%A %d %B %Y %R' && cal -3"
 alias df='df -h -x tmpfs -x fuse.portal'
+alias dsh-all='dsh -aM -c'
 alias free='free -m'
 alias cls='history -w && history -c && clear'
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'
