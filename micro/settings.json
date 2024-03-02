@@ -1,5 +1,7 @@
 {
     "colorscheme": "atom-dark",
+    "diffgutter": true,
+    "rmtrailingws": true,
     "softwrap": true,
     "tabsize": 2,
     "wordwrap": true
