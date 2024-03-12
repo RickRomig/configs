@@ -3,9 +3,8 @@
 # /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1 &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 ~/.local/bin/polybar-i3 &
-# nitrogen --restore; sleep 1; 
+# nitrogen --restore; sleep 1;
 feh --bg-fill ~/.config/backgrounds/blackcat_1920x1080.png &
-# feh --bg-fill --randomize ~/Pictures/wallpaper/* &
 # while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
 picom -b &
 udiskie &
