@@ -1,18 +1,17 @@
 # aliases
 alias bconf='micro ~/.bashrc'
-alias cp='cp -iv'
-alias dc="date +'%A %d %B %Y %R' && cal -3"
-alias df='df -h -x tmpfs -x fuse.portal'
-alias dsh-all='dsh -aM -c'
-alias free='free -m'
-alias cls='history -w && history -c && clear'
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'
 alias cleancat="grep -Ev '^(#|$)'"
+alias cls='history -w && history -c && clear'
+alias cp='cp -iv'
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"
+alias dc="date +'%A %d %B %Y %R' && cal -3"
+alias df='df -h -x tmpfs -x fuse.portal'
 alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
+alias free='free -m'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias gpush='git push'
 alias grestore='git restore'
@@ -22,10 +21,10 @@ alias histg="history | grep"
 alias install="sudo apt install"
 alias inrepo="apt-cache show"
 alias ip='ip -color'
-alias m='micro'
 alias lsmount="mount | column -t"
-alias mem5="ps auxf | sort -nr -k 4 | head -5"
+alias m='micro'
 alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
+alias mem5="ps auxf | sort -nr -k 4 | head -5"
 alias mkdir='mkdir-ip'
 alias modalias='nano ~/.bash_aliases; rm ~/.bash_aliases~; source ~/.bash_aliases'
 alias motd='echo "$(shuf -n 1 ~/.local/share/doc/leave.txt)"'
@@ -84,7 +83,8 @@ alias shit='sudo'
 
 # trash aliases
 alias trash='gio trash'
-alias list-trash='gio trash --list'
+# alias list-trash='gio trash --list'
+alias list-trash='gio list trash://'
 alias empty-trash='gio trash --empty'
 restore-trash() { gio trash --restore trash:///$1; }
 
@@ -126,7 +126,7 @@ mvcd() {
   if [ -d "$2" ]; then
     mv $1 $2 && cd $2
   else
-    mv $1 $2  
+    mv $1 $2
   fi
 }
 
