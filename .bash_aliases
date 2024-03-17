@@ -1,5 +1,5 @@
 # aliases
-alias bconf='micro ~/.bashrc'
+alias bconf='micro ~/.bashrc; source ~/.bashrc'
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'
 alias cleancat="grep -Ev '^(#|$)'"
 alias cls='history -w && history -c && clear'
