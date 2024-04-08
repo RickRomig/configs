@@ -27,7 +27,7 @@ alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
 alias mem5="ps auxf | sort -nr -k 4 | head -5"
 alias mkdir='mkdir-ip'
 alias modalias='nano ~/.bash_aliases; rm ~/.bash_aliases~; source ~/.bash_aliases'
-alias motd='echo "$(shuf -n 1 ~/.local/share/doc/leave.txt)"'
+alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"
 alias mv='mv -iv'
 alias neofetch='neofetch --source ~/.local/share/doc/neo-atheist.txt'
 alias path='echo $PATH | sed "s,:,\n,g"'
@@ -156,6 +156,18 @@ gcommitall() {
 	git status
 	git add -A
 	git commit -m "$1"
+}
+
+ncommit() {
+	git status
+	git add $1
+	git commit -m "$1 - $2" --no-verify
+}
+
+ncommitall() {
+	git status
+	git add -A
+	git commit -m "$1" --no-verify
 }
 
 ex() {
