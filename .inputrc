@@ -24,3 +24,5 @@ set echo-control-characters off
 "\C-f":"cd /home/rick/.config/"
 "\C-b":"cd ..\n"
 "\C-h":"cd ~\n"
+# Alt+s to prepend sudo to command
+"\es": "\C-asudo \C-e"
