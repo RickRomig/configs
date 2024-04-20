@@ -19,7 +19,6 @@ set echo-control-characters off
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
 
-
 # Bash Keybindings
 "\C-f":"cd /home/rick/.config/"
 "\C-b":"cd ..\n"
