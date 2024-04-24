@@ -21,6 +21,7 @@ alias histg="history | grep"
 alias install="sudo apt install"
 alias inrepo="apt-cache show"
 alias ip='ip -color'
+alias jdate="date +'%y%j'"
 alias lsmount="mount | column -t"
 alias m='micro'
 alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
@@ -192,4 +193,10 @@ ex() {
   else
     echo "'$1' is not a valid file."
   fi
+}
+
+# bat help wrapper (requires bat)
+alias bathelp='bat --plain --language=help'
+help() {
+    "$@" --help 2>&1 | bathelp
 }
