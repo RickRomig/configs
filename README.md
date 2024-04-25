@@ -2,39 +2,57 @@
 
 ## My configuration files
 
-### Notes
+### Home directory
+- `.bash_aliases` - Bash aliases and functions.
+- `.bash_logout` - commands to be executed when the login shell exits.
+- `.bashrc` - customized .bashrc. Sets manpager, function to parse git branch in prompt, customized PS1 prompt, launches Neofetch
+- `.face` - .png image.
+- `.inputrc` - sets bash hoptions and keybindings.
+- `.profile` - sets path variable and exports environment variables.
 
-**.inputrc**
-```bash
-# Prettyfi
-set colored-stats On
-set colored-completion-prefix On
+### bat
+- `config` - configuration file for the bat utility.
+### bluefish
+- `rcfile-2.0` - configuration file for Bluefish editor.
+### dsh
+- `dsh.conf' - dsh configguration file
+- `machines.list` - IP addresses of all Linux systems on the network.
+- `group/all` - symbalic link to `machines.list`
+- `group/desktops` - IP addresses of all Linux desktops on the network.
+- `group/i3wm` - IP addresses of all computers with i3WM on the network.
+- `group/laptos` - IP addresses of all Linux laptops on the network.
+### i3
+- `autostart.sh` - script to launch i3wm and necessary services.
+- `bar.conf` - configuration file for Bumblebee-Status bar (eference).
+- `bindings.list` - list of i3 keybindings displayed by `i3kb` script.
+- `config` - i3 configuration file.
+- `logout` - script to suspend, lock screen, logout, reboot, power off, or kill current user.
+- `sxhkd/sxhdkrc` - i3 keybindings.
+- `workspaces.conf` - defines and assigns i3 workspaces.
+### keepassxc
+- `keepassxc.ini - KeepassXC configuration file.
+### kitty
+- `bindings.list` - list of kitty keybindings displayed by `kkb` script.
+- `kitty.conf` - Kitty configuration file.
+### marktext
+- `prefences.json` - MarkText preferences.
+### micro
+ - `bindings.json` - Micro keybindings.
+ - `settings.json` - Micro configuration.
+### nano
+- `nanorc` - basic Nano configuration file. Recommend copying `/etc/nanorc` and running `nano.sed` against it.
+### neofetch
+- `config.conf` - customised Neofetch configuration.
+- `default.conf` - Default Neofetch configuration.
+- `mosfanet.conf` - Standard configuration template for my computers.
+### rofi
+- `arc_dark_colors.rasi` - Arc Dark theme.
+- `arc_dark_transparent_colors.rasi` - Transparent coolors for Arc Dark theme.
+- `config.rasi` - i3 Rofi configuration.
+### terminator
+- `config` - Terminator terminal emulator configuration.
+### VSCodium
+- `User/settings.json` - VSCodium configuration and settings.
 
-# Completion settings
-set show-all-if-ambiguous on
-set completion-ignore-case on
-set completion-display-width 0
-set completion-query-items 1000
-
-# ^C no longer shows on C-c keypress
-set echo-control-characters off
-
-# Command history search - partial search term up & down arrows
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-
-# Move forward/backward by word with arrow keys
-"\e[1;5D": backward-word
-"\e[1;5C": forward-word
-
-
-# Bash Keybindings
-# ctrl+f cd to ~/.config
-"\C-f":"cd /home/rick/.config/"
-# ctrl+b cd up one directory (with return)
-"\C-b":"cd ..\n"
-# ctrl+h cd to home directory
-"\C-h":"cd ~\n"
-# Prepend sudo using alt+s
-"\es": "\C-asudo \C-e"
-```
+#### Rick Romig (*The Luddite Geek*)
+##### 24 April 2024
