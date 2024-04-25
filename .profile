@@ -16,16 +16,21 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
+# Set Paths for user bin directories
 PATH="/usr/games:$PATH"
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:$PATH"
 fi
+
+# Set XDG Environment variables
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 # Set default editor
 if [ -x /usr/bin/micro ]; then
@@ -37,18 +42,3 @@ else
   export VISUAL="/usr/bin/nano"
   export SUDO_EDITOR="/usr/bin/nano"
 fi
-
-# Set XDG Environment variables
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/usr/local/share:/usr/share:$XDG_DATA_DIRS"
-export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
-
-
-# Set application specific environmental variables
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
