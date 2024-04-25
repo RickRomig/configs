@@ -17,7 +17,6 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # Set Paths for user bin directories
-PATH="/usr/games:$PATH"
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
