@@ -38,10 +38,10 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Set bat as manpager
-[ -x /usr/bin/bat ] && export MANPAGER="sh -c 'col -bx | /usr/bin/bat -l man -p'"
+[[ -x /usr/bin/bat ]] && export MANPAGER="sh -c 'col -bx | /usr/bin/bat -l man -p'"
 
 # parse_git_branch in prompt
 parse_git_branch() {
@@ -49,7 +49,7 @@ parse_git_branch() {
 }
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+if [[ -z "${debian_chroot:-}" ]] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -125,7 +125,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
+if [[ -f ~/.bash_aliases ]]; then
     . ~/.bash_aliases
 fi
 
@@ -147,7 +147,7 @@ fi
 stty -ixon
 
 # XDG_STATE_HOME directory
-[ -d ~/.local/state ] || mkdir -p ~/.local/state
+[[ -d ~/.local/state ]] || mkdir -p ~/.local/state
 
 # Run mint fortunes if installed
 # if [ -x /usr/bin/mint-fortune ]; then
@@ -155,4 +155,4 @@ stty -ixon
 # fi
 
 # Neofetch
-[ -x /usr/bin/neofetch ] && /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
+[[ -x /usr/bin/neofetch ]] && /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
