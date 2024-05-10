@@ -5,7 +5,7 @@
 ~/.local/bin/polybar-i3 &
 # nitrogen --restore; sleep 1;
 feh --bg-fill ~/.config/backgrounds/blackcat_1920x1080.png &
-# while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
+# while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 600; done &
 picom -b &
 udiskie &
 numlockx on &
