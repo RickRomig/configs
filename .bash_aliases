@@ -1,5 +1,6 @@
 # aliases
 alias bconf='micro ~/.bashrc; source ~/.bashrc'
+alias checkcommand="type -t"
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'
 alias cleancat="grep -Ev '^(#|$)'"
 alias cls='history -w && history -c && clear'
@@ -11,13 +12,13 @@ alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"
+alias freshclam='sudo freshclam'
 alias free='free -m'
-alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
-alias gpush='git push'
-alias grestore='git restore'
-alias gunstage='git restore --staged'
 alias glow='glow -p'
-alias histg="history | grep"
+# alias grep='grep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
+alias histg="history | grep " # search bash history
 alias install="sudo apt install"
 alias inrepo="apt-cache show"
 alias ip='ip -color'
@@ -26,7 +27,6 @@ alias lsmount="mount | column -t"
 alias m='micro'
 alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'
 alias mem5="ps auxf | sort -nr -k 4 | head -5"
-alias mkdir='mkdir-ip'
 alias modalias='nano ~/.bash_aliases; rm ~/.bash_aliases~; source ~/.bash_aliases'
 alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"
 alias mv='mv -iv'
@@ -49,29 +49,42 @@ alias wifipass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | c
 alias yt='yt-dlp --add-metadata -ic'
 alias yta='yt-dlp --add-metadata -xic'
 
+# alias chmod commands
+alias mx='chmod a+x'
+alias 000='chmod -R 000'	# no permissions
+alias 644='chmod -R 644'	# rw-r--r--
+alias 666='chmod -R 666'	# rw-rw-rw-
+alias 755='chmod -R 755'	# rwxr-xr-x
+alias 777='chmod -R 777'	# rwxrwxrwx
+
 # file aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
-alias copy='cp -vi'
-# alias grep='grep --color=auto'
-# alias fgrep='fgrep --color=auto'
-# alias egrep='egrep --color=auto'
-alias lsl='ls -lhF --time-style=long-iso'
-alias lsal='ls -AlhF --time-style=long-iso'
-alias lsd='ls -d .*/ */'
-alias lsr='ls -RF'
-alias lst='ls -trF'
-alias lslt='ls -lhtrF --time-style=long-iso'
+# alias l='ls -CF'	# columns and append */=>@|
+# alias la='la -AF'	# all but without implied . and ..
+# alias ll='ls -alF'	# all, long listing, append */=>@|
 # alias ls='ls --color=auto --group-directories-first'
-# alias ll='ls -alF'
-# alias la='ls -A'
-# alias l='ls -CF'
+alias lsl='ls -lhF --time-style=long-iso'	# long listing, human readable
+alias lsal='ls -AlhF --time-style=long-iso'	#all, long listing, human readable
+alias lsr='ls -RF'	# list recursively
+alias lst='ls -trF'	# list by time, oldest first
+alias lslt='ls -lhtrF --time-style=long-iso'	# list by time, oldest first
+alias lf="ls -l | egrep -v '^d'"  # files only (not hidden)
+alias ldir="ls -l | egrep '^d'"   # directories only (not hidden)
 alias mkdir="mkdir -p"
 alias mkd='mkdir -pv'
-alias move='mv -vi'
+alias tree='tree -CAhF --dirsfirst'
+alias treed='tree -CAFd'
+
+# git aliases
+alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
+alias gpush='git push'
+alias grestore='git restore'
+alias gunstage='git restore --staged'
 
 # ping aliases
+alias ping='ping -c 10'
 alias p8='ping -4 -c 8 8.8.8.8'
 alias pho='ping -4 -c 8 127.0.0.1'
 alias pig='ping -4 -c 8 google.com'
@@ -115,6 +128,25 @@ cdls() {
   fi
 }
 
+cpp() {
+	set -e
+	strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
+		awk '{
+	count += $NF
+	if (count % 10 == 0) {
+		percent = count / total_size * 100
+		printf "%3d%% [", percent
+		for (i=0;i<=percent;i++)
+			printf "="
+			printf ">"
+			for (i=percent;i<100;i++)
+				printf " "
+				printf "]\r"
+			}
+		}
+	END { print "" }' total_size="$(stat -c '%s' "${1}")" count=0
+}
+
 cpcd() {
   if [ -d "$2" ]; then
     cp $1 $2 && cd $2
@@ -132,7 +164,8 @@ mvcd() {
 }
 
 mkcd() {
-  mkdir -p -- "$1" && cd -P -- "$1"
+  mkdir -p "$1"
+  cd "$1"
 }
 
 dcp() {
@@ -198,5 +231,5 @@ ex() {
 # bat help wrapper (requires bat)
 alias bathelp='bat --plain --language=help'
 help() {
-    "$@" --help 2>&1 | bathelp
+	"$@" --help 2>&1 | bathelp
 }
