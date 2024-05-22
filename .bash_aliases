@@ -83,6 +83,7 @@ alias treed='tree -CAFd'	# directory tree
 # git aliases
 alias gstat='git status'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
+alias glog1='git log --oneline'
 alias gpush='git push'
 alias grestore='git restore'
 alias gunstage='git restore --staged'
