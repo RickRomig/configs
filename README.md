@@ -32,6 +32,7 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `bar.conf` - configuration file for Bumblebee-Status bar (for reference only).
 - `bindings.list` - list of i3wm keybindings displayed by `i3kb` script.
 - `config` - i3wm configuration file.
+- 'dmconf' - dmenu script to edit configuration files.
 - `logout` - script to suspend, lock screen, logout, reboot, power off, or kill current user.
 - `sxhkd/sxhdkrc` - i3wm keybindings.
 - `workspaces.conf` - defines and assigns i3wm workspaces.
@@ -60,6 +61,10 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `config.conf` - customized Neofetch configuration.
 - `default.conf` - Default Neofetch configuration.
 - `mosfanet.conf` - Standard configuration template for my computers.
+#### polybar
+- `config.ini` - Polybar configuration file.
+- `dmconf` - script to exit configuration files, launched byt sxhkdrc.
+- `polybar-i3` - Polybar launch script, lanuched by ~/.config/i3/autostart.
 #### rofi
 - `arc_dark_colors.rasi` - Arc Dark theme.
 - `arc_dark_transparent_colors.rasi` - Transparent coolors for Arc Dark theme.
@@ -68,9 +73,12 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `config` - Terminator terminal emulator configuration.
 #### VSCodium
 - `User/settings.json` - VSCodium configuration and settings.
+### local/bin
+- `autoxrandr.sh` - configures multiple monitors.
+- `start-conky.sh` - launches conky from ~/.config/autostart/conky.desktop.
 ### X11
 - `hp-probook-6570/10-monitor.conf` - dual monitor configuration.
 - `probook-6570/10-monitor.conf` - dual monitor configuration.
 - `20-intel-backlight.conf` - configuration for Intel backlight functionality.
 #### Rick Romig (*The Luddite Geek*)
-##### 12 May 2024
+##### 29 May 2024
