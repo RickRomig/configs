@@ -156,3 +156,4 @@ stty -ixon
 
 # Neofetch
 [[ -x /usr/bin/neofetch ]] && /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
+[[ -x /usr/bin/fastfetch ]] && /usr/bin/fastfetch
