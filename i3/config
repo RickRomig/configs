@@ -24,24 +24,26 @@ workspace_auto_back_and_forth yes
 # Window rules
 # Kitty on hp-850-g3 laptop
 # for_window [class=kitty] floating enable
-# Kitty dropdown scratchpad
+
+# Scratchpads (sizes based on 1920x1080 display, adjust accordingly)
+# Kitty dropdown scratchpad (60%)
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 1000 600
+for_window [instance="dropdown"] resize set 1152 648
 for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] border pixel 5
-# Ranger scratchpad
+# Ranger scratchpad (75%)
 for_window [class="UXTerm"] floating enable
-for_window [class="UXTerm"] resize set 1250 700
+for_window [class="UXTerm"] resize set 1440 810
 for_window [class="UXTerm"] move scratchpad
 for_window [class="UXTerm"] border pixel 5
-# Gnome-Calculator scratchpad
+# Gnome-Calculator scratchpad (25%)
 for_window [instance="gnome-calculator"] floating enable
-for_window [instance="gnome-calculator"] resize set 650 450
+for_window [instance="gnome-calculator"] resize set 480 270
 for_window [instance="gnome-calculator"] move scratchpad
 for_window [instance="gnome-calculator"] border pixel 5
 # Gedit floating window (75% screen)
 for_window [class="Gedit"] floating enable
-for_window [class="Gedit"] resize set 1440 800
+for_window [class="Gedit"] resize set 1440 810
 # Brave Borower floating window 90% screen (850 G3)
 # for_window [class="Brave-broser"] floating enable
 # for_window [class="Brave-broser"] resize set 1728 972
