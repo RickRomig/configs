@@ -21,10 +21,7 @@
         "break",
         "packages",
         "shell",
-        {
-            "type": "display",
-            "key": "Display"
-        },
+        "display",
         "de",
         "wm",
         "terminal",
@@ -36,6 +33,7 @@
         },
         "memory",
         "disk",
+        "wifi",
         "break"
     ]
 }
