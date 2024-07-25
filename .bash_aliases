@@ -42,7 +42,6 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias tb='nc termbin.com 9999'	# Share a file on Termbin
 alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share/doc/"	# Send todo list to main system
 alias term_size='echo "Rows=$(tput lines) Cols=$(tput cols)"'	# show size of terminal
-alias tsl="sudo timeshift --list | awk 'NR!=1 && NR!=3'"	# list timeshift snapshots
 alias txt2pdf='libreoffice --convert-to pdf'	# convert a LibreOffice .odt file to PDF
 alias upgrade="sudo apt update && sudo apt dist-upgrade"	# update apt cache and install updates
 alias wifipass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | cut -d'/' -f5 | sed 's/.nmconnection:psk=/ = /'"	# show WiFi passwords
@@ -271,4 +270,8 @@ ex() {
 alias bathelp='bat --plain --language=help'
 help() {
 	"$@" --help 2>&1 | bathelp
+}
+
+tsl() {
+	if dpkg -l timeshift 2>/dev/null; then sudo timeshift --list | awk 'NR!=1 && NR!=3'; else echo "Timeshift not installed."; fi
 }
