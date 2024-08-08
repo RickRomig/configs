@@ -80,5 +80,7 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `hp-probook-6570/10-monitor.conf` - dual monitor configuration.
 - `probook-6570/10-monitor.conf` - dual monitor configuration.
 - `20-intel-backlight.conf` - configuration for Intel backlight functionality.
+### refrsh_nemo_actions
+- `refresh_nemo_actions` - Adds refresh option to Nemo context menu. Place in `/usr/share/nemo/actions/`
 #### Rick Romig (*The Luddite Geek*)
 ##### 29 May 2024
