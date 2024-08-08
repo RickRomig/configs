@@ -76,13 +76,13 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `autoxrandr.sh` - configures multiple monitors.
 - `start-conky.sh` - launches conky from ~/.config/autostart/conky.desktop.
 ### X11
+**NOTE:** Place X11 files in `/etc/X11/xorg.conf.d/`
 - `8300-usdt-gitea/10-monitor.conf` - display configuration.
 - `hp-850-g3/10-intel-brightness.conf` - configuration for Intel backlight functionality.
 - `hp-probook-6570/10-monitor.conf` - dual monitor configuration.
 - `probook-6570/10-monitor.conf` - dual monitor configuration.
 - `probook-6570/20-intel-backlight.conf` - configuration for Intel backlight functionality.
 - `20-intel-backlight.conf` - basic configuration for Intel backlight functionality.
-**NOTE:** Place X11 files in `/etc/X11/xorg.conf.d/`
 ### refresh_nemo_actions
 - `refresh_nemo_actions` - Adds refresh option to Nemo context menu. Place in `/usr/share/nemo/actions/`
 #### Rick Romig (*The Luddite Geek*)
