@@ -36,7 +36,7 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `logout` - script to suspend, lock screen, logout, reboot, power off, or kill current user.
 - `sxhkd/sxhdkrc` - i3wm keybindings.
 - `workspaces.conf` - defines and assigns i3wm workspaces.
-**NOTE** In `config`, resize parameters for gedit floating window for different screen resolutions (75%):
+**NOTE:** In `config`, resize parameters for gedit floating window for different screen resolutions (75%):
 	- 1024x600 -> 758 450
 	- 1280x800 -> 960 600
 	- 1368x768 -> 1024 576
@@ -63,11 +63,10 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `mosfanet.conf` - Standard configuration template for my computers.
 #### polybar
 - `config.ini` - Polybar configuration file.
-- `dmconf` - script to exit configuration files, launched byt sxhkdrc.
 - `polybar-i3` - Polybar launch script, lanuched by ~/.config/i3/autostart.
 #### rofi
 - `arc_dark_colors.rasi` - Arc Dark theme.
-- `arc_dark_transparent_colors.rasi` - Transparent coolors for Arc Dark theme.
+- `arc_dark_transparent_colors.rasi` - Transparent colors for Arc Dark theme.
 - `config.rasi` - i3 Rofi configuration.
 #### terminator
 - `config` - Terminator terminal emulator configuration.
@@ -77,10 +76,14 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `autoxrandr.sh` - configures multiple monitors.
 - `start-conky.sh` - launches conky from ~/.config/autostart/conky.desktop.
 ### X11
+- `8300-usdt-gitea/10-monitor.conf` - display configuration.
+- `hp-850-g3/10-intel-brightness.conf` - configuration for Intel backlight functionality.
 - `hp-probook-6570/10-monitor.conf` - dual monitor configuration.
 - `probook-6570/10-monitor.conf` - dual monitor configuration.
-- `20-intel-backlight.conf` - configuration for Intel backlight functionality.
-### refrsh_nemo_actions
+- `probook-6570/20-intel-backlight.conf` - configuration for Intel backlight functionality.
+- `20-intel-backlight.conf` - basic configuration for Intel backlight functionality.
+**NOTE:** Place X11 files in `/etc/X11/xorg.conf.d/`
+### refresh_nemo_actions
 - `refresh_nemo_actions` - Adds refresh option to Nemo context menu. Place in `/usr/share/nemo/actions/`
 #### Rick Romig (*The Luddite Geek*)
-##### 29 May 2024
+##### 08 August 2024
