@@ -1,5 +1,4 @@
 # aliases
-# alias bat='/usr/bin/batcat'
 alias bconf='micro ~/.bashrc; source ~/.bashrc'	# Edit .bashrc and source on exit
 alias checkcommand="type -t"	# Check if a command is alias, builtin, or file
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'	# check for updates with Nala
