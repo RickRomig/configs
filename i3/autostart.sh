@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Autostart applications
 # /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1 &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
@@ -6,12 +7,19 @@
 # nitrogen --restore; sleep 1;
 # feh --bg-max ~/.config/backgrounds/blackcat_1920x1080.png &
 while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 600; done &
+
+# Systray apps
+nm-applet &
+volumeicon &
+lsusb | grep -iq blue && blueman-applet &
+
+# Utilities in the background
 picom -b &
 udiskie &
 numlockx on &
-nm-applet &
-volumeicon &
 dunst &
-lsusb | grep -iq blue && blueman-applet &
+killall -q xfce4-power-manager
+xfce4-power-manager --daemon
+
 # sxhkd
 sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
