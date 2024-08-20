@@ -1,5 +1,4 @@
 # aliases
-alias bconf='micro ~/.bashrc; source ~/.bashrc'	# Edit .bashrc and source on exit
 alias checkcommand="type -t"	# Check if a command is alias, builtin, or file
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'	# check for updates with Nala
 alias cleancat="grep -Ev '^(#|$)'"	# display a feil, ignoring commented and blank lines
@@ -10,7 +9,7 @@ alias dc="date +'%A %d %B %Y %R' && cal -3"	# date with 3-month calendar
 alias df='df -h -x tmpfs -x fuse.portal' # ignot tmps and fuse.portal
 alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'	# send command to all systems using DSH
-alias ff='clear;fastfetch'
+alias ff='clear;fastfetch'	# clear screen and launch fastfetch
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"	# Dectect Wi-Fi networks
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"	# change .jpeg to .jpt in Pictures directory
 alias freshclam='sudo freshclam'
@@ -25,13 +24,14 @@ alias inrepo="apt-cache show"	# check if a package in the distribution's repos
 alias ip='ip -color'	# show color in ip results
 alias jdate="date +'%d %b %Y (%y%j)'"	# show current and Juiian date
 alias lsmount="mount | column -t"	# show mounted file systems in column format
-alias m='micro'	# launch micro text editor
-alias mcalias='micro ~/.bash_aliases; source ~/.bash_aliases'	# Edit .bash_aliases with micro and source on exit
+alias mc='micro'	# launch micro text editor
+alias mcalias="micro ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with micro and source on exit
+alias mcbash="micro ~/.bashrc && source ~/.bashrc"	# Edit .bashrc and source on exit
 alias mem5="ps auxf | sort -nr -k 4 | head -5"	# top 5 processes in memory
-alias modalias='nano ~/.bash_aliases; rm ~/.bash_aliases~; source ~/.bash_aliases'	# Edit .bash_aliases with nano and source on exit
 alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"	# display a random line from leave.txt file
 alias mv='mv -iv'	# interactive, verbose move
-alias neofetch='clear;neofetch --source ~/.local/share/doc/neo-atheist.txt'	# Run Neofetch with a custom configuration and logo
+alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
+alias neofetch='clear;neofetch --source ~/.local/share/doc/neo-atheist.txt'	# Run Neofetch with custom configuration and logo
 alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
 alias rbt='sudo reboot'
 alias sba='source ~/.bash_aliases'
@@ -49,7 +49,7 @@ alias wifipass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | c
 alias yt='yt-dlp --add-metadata -ic'		# download video
 alias yta='yt-dlp --add-metadata -xic'	# download audio
 
-# alias chmod commands
+# chmod commands
 alias mx='chmod a+x'
 alias 000='chmod -R 000'	# no permissions
 alias 440='chmod -R 440'	# r--r-----	/etc/sudoers.d/
