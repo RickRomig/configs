@@ -81,6 +81,7 @@ alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'	# directory tree
 
 # git aliases
+alias gdiff='git diff'
 alias gs='git status'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glog1='git log --oneline'
