@@ -134,9 +134,9 @@ rm~() {
 cdls() {
   local dir="${1:-$HOME}"
   if [[ -d "$dir" ]]; then
-     cd "$dir" >/dev/null; ls -CF --group-directories-first --color=auto
+    cd "$dir" >/dev/null; ls -CF --group-directories-first --color=auto
   else
-     echo "bash: cdls: $dir: Directory not found"
+    echo "bash: cdls: $dir: Directory not found"
   fi
 }
 
@@ -268,7 +268,7 @@ ex() {
   fi
 }
 
-# bat help wrapper (requires bat)
+# bat help wrapper (requires bat ver 0.21.0 or newer)
 alias bathelp='bat --plain --language=help'
 help() {
 	"$@" --help 2>&1 | bathelp
