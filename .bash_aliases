@@ -103,8 +103,8 @@ alias shit='sudo'
 
 # trash aliases
 alias trash='gio trash'
-# alias list-trash='gio trash --list'
-alias list-trash='gio list trash://'
+alias list-trash='gio trash --list'
+# alias list-trash='gio list trash://'
 alias empty-trash='gio trash --empty'
 restore-trash() { gio trash --restore trash:///$1; }
 
