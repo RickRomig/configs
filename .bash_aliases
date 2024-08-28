@@ -32,7 +32,7 @@ alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"	# display a random l
 alias mv='mv -iv'	# interactive, verbose move
 alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
 alias neofetch='clear;neofetch --source ~/.local/share/doc/neo-atheist.txt'	# Run Neofetch with custom configuration and logo
-alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
+alias path='echo $PATH | sed "s|:|\n|g"'	# show current exectuble paths
 alias rbt='sudo reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
@@ -103,8 +103,7 @@ alias shit='sudo'
 
 # trash aliases
 alias trash='gio trash'
-alias list-trash='gio trash --list'
-# alias list-trash='gio list trash://'
+alias list-trash='gio trash --list 2>/dev/null || gio list -h ~/.local/share/Trash/files'
 alias empty-trash='gio trash --empty'
 restore-trash() { gio trash --restore trash:///$1; }
 
