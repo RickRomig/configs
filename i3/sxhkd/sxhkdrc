@@ -123,12 +123,6 @@ super + ctrl + Return
 super + shift + Return
 	i3-msg [instance="dropdown"] scratchpad show; move position center
 
-super + ctrl + c
-	gnome-calculator
-
-super + shift + c
-	i3-msg [instance="gnome-calculator"] scratchpad show; move position center
-
 super + ctrl + f
 	kitty --class "UXTerm" -e "ranger"
 
