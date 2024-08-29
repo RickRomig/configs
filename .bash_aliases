@@ -209,6 +209,12 @@ dsh-grp() {
 	dsh -M -g $1 -c $2
 }
 
+# Execute a command to a remote server via SSH
+# $1 = last octet of IP, $2= 'command' (scripts should be prefessed by bin/)
+ssh-cmd() {
+	ssh 192.168.0."$1" "$2"
+}
+
 # Decrypt an encrypted PDF file
 decryptpdf() {
 	qpdf --password="$1" --decrypt "$2".pdf --replace-input
