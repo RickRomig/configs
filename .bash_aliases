@@ -101,11 +101,11 @@ alias fuck='sudo'
 alias please='sudo'
 alias shit='sudo'
 
-# trash aliases
-alias trash='gio trash'
-alias list-trash='gio trash --list 2>/dev/null || gio list -h ~/.local/share/Trash/files'
-alias empty-trash='gio trash --empty'
-restore-trash() { gio trash --restore trash:///$1; }
+# trash aliases (requires trash-cli)
+alias trash='/usr/bin/trash-put'
+alias list-trash='/usr/bin/trash-list'
+alias empty-trash='/usr/bin/trash-empty'
+restore-trash() { /usr/bin/trash-restore $1; }
 
 # Alias Functions
 
@@ -207,12 +207,6 @@ dcp() {
 # $1 = dsh group $2 = command
 dsh-grp() {
 	dsh -M -g $1 -c $2
-}
-
-# Execute a command to a remote server via SSH
-# $1 = last octet of IP, $2= 'command' (scripts should be prefessed by bin/)
-ssh-cmd() {
-	ssh 192.168.0."$1" "$2"
 }
 
 # Decrypt an encrypted PDF file
