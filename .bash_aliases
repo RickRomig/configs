@@ -105,6 +105,7 @@ alias shit='sudo'
 alias trash='/usr/bin/trash-put'
 alias list-trash='/usr/bin/trash-list'
 alias empty-trash='/usr/bin/trash-empty'
+alias rm-trash='/usr/bin/trash-rm'
 restore-trash() { /usr/bin/trash-restore $1; }
 
 # Alias Functions
