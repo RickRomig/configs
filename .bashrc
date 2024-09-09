@@ -157,4 +157,4 @@ stty -ixon
 # Neofetch
 [[ -x /usr/bin/neofetch ]] && /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
 # [[ -x /usr/bin/fastfetch ]] && /usr/bin/fastfetch
-[[ -f ~/.local/share/doc/leave.txt ]] && printf "Message of the day: %s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
+[[ -f ~/.local/share/doc/leave.txt ]] && printf "\3[93mMessage of the day:\3[0m] %s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
