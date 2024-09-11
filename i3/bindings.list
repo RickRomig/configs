@@ -11,8 +11,7 @@ super+ctrl+c|calculator|
 super+shift+minus|move scratchpad|super+minus|toggle scratchpad
 super+ctrl+Return|Dropdown|super+shift+Return|toggle dropdown
 super+ctrl+f|Ranger|super+shift+f|toggle Ranger dropdown
-super+{v,b}|toggle split|super+alt+f|toggle full-screen
 super+v|split vertical|super+shift+v|split horizontal
 super+alt+space|toggle floating|super+ctrl+space|toggle focus-mode
-super+a|focus parent|
+super+a|focus parent|super+alt+f|toggle full-screen
 super+shift+b|WS next monitor|super+alt+{Right,Left}|next/prev WS
