@@ -39,6 +39,9 @@ super + b
 super + w
     wmctrl -a "Mozilla Firefox" || firefox
 
+super + ctrl + c
+    qalculate
+
 super + p
 	keepassxc
 
@@ -128,7 +131,6 @@ super + ctrl + f
 
 super + shift + f
 	i3-msg [class="UXTerm"] scratchpad show; move position center
-
 
 ##### workspaces #####
 
