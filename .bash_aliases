@@ -14,6 +14,7 @@ alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"	# change .jpeg to .jpt in Pictures directory
 alias freshclam='sudo freshclam'
 alias free='free -m'	# Memory status
+alias fu='~/bin/iru-fastfetch -u'	# update Fastfetch
 alias glow='glow -p'
 # alias grep='grep --color=auto'
 # alias fgrep='fgrep --color=auto'
