@@ -21,7 +21,6 @@ alias glow='glow -p'
 # alias egrep='egrep --color=auto'
 alias histg="history | grep " # search bash history
 alias install="sudo apt install"	# install package
-alias inrepo="apt-cache show"	# check if a package in the distribution's repos
 alias ip='ip -color'	# show color in ip results
 alias jdate="date +'%d %b %Y (%y%j)'"	# show current and Juiian date
 alias lsmount="mount | column -t"	# show mounted file systems in column format
@@ -114,6 +113,11 @@ restore-trash() { /usr/bin/trash-restore $1; }
 # Check if a package exists
 exist() {
   command -v "$1" > /dev/null && echo "$1 installed" || echo "$1 not installed"
+}
+
+inrepos() {
+	pkg=$(apt-cache show "$1" 2>/dev/null | awk '/Package:/ {print $NF}')
+	[[ "$pkg" ]] && echo "$1 found in repos" || echo "$1 not found in repos"
 }
 
 # return N days in the future
