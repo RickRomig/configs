@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+start() {
+  [[ -z "$(pidof -x z"$1")" ]] && ${2:-$1} &
+}
 
 # Autostart applications
 # /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1 &
@@ -10,13 +13,13 @@ while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; slee
 
 # Systray apps
 nm-applet &
-volumeicon &
+start volumeicon &
 lsusb | grep -iq blue && blueman-applet &
 
 # Utilities in the background
 picom -b &
 udiskie &
-numlockx on &
+start numlockx on &
 dunst &
 killall -q xfce4-power-manager
 xfce4-power-manager --daemon
