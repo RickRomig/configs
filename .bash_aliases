@@ -24,7 +24,6 @@ alias install="sudo apt install"	# install package
 alias ip='ip -color'	# show color in ip results
 alias jdate="date +'%d %b %Y (%y%j)'"	# show current and Juiian date
 alias lsmount="mount | column -t"	# show mounted file systems in column format
-alias mc='micro'	# launch micro text editor
 alias mcalias="micro ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with micro and source on exit
 alias mcbash="micro ~/.bashrc && source ~/.bashrc"	# Edit .bashrc and source on exit
 alias mem5="ps auxf | sort -nr -k 4 | head -5"	# top 5 processes in memory
