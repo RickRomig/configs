@@ -284,5 +284,5 @@ tsl() {
 
 micro-file() {
 	file=$(find . -maxdepth 3 -type f | sort -d | fzf --preview="bat --style=full --color=always {}")
-	micro "$file"
+	[[ "$file" ]] && micro "$file"
 }
