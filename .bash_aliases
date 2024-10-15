@@ -281,3 +281,8 @@ help() {
 tsl() {
 	if dpkg -l timeshift >/dev/null 2>&1; then sudo timeshift --list | awk 'NR!=1 && NR!=3'; else echo "Timeshift not installed."; fi
 }
+
+micro-file() {
+	file=$(find . -maxdepth 3 -type f | sort -d | fzf --preview="bat --style=full --color=always {}")
+	micro "$file"
+}
