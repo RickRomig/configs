@@ -283,6 +283,6 @@ tsl() {
 }
 
 micro-file() {
-	file=$(find . -type f | sort -d | fzf --reverse --preview="bat --style=full --color=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)
+	file=$(find . -type f | sort -d | fzf --reverse --preview="bat --style=full --color=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down --border=rounded)
 	[[ "$file" ]] && micro "$file"
 }
