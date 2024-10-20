@@ -13,7 +13,7 @@ super + d
 	dmenu_run
 
 super + shift + e
-    ~/.config/i3/dmconf.sh
+    ~/.local/bin/dmconf.sh
 
 super + f
     wmctrl -a Thunar || thunar
