@@ -15,14 +15,15 @@ while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; slee
 nm-applet &
 start volumeicon &
 lsusb | grep -iq blue && blueman-applet &
+killall -q xfce4-power-manager
+xfce4-power-manager --daemon
 
 # Utilities in the background
 picom -b &
 udiskie &
-start numlockx on &
+numlockx off &
 dunst &
-killall -q xfce4-power-manager
-xfce4-power-manager --daemon
+redshift -c ~/.config/redshift.conf &
 
 # sxhkd
 sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
