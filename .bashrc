@@ -154,7 +154,13 @@ stty -ixon
 #      /usr/bin/mint-fortune
 # fi
 
-# Neofetch
-[[ -x /usr/bin/neofetch ]] && /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
-# [[ -x /usr/bin/fastfetch ]] && /usr/bin/fastfetch
+[[ -x /usr/bin/fzf ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# Neofetch/Fastfetch
+if [[ -x /usr/bin/fastfetch ]]; then
+    /usr/bin/fastfetch
+elif [[ -x /usr/bin/neofetch ]]; then
+    /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
+fi
+
 [[ -f ~/.local/share/doc/leave.txt ]] && printf "\e[93mMessage of the day:\e[0m %s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
