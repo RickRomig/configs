@@ -154,6 +154,7 @@ stty -ixon
 #      /usr/bin/mint-fortune
 # fi
 
+# Fuzzy Finder key-bindings
 [[ -x /usr/bin/fzf ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # Neofetch/Fastfetch
@@ -161,6 +162,9 @@ if [[ -x /usr/bin/fastfetch ]]; then
     /usr/bin/fastfetch
 elif [[ -x /usr/bin/neofetch ]]; then
     /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
+else
+    [[ -f "$HOME/.local/share/doc/mosfanet.txt" ]] && cat "$HOME/.local/share/doc/mosfanet.txt"
 fi
 
+# Message of the day
 [[ -f ~/.local/share/doc/leave.txt ]] && printf "\e[93mMessage of the day:\e[0m %s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
