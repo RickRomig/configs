@@ -23,7 +23,7 @@ picom -b &
 udiskie &
 numlockx off &
 dunst &
-redshift -c ~/.config/redshift.conf &
+start redshift -c ~/.config/redshift.conf &
 
 # sxhkd
 sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
