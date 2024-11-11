@@ -10,5 +10,6 @@
   "editor.insertSpaces": false,
   "editor.autoClosingQuotes": "always",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "window.titleBarStyle": "custom"
 }
