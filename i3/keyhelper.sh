@@ -19,24 +19,15 @@ custom_bindings_file="$script_dir/keybinds.txt"
 
 # Check if the custom file exists
 if [ -f "$custom_bindings_file" ]; then
-    # Pipe the content of the custom text file to less for paging with customized prompt
-    # while IFS= read -r i; do echo "${i%?}"; done < file
-    # cat "$custom_bindings_file" | {
-    #     while IFS= read -r line; do
-    #         if [[ "$line" == "${line^^}" ]]; then
-    #             echo -e "${RED}${line}${NC}"
-    #         else
-    #             echo "$line"
-    #         fi
-    #     done
-    # } | less -R -P '[more]'
-    while IFS= read -r line; do
-        if [[ "$line" == "${line^^}" ]]; then
-            echo -e "${RED}${line}${NC}"
-        else
-            echo "$line"
-        fi
-    done < "$custom_bindings_file"
+	{
+		while IFS= read -r line; do
+			if [[ "$line" == "${line^^}" ]]; then
+				echo -e "${RED}${line}${NC}"
+			else
+				echo "$line"
+			fi
+		done < "$custom_bindings_file"
+	} | less -R -P '[more]'
 else
-    echo "Custom bindings file not found: $custom_bindings_file"
+	echo "Custom bindings file not found: $custom_bindings_file"
 fi
