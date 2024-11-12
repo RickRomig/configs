@@ -22,7 +22,7 @@ super + shift + d
  rofi -show
 
 # help with shortcuts
-super + s
+super + shift + h
 	kitty -e ~/.config/i3/keyhelper.sh
 
 ##### Application Keybindings #####
@@ -32,10 +32,11 @@ super + r
 
 super + e
     wmctrl -a VSCodium || codium
-    # geany
+    # wmctrl -a Geany || geany
 
 super + c
 	wmctrl -a Chromium || chromium
+    # wmctrl -a "Google Chrome" || google-chrome-stable
 
 super + b
     wmctrl -a Brave || brave-browser
@@ -43,10 +44,10 @@ super + b
 super + w
     wmctrl -a "Mozilla Firefox" || firefox
 
-super + ctrl + c
-    qalculate
+super + g
+    gnome-calculator
 
-super + alt + k
+super + k
 	keepassxc
 
 super + p
@@ -60,10 +61,6 @@ ctrl + alt + s
 # dedicated volume keys
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
 	pamixer {-i,-d} 2
-
-# dedicated backlight keys
-{XF86MonBrightnessUp,XF86MonBrightnessDown}
-	xbacklight {+10,-10}
 
 # XF86AudioRaiseVolume
 #         amixer -c 0 -- sset Master 2db+
@@ -116,27 +113,6 @@ super + Delete
 super + m
 	~/scripts/changevolume mute
 
-##### i3 Specific Keybindings #####
-
-super + v
-    i3-msg split v; notify-send 'vertical split'
-
-super + shift + v
-    i3-msg split h; notify-send 'horizonal split'
-
-super + alt + f
-    i3-msg fullscreen toggle
-
-super + shift + space
-    i3-msg floating toggle
-
-super + control + space
-    i3-msg focus mode_toggle
-
-super + a
-    i3-msg focus parent
-
-
 ##### Scratchpads #####
 
 super + shift + minus
@@ -165,6 +141,18 @@ super + alt + r
 super + alt + b
 	~/scripts/redshift-off
 
+##### Monitor Brightness #####
+
+XF86MonBrightnessUp
+	xbacklight +10
+
+XF86MonBrightnessDown
+	xbacklight -10
+
+# dedicated backlight keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	xbacklight {+10,-10}
+
 ##### workspaces #####
 
 super + {1-9,0}
@@ -178,25 +166,31 @@ super + alt + {Right,Left}
 
 ##### movement #####
 
-super+{h,j,k,l}
-    i3-msg focus {left,down,up,right}
-
-super+shift+{h,j,k,l}
-    i3-msg move {left,down,up,right}
-
 super+{Left,Down,Up,Right}
     i3-msg focus {left,down,up,right}
 
 super+shift+{Left,Down,Up,Right}
     i3-msg move {left,down,up,right}
 
-##### Monitor Brightness #####
+##### i3 Specific Keybindings #####
 
-XF86MonBrightnessUp
-	xbacklight +10
+super + v
+    i3-msg split v; notify-send 'vertical split'
 
-XF86MonBrightnessDown
-	xbacklight -10
+super + h
+    i3-msg split h; notify-send 'horizonal split'
+
+super + alt + f
+    i3-msg fullscreen toggle
+
+super + shift + space
+    i3-msg floating toggle
+
+super + control + space
+    i3-msg focus mode_toggle
+
+super + a
+    i3-msg focus parent
 
 ##### other bindings #####
 
