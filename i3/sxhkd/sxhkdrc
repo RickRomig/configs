@@ -21,6 +21,9 @@ super + f
 super + shift + d
  rofi -show
 
+# help with shortcuts
+super + s
+	kitty -e ~/.config/i3/keyhelper.sh
 
 ##### Application Keybindings #####
 
@@ -29,6 +32,7 @@ super + r
 
 super + e
     wmctrl -a VSCodium || codium
+    # geany
 
 super + c
 	wmctrl -a Chromium || chromium
@@ -42,29 +46,39 @@ super + w
 super + ctrl + c
     qalculate
 
-super + p
+super + alt + k
 	keepassxc
+
+super + p
+    kitty -e pulsemixer
 
 ctrl + alt + s
     flameshot gui
 
-
 ##### Audio Keybindings #####
 
-XF86AudioRaiseVolume
-        amixer -c 0 -- sset Master 2db+
+# dedicated volume keys
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pamixer {-i,-d} 2
 
-XF86AudioLowerVolume
-        amixer -c 0 -- sset Master 2db-
+# dedicated backlight keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	xbacklight {+10,-10}
 
-XF86AudioMicMute
-        amixer -c 0 -- sset Master toggle
+# XF86AudioRaiseVolume
+#         amixer -c 0 -- sset Master 2db+
 
-alt + d
-        amixer -c 0 -- sset Master 2db+
+# XF86AudioLowerVolume
+#         amixer -c 0 -- sset Master 2db-
 
-alt + a
-        amixer -c 0 -- sset Master 2db-
+# XF86AudioMicMute
+#         amixer -c 0 -- sset Master toggle
+
+# alt + d
+#         amixer -c 0 -- sset Master 2db+
+
+# alt + a
+#         amixer -c 0 -- sset Master 2db-
 
 XF86AudioPlay
     playerctl play-pause
@@ -90,14 +104,25 @@ XF86AudioStop
 alt + {h,j,k,l}
    mpc {prev,next,play,pause}
 
+##### audio
+
+# Change volume, chunky
+super + Insert
+    ~/scripts/changevolume up
+
+super + Delete
+	~/scripts/changevolume down
+
+super + m
+	~/scripts/changevolume mute
 
 ##### i3 Specific Keybindings #####
 
 super + v
     i3-msg split v; notify-send 'vertical split'
 
-super + shift + v; notify-send 'horizonal split'
-    i3-msg split h
+super + shift + v
+    i3-msg split h; notify-send 'horizonal split'
 
 super + alt + f
     i3-msg fullscreen toggle
@@ -131,6 +156,14 @@ super + ctrl + f
 
 super + shift + f
 	i3-msg [class="UXTerm"] scratchpad show; move position center
+
+
+##### redshift
+super + alt + r
+	~/scripts/redshift-on
+
+super + alt + b
+	~/scripts/redshift-off
 
 ##### workspaces #####
 
@@ -173,10 +206,10 @@ super + q
 super + shift + q
      i3-msg exit
 
-super + shift + r
+super + shift + c
     i3-msg reload; notify-send 'i3' 'Reloaded'
 
-super + alt + r
+super + shift + r
     i3-msg restart; notify-send 'i3' 'Restarted'
 
 super + ctrl + {Left,Down,Up,Right}
