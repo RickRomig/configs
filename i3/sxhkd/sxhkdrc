@@ -186,7 +186,7 @@ super + alt + f
 super + shift + space
     i3-msg floating toggle
 
-super + control + space
+super + ctrl + space
     i3-msg focus mode_toggle
 
 super + a
