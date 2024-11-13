@@ -1,20 +1,12 @@
 #!/usr/bin/env bash
 
-# for hp-850-g3
-# wifi_ssid=$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')
-
 start() {
   [[ -z "$(pidof -x "$1")" ]] && ${2:-$1} &
 }
 
-run_feh() {
-  local wifi_ssid
-  wifi_ssid=$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')
-  if [[ "$wifi_ssid" == "mosfanet" ]]; then
-    while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
-  else
-    while true; do feh --bg-fill --no-fehbg --randomize ~/.config/backgrounds/*; sleep 300; done &
-  fi
+# shellcheck disable=SC2009
+start_feh() {
+  ps -aux | grep -v 'grep' | grep 'backgrounds.sh' || ~/.config/i3/backgrounds.sh
 }
 
 # Autostart applications
@@ -23,9 +15,9 @@ run_feh() {
 # bar start
 ~/.config/i3/polybar-i3 &
 # ~/.config/polybar/polybar-i3 &
+
 # wallpaper
-# [[ -z "$(pidof -x feh)" ]] && run_feh
-[[ -z "$(pidof -x feh)" ]] && while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
+start_feh
 # feh --bg-max ~/.config/backgrounds/blackcat_1920x1080.png &
 
 # compositor and notifications
