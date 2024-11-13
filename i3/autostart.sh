@@ -8,6 +8,7 @@ start() {
 }
 
 run_feh() {
+  local wifi_ssid
   wifi_ssid=$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')
   if [[ "$wifi_ssid" == "mosfanet" ]]; then
     while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
