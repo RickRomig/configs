@@ -8,12 +8,12 @@ start() {
 }
 
 run_feh() {
-  # wifi_ssid=$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')
-  # if [[ "$wifi_ssid" == "mosfanet" ]]; then
+  wifi_ssid=$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')
+  if [[ "$wifi_ssid" == "mosfanet" ]]; then
     while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
-  # else
-  #   while true; do feh --bg-fill --no-fehbg --randomize ~/.config/backgrounds/*; sleep 300; done &
-  # fi
+  else
+    while true; do feh --bg-fill --no-fehbg --randomize ~/.config/backgrounds/*; sleep 300; done &
+  fi
 }
 
 # Autostart applications
@@ -23,7 +23,8 @@ run_feh() {
 ~/.config/i3/polybar-i3 &
 # ~/.config/polybar/polybar-i3 &
 # wallpaper
-[[ -z "$(pidof -x feh)" ]] && run_feh
+# [[ -z "$(pidof -x feh)" ]] && run_feh
+[[ -z "$(pidof -x feh)" ]] && while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
 # feh --bg-max ~/.config/backgrounds/blackcat_1920x1080.png &
 
 # compositor and notifications
