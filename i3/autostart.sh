@@ -4,7 +4,16 @@
 # wifi_ssid=$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')
 
 start() {
-  [[ -z "$(pidof -x z"$1")" ]] && ${2:-$1} &
+  [[ -z "$(pidof -x "$1")" ]] && ${2:-$1} &
+}
+
+run_feh() {
+  # wifi_ssid=$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')
+  # if [[ "$wifi_ssid" == "mosfanet" ]]; then
+    while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
+  # else
+  #   while true; do feh --bg-fill --no-fehbg --randomize ~/.config/backgrounds/*; sleep 300; done &
+  # fi
 }
 
 # Autostart applications
@@ -13,16 +22,9 @@ start() {
 # bar start
 ~/.config/i3/polybar-i3 &
 # ~/.config/polybar/polybar-i3 &
-
 # wallpaper
+[[ -z "$(pidof -x feh)" ]] && run_feh
 # feh --bg-max ~/.config/backgrounds/blackcat_1920x1080.png &
-while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 600; done &
-# hp-850-g3 - select wallpaper source based on wifi SSID
-# if [[ "$wifi_ssid" == "mosfanet" ]]; then
-#   while true; do feh --bg-fill --no-fehbg --randomize ~/Pictures/wallpaper/*; sleep 300; done &
-# else
-#   while true; do feh --bg-fill --no-fehbg --randomize ~/.config/backgrounds/*; sleep 300; done &
-# fi
 
 # compositor and notifications
 picom --animations -b &
