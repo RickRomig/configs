@@ -24,7 +24,7 @@ xfce4-power-manager --daemon
 lsusb | grep -iq blue && blueman-applet &
 
 # compositor and notifications
-picom --animations -b &
+picom -b &
 numlockx off &
 dunst &
 
