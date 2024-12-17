@@ -26,6 +26,8 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `dunstrc` - configuration file for notifications on i3wm systems.
 #### fastfetch
 - `config.jsonc` - customized Fastfetch configuration file.
+- `config.jsonc.ascii` - customized Fastfetch configuration file using ASCII logo.
+- `atheism.png` - Logo image for Fastfetch. Install in `~/.local/share/fastfetch/logos/`.
 - `atheist.txt` - ASCII logo image for Fastfetch. Install in `~/.local/share/fastfetch/logos/`.
 #### i3
 - `autostart.sh` - script to launch i3wm and necessary services.
