@@ -7,7 +7,7 @@
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 08 Dec 2024, Version: 1.2.24343
+# Last updated : 16 Dec 2024, Version: 1.3.24352
 # Comments     :
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
@@ -17,24 +17,32 @@ set -eu
 
 home_or_away() {
 	local wifi
-	wifi-"$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')"
+	wifi="$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')"
 	if [[ "$wifi" == "mosfanet" ]]; then
 		notify-send -t 3500 "Backgrounds" "NSFW"
+		[[ -f /tmp/nsfw-bg ]] || touch /tmp/nsfw-bg
+		[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
 	  while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/Pictures/wallpaper/*; sleep 300; done &
 	else
 		notify-send -t 2500 "Backgrounds" "SFW"
-	  while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/.config/backgrounds/*;	sleep 300; done &
+		[[ -f /tmp/sfw-bg ]] || touch /tmp/sfw-bg
+		[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
+  while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/.config/backgrounds/*;	sleep 300; done &
 	fi
 }
 
 home_nsfw() {
 	notify-send -t 3500 "Backgrounds" "NSFW"
-	  while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/Pictures/wallpaper/*; sleep 300; done &
+	[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
+	touch /tmp/nsfw-bg
+	while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/Pictures/wallpaper/*; sleep 300; done &
 }
 
 home_sfw() {
 	notify-send -t 3500 "Backgrounds" "SFW"
-	  while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/.config/backgrounds/*;	sleep 300; done &
+	[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
+	touch /tmp/sfw-bg
+	while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/.config/backgrounds/*;	sleep 300; done &
 }
 
 main() {
