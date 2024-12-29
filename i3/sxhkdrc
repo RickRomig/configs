@@ -213,4 +213,4 @@ super + x
 	~/.config/i3/logout
 
 super + t
-    notify-send -t 3500 "$(date '+%a %b %e %r')"
+    notify-send -t 3600 "Current Weather" "$(~/.local/bin/current_wx.sh)"
