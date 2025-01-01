@@ -1,56 +1,57 @@
 #!/usr/bin/env bash
 ##########################################################################
 # Script Name  : backgrounds.sh
-# Description  : Cron scipt to rotate through wallpapers on Debian i3 systems.
-# Dependencies : export DISPLAY variable
-# Arguments    : See help() function for available options.
+# Description  : Sscipt to rotate through wallpapers on Debian i3 systems.
+# Dependencies : None
+# Arguments    : None
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 16 Dec 2024, Version: 1.3.24352
-# Comments     :
-# TODO (Rick)  :
+# Last updated : 01 Jan 2025
+# Version      : 2.0.25001
+# Comments     : Called by start_feh() at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
 
 set -eu
 
-home_or_away() {
-	local wifi
-	wifi="$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')"
-	if [[ "$wifi" == "mosfanet" ]]; then
-		notify-send -t 3500 "Backgrounds" "NSFW"
-		[[ -f /tmp/nsfw-bg ]] || touch /tmp/nsfw-bg
-		[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
-	  while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/Pictures/wallpaper/*; sleep 300; done &
-	else
-		notify-send -t 2500 "Backgrounds" "SFW"
-		[[ -f /tmp/sfw-bg ]] || touch /tmp/sfw-bg
-		[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
-  while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/.config/backgrounds/*;	sleep 300; done &
-	fi
-}
-
-home_nsfw() {
+set_nsfw() {
 	notify-send -t 3500 "Backgrounds" "NSFW"
 	[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
-	touch /tmp/nsfw-bg
+	[[ -f /tmp/nsfw-bg ]] || touch /tmp/nsfw-bg
 	while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/Pictures/wallpaper/*; sleep 300; done &
 }
 
-home_sfw() {
+set_sfw() {
 	notify-send -t 3500 "Backgrounds" "SFW"
 	[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
-	touch /tmp/sfw-bg
+	[[ -f /tmp/sfw-bg ]] || touch /tmp/sfw-bg
 	while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/.config/backgrounds/*;	sleep 300; done &
 }
 
+select_background() {
+	local wifi
+	wifi="$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')"
+	if [[ "$wifi" == "mosfanet" ]]; then
+		set_nsfw
+	else
+		set_sfw
+	fi
+}
+
 main() {
-	local_host="${HOSTNAME:-$(hostname)}"
+	local local_host="${HOSTNAME:-$(hostname)}"
 	case "$local_host" in
-		hp-850-g3 ) home_or_away ;;
-		hp-8300 ) home_sfw ;;
-		* ) home_nsfw ;;
+		hp-850-g3 )
+			select_background ;;
+		hp-8300 )
+			set_sfw ;;
+		* )
+			if [[ -d /home/rick/Pictures/wallpaper ]]; then
+				set_nsfw
+			else
+				set_sfw
+			fi
 	esac
 }
 
