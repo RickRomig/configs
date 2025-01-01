@@ -4,17 +4,16 @@ start() {
   [[ -z "$(pidof -x "$1")" ]] && ${2:-$1} &
 }
 
-# shellcheck disable=SC2009
 start_feh() {
-  ps -aux | grep -v 'grep' | grep 'backgrounds.sh' || ~/.config/i3/backgrounds.sh
+  pgrep -f backgrounds.sh > /dev/null || ~/.config/i3/backgrounds.sh
 }
 
 # Autostart applications
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # bar start
-~/.config/i3/polybar-i3 &
-# ~/.config/polybar/polybar-i3 &
+# ~/.config/i3/polybar-i3 &
+~/.config/polybar/polybar-i3 &
 
 # Systray apps
 nm-applet &
@@ -29,13 +28,12 @@ numlockx off &
 dunst &
 
 # sxhkd
-# sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
-sxhkd -c ~/.config/i3/sxhkdrc &
+sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
+# sxhkd -c ~/.config/i3/sxhkdrc &
 
 # Utilities in the background
 udiskie &
 start redshift -c ~/.config/redshift.conf &
 
-# wallpaper
+# wallpapers
 start_feh
-# feh --bg-max ~/.config/backgrounds/blackcat_1920x1080.png &
