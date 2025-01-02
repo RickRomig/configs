@@ -20,6 +20,7 @@ nm-applet &
 start volumeicon &
 killall -q xfce4-power-manager
 xfce4-power-manager --daemon
+# xset -dpms
 lsusb | grep -iq blue && blueman-applet &
 
 # compositor and notifications
