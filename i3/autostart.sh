@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 start() {
-  [[ -z "$(pidof -x "$1")" ]] && ${2:-$1} &
+  [[ -z "$(pgrep -f "$1")" ]] && ${2:-$1} &
 }
 
 start_feh() {
@@ -18,8 +18,8 @@ start_feh() {
 # Systray apps
 nm-applet &
 start volumeicon &
-killall -q xfce4-power-manager
-xfce4-power-manager --daemon
+# killall -q xfce4-power-manager
+# xfce4-power-manager --daemon
 # xset -dpms
 lsusb | grep -iq blue && blueman-applet &
 
@@ -34,7 +34,8 @@ sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
 
 # Utilities in the background
 udiskie &
-start redshift -c ~/.config/redshift.conf &
+pgrep -f redshift | xargs -n1 kill -9
+redshift -c ~/.config/redshift.conf &
 
 # wallpapers
 start_feh
