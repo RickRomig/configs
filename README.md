@@ -86,10 +86,12 @@ Configuration files used for Linux computers on Mosfanet. Some may need to be mo
 - `probook-6570/20-intel-backlight.conf` - configuration for Intel backlight functionality.
 - `20-intel-backlight.conf` - basic configuration for Intel backlight functionality.
 ### redshift.conf
-- `redshift.conf` - configuration file for redshift.
+- `~/.config/redshift.conf` - configuration file for redshift.
 ### refresh_nemo_actions
-- `refresh_nemo_actions` - Adds refresh option to Nemo context menu. Place in `/usr/share/nemo/actions/`
+- `/usr/share/nemo/actions/refresh_nemo_actions` - Adds refresh option to Nemo context menu.
 ### slick-greeter.conf
 - `/etc/lightdm/slick-greeter.conf` - configuration file for slick-greeter in lightdm.
+### sleep.conf
+- `/etc/systemd/sleep.conf` - SystemD configuration file, disables sleep/susspend/hibernation.
 #### Rick Romig (*The Luddite Geek*)
-##### 17 December 2024
+##### 04 January 2025
