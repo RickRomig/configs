@@ -4,10 +4,6 @@ start() {
   [[ -z "$(pgrep -f "$1")" ]] && ${2:-$1} &
 }
 
-start_feh() {
-  pgrep -f backgrounds.sh > /dev/null || ~/.config/i3/backgrounds.sh
-}
-
 # Autostart applications
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
@@ -18,8 +14,8 @@ start_feh() {
 # Systray apps
 nm-applet &
 start volumeicon &
-# killall -q xfce4-power-manager
-# xfce4-power-manager --daemon
+killall -q xfce4-power-manager
+xfce4-power-manager --daemon
 # xset -dpms
 lsusb | grep -iq blue && blueman-applet &
 
@@ -38,4 +34,4 @@ pgrep -f redshift | xargs -n1 kill -9
 redshift -c ~/.config/redshift.conf &
 
 # wallpapers
-start_feh
+pgrep -f backgrounds.sh > /dev/null || ~/.config/i3/backgrounds.sh
