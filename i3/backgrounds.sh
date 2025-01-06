@@ -7,9 +7,9 @@
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 01 Jan 2025
-# Version      : 2.0.25001
-# Comments     : Called by start_feh() at the end of autostart.sh
+# Last updated : 06 Jan 2025
+# Version      : 2.1.25006
+# Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
 
@@ -30,8 +30,9 @@ set_sfw() {
 }
 
 select_background() {
-	local wifi
-	wifi="$(/sbin/iw dev wlp2s0 link | awk '/SSID/ {print $2}')"
+	local wifi wifi_int
+	wifi_int=$(/usr/bin/nmcli dev | awk '/wifi / {print $1}')
+	wifi="$(/sbin/iw dev "$wifi_int" link | awk '/SSID/ {print $2}')"
 	if [[ "$wifi" == "mosfanet" ]]; then
 		set_nsfw
 	else
@@ -44,7 +45,7 @@ main() {
 	case "$local_host" in
 		hp-850-g3 )
 			select_background ;;
-		hp-8300 )
+		hp-8300 | hp-8300-usdt )
 			set_sfw ;;
 		* )
 			if [[ -d /home/rick/Pictures/wallpaper ]]; then
