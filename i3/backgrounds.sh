@@ -7,8 +7,8 @@
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 06 Jan 2025
-# Version      : 2.1.25006
+# Last updated : 07 Jan 2025
+# Version      : 2.2.25007
 # Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
@@ -16,17 +16,19 @@
 set -eu
 
 set_nsfw() {
+	local nsfw_dir="$HOME/Pictures/wallpaper"
 	notify-send -t 3500 "Backgrounds" "NSFW"
 	[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
 	[[ -f /tmp/nsfw-bg ]] || touch /tmp/nsfw-bg
-	while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/Pictures/wallpaper/*; sleep 300; done &
+	while true;	do feh --bg-fill --no-fehbg --randomize "$nsfw_dir"/*; sleep 300; done &
 }
 
 set_sfw() {
+	local sfw_dir="$HOME/ictures/wallpaper"
 	notify-send -t 3500 "Backgrounds" "SFW"
 	[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
 	[[ -f /tmp/sfw-bg ]] || touch /tmp/sfw-bg
-	while true;	do feh --bg-fill --no-fehbg --randomize /home/rick/.config/backgrounds/*;	sleep 300; done &
+	while true;	do feh --bg-fill --no-fehbg --randomize "$sfw_dir"/*;	sleep 300; done &
 }
 
 select_background() {
@@ -42,13 +44,14 @@ select_background() {
 
 main() {
 	local local_host="${HOSTNAME:-$(hostname)}"
+	local nsfw_dir="$HOME/Pictures/wallpaper"
 	case "$local_host" in
 		hp-850-g3 )
 			select_background ;;
 		hp-8300 | hp-8300-usdt )
 			set_sfw ;;
 		* )
-			if [[ -d /home/rick/Pictures/wallpaper ]]; then
+			if [[ -d "$nsfw_dir" ]]; then
 				set_nsfw
 			else
 				set_sfw
