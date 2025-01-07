@@ -8,7 +8,7 @@
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
 # Last updated : 07 Jan 2025
-# Version      : 2.2.25007
+# Version      : 2.3.25007
 # Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
@@ -24,7 +24,7 @@ set_nsfw() {
 }
 
 set_sfw() {
-	local sfw_dir="$HOME/ictures/wallpaper"
+	local sfw_dir="$HOME/.config/backgrounds"
 	notify-send -t 3500 "Backgrounds" "SFW"
 	[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
 	[[ -f /tmp/sfw-bg ]] || touch /tmp/sfw-bg
