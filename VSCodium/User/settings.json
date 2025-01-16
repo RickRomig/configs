@@ -1,7 +1,7 @@
 {
   "workbench.colorTheme": "Default High Contrast",
   "editor.tabSize": 2,
-  "editor.fontFamily": "'Fira Code', 'Iosevka Nerd Font', 'JetBrains Mono', 'monospace'",
+  "editor.fontFamily": "'Fira Code Nerd Font', 'Iosevka Nerd Font', 'JetBrains Mono', 'monospace'",
   "editor.fontLigatures": true,
   "terminal.integrated.fontFamily": "'JetBrains Mono'",
   "editor.wordWrap": "on",
