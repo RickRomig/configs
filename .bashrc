@@ -2,7 +2,7 @@
 # |  \/  | ___  ___ / _| __ _| \ | | ___| |_   Richard B. Romig
 # | |\/| |/ _ \/ __| |_ / _` |  \| |/ _ \ __|  rick.romig@gmail.com
 # | |  | | (_) \__ \  _| (_| | |\  |  __/ |_   rick.romig@mymetronet.net
-# |_|  |_|\___/|___/_|  \__,_|_| \_|\___|\__|  @ludditegeek
+# |_|  |_|\___/|___/_|  \__,_|_| \_|\___|\__|  https://ricktech.wordpress.com/
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
