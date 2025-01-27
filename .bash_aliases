@@ -1,7 +1,7 @@
 # aliases
-alias checkcommand="type -t"	# Check if a command is alias, builtin, or file
+alias chkcmd="type -t"	# Check if a command is alias, builtin, or file
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'	# check for updates with Nala
-alias cleancat="grep -Ev '^(#|$)'"	# display a feil, ignoring commented and blank lines
+alias cleancat="grep -Ev '^(#|$)'"	# display a file, ignoring commented and blank lines
 alias cls='history -w && history -c && clear'	# Clear bash history and clear screen
 alias cp='cp -iv'	# interactive & verbose copy
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"	# top 5 CPU processes
@@ -286,4 +286,8 @@ tsl() {
 micro-file() {
 	file=$(find . -type f | sort -d | fzf --reverse --preview="bat --style=full --color=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down --border=rounded)
 	[[ "$file" ]] && micro "$file"
+}
+
+field() {
+	awk -F "${2:- }" "{print \$${1:-1} }"
 }
