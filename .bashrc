@@ -40,8 +40,14 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Set bat as manpager
-[[ -x /usr/bin/bat ]] && export MANPAGER="sh -c 'col -bx | /usr/bin/bat -l man -p'"
+# Set bat/batcat as manpager
+if [[ -x /usr/bin/bat ]]; then
+	export MANPAGER="sh -c 'col -bx | /usr/bin/bat -l man -p'"
+	export MANROFFOPT="-c"
+elif [[ -x /usr/bin/batcat ]]; then
+	export MANPAGER="sh -c 'col -bx | /usr/bin/batcat -l man -p'"
+	export MANROFFOPT="-c"
+fi
 
 # parse_git_branch in prompt
 parse_git_branch() {
