@@ -9,7 +9,7 @@ alias dc="date +'%A %d %B %Y %R' && cal -3"	# date with 3-month calendar
 alias df='df -h -x tmpfs -x fuse.portal' # ignot tmps and fuse.portal
 alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'	# send command to all systems using DSH
-alias ff='clear;fastfetch'	# clear screen and launch fastfetch
+alias ff='clear;fastfetch'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"	# Dectect Wi-Fi networks
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"	# change .jpeg to .jpt in Pictures directory
 alias freshclam='sudo freshclam'
@@ -21,6 +21,7 @@ alias glow='glow -p'
 # alias egrep='egrep --color=auto'
 alias histg="history | grep " # search bash history
 alias install="sudo apt install"	# install package
+alias icat="kitten icat"	# display an image in the terminal
 alias ip='ip -color'	# show color in ip results
 alias jdate="date +'%A, %d %b %Y (%y%j)'"	# show current and Juiian date
 alias lsmount="mount | column -t"	# show mounted file systems in column format
@@ -30,8 +31,8 @@ alias mem5="ps auxf | sort -nr -k 4 | head -5"	# top 5 processes in memory
 alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"	# display a random line from leave.txt file
 alias mv='mv -iv'	# interactive, verbose move
 alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
-alias neofetch='clear;neofetch --source ~/.local/share/doc/neo-atheist.txt'	# Run Neofetch with custom configuration and logo
-alias path='echo $PATH | sed "s|:|\n|g"'	# show current exectuble paths
+alias neofetch='clear;neofetch --source ~/.local/share/doc/neo-atheist.txt'	# Run Neofetch with a custom configuration and logo
+alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
 alias rbt='sudo reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
@@ -48,7 +49,7 @@ alias wifipass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | c
 alias yt='yt-dlp --add-metadata -ic'		# download video
 alias yta='yt-dlp --add-metadata -xic'	# download audio
 
-# chmod commands
+# alias chmod commands
 alias mx='chmod a+x'
 alias 000='chmod -R 000'	# no permissions
 alias 440='chmod -R 440'	# r--r-----	/etc/sudoers.d/
@@ -210,9 +211,15 @@ dcp() {
 }
 
 # Execute a command to remote hosts using DSH
-# $1 = dsh group $2 = command
+# $1 = dsh group name, $2 = command (in quotes)
 dsh-grp() {
 	dsh -M -g $1 -c $2
+}
+
+# Execute a command to a remote server via SSH
+# $1 = last octet of IP, $2= 'command' (scripts should be prefessed by bin/)
+ssh-cmd() {
+	ssh 192.168.0."$1" "$2"
 }
 
 # Decrypt an encrypted PDF file
@@ -273,7 +280,7 @@ ex() {
   fi
 }
 
-# bat help wrapper (requires bat ver 0.21.0 or newer)
+# bat help wrapper (requires bat)
 alias bathelp='bat --plain --language=help'
 help() {
 	"$@" --help 2>&1 | bathelp
