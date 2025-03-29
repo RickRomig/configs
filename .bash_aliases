@@ -43,6 +43,8 @@ alias sc='shellcheck -x'	# Run Shellcheck ignoring SC1091 error when sourcing fu
 alias shellcheck='shellcheck -x'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 alias sdn='sudo shutdown now'
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+alias sshi='~/bin/sshin'	# call script to connect SSH via IP address
+alias sshl='~/bin/sshlocal'	# call script to connect SSH via .local hostname
 alias tb='nc termbin.com 9999'	# Share a file on Termbin
 alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share/doc/"	# Send todo list to main system
 alias term_size='echo "Rows=$(tput lines) Cols=$(tput cols)"'	# show size of terminal
