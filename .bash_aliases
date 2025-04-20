@@ -86,7 +86,7 @@ alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'	# directory tree
 
 # git aliases
-# alias batdiff='bat --diff'
+alias batdiff='bat --diff'
 alias gdiff='git diff'
 alias gs='git status'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
@@ -261,9 +261,9 @@ ncommitall() {
 }
 
 # Pipe git diff into bat
-batdiff() {
-    git diff --name-only --relative --diff-filter=d | xargs bat --diff
-}
+# batdiff() {
+#     git diff --name-only --relative --diff-filter=d | xargs bat --diff
+# }
 
 # Extract compressed files
 ex() {
