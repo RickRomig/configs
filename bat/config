@@ -1,5 +1,5 @@
-# Set the theme to "OneHalfDark"
---theme="OneHalfDark"
+# Set the theme
+--theme="Coldark-Dark"
 
 # Show line numbers, Git modifications and file header (but no grid)
 --style="numbers,changes,header,grid"
