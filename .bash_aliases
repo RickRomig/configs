@@ -86,7 +86,7 @@ alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'	# directory tree
 
 # git aliases
-alias batdiff='bat --diff'
+# alias batdiff='bat --diff'
 alias gdiff='git diff'
 alias gs='git status'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
@@ -260,6 +260,11 @@ ncommitall() {
 	git commit -m "$1" --no-verify # && git push
 }
 
+# Pipe git diff into bat
+batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
 # Extract compressed files
 ex() {
   if [ -f $1 ]; then
@@ -299,8 +304,8 @@ tsl() {
 	if dpkg -l timeshift >/dev/null 2>&1; then sudo timeshift --list | awk 'NR!=1 && NR!=3'; else echo "Timeshift not installed."; fi
 }
 
-micro-file() {
-	file=$(find . -type f | sort -d | fzf --reverse --preview="bat --style=full --color=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down --border=rounded)
+preview-file() {
+	file=$(find . -type f | sort -d | fzf --reverse --preview="bat --style=full --color=always --line-range=:500 {}" --bind shift-up:preview-page-up,shift-down:preview-page-down --border=rounded)
 	[[ "$file" ]] && micro "$file"
 }
 
