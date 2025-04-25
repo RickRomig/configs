@@ -7,4 +7,4 @@ if [ "$SHLVL" = 1 ]; then
 fi
 
 # cleanup bash history
-# history -a && history -c && sort -u -o ~/.bash_history ~/.bash_history && history -r
+history -a && history -c && sort -u -o ~/.bash_history ~/.bash_history && history -r
