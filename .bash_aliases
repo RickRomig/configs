@@ -15,6 +15,7 @@ alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/
 alias freshclam='sudo freshclam'
 alias free='free -m'	# Memory status
 alias fu='~/bin/iru-fastfetch -u'	# update Fastfetch
+alias getclip="xclip -selection clipboard -o"	# past clipboard to terminal
 alias glow='glow -p'
 # alias grep='grep --color=auto'
 # alias fgrep='fgrep --color=auto'
@@ -42,6 +43,7 @@ alias sbrc='source ~/.bashrc'
 alias sc='shellcheck -x'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 alias shellcheck='shellcheck -x'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 alias sdn='sudo shutdown now'
+alias setclip="xclip -o -selection clipboard"	# Copy to clipboard
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 alias sshi='~/bin/sshin'	# call script to connect SSH via IP address
 alias sshl='~/bin/sshlocal'	# call script to connect SSH via .local hostname
