@@ -25,7 +25,7 @@ numlockx off &
 dunst &
 
 # sxhkd
-sxhkd -c ~/.config/i3/sxhkdrc &
+sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
 # sxhkd -c ~/.config/i3/sxhkdrc &
 
 # Utilities in the background
