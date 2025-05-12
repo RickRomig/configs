@@ -13,7 +13,7 @@ alias ff='clear;fastfetch'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"	# Dectect Wi-Fi networks
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"	# change .jpeg to .jpt in Pictures directory
 alias freshclam='sudo freshclam'
-alias free='free -m'	# Memory status
+alias free='free -h'	# Memory status
 alias fu='~/bin/iru-fastfetch -u'	# update Fastfetch
 alias getclip="xclip -selection clipboard -o"	# past clipboard to terminal
 alias glow='glow -p'
@@ -34,6 +34,7 @@ alias mcbash="micro ~/.bashrc && source ~/.bashrc"	# Edit .bashrc and source on 
 alias mem5="ps auxf | sort -nr -k 4 | head -5"	# top 5 processes in memory
 alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"	# display a random line from leave.txt file
 alias mv='mv -iv'	# interactive, verbose move
+alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
 alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
 alias neofetch='clear;neofetch --source ~/.local/share/doc/neo-atheist.txt'	# Run Neofetch with a custom configuration and logo
 alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
@@ -89,6 +90,7 @@ alias treed='tree -CAFd'	# directory tree
 
 # git aliases
 alias batdiff='bat --diff'
+alias gc="git clone"
 alias gdiff='git diff'
 alias gs='git status'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
