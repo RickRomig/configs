@@ -10,8 +10,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+	*i*) ;;
+	*) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -51,17 +51,17 @@ fi
 
 # parse_git_branch in prompt
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [[ -z "${debian_chroot:-}" ]] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
+	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm|xterm-color|*-256color) color_prompt=yes;;
+	xterm|xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -69,49 +69,48 @@ esac
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+if [[ -n "$force_color_prompt" ]]; then
+	if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
+		# We have color support; assume it's compliant with Ecma-48
+		# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+		# a case would tend to support setf rather than setaf.)
+		color_prompt=yes
+	else
+		color_prompt=
+ 	fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    if [[ ${EUID} == 0 ]] ; then
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \w\n\$\[\033[00m\] '
-    else
-        # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;37m\]\w\n\$\[\033[00m\] '
+if [[ "$color_prompt" = yes ]]; then
+	if [[ ${EUID} == 0 ]] ; then
+		PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \w\n\$\[\033[00m\] '
+	else
 		# Custom prompt
-		tty -s && export PS1="\[\033[38;5;248m\]\342\224\214\342\224\200\342\224\200\[\033[38;5;35m\][\[\033[38;5;35m\]\t\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\[\033[38;5;33m\]\j\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\H:\]\[\033[38;5;33m\]\w\[\033[38;5;35m\[\033[37m\]\$(parse_git_branch)\[\033[38;5;35m\]]\n\[\033[38;5;248m\]\342\224\224\342\224\200\342\224\200|\[$(tput sgr0)\] "
-    fi
+		[[ "$SSH_CLIENT" ]] && ssh_msg="(SSH)"
+		tty -s && export PS1="\[\033[38;5;248m\]\342\224\214\342\224\200\342\224\200\[\033[38;5;35m\][\[\033[38;5;35m\]\t\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\[\033[38;5;33m\]\j\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\H${ssh_msg}:\]\[\033[38;5;33m\]\w\[\033[38;5;35m\[\033[37m\]\$(parse_git_branch)\[\033[38;5;35m\]]\n\[\033[38;5;248m\]\342\224\224\342\224\200\342\224\200|\[$(tput sgr0)\] "
+		fi
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
-    ;;
-*)
-    ;;
+	xterm*|rxvt*)
+		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
+	;;
+	*)
+	;;
 esac
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -F --color=auto --group-directories-first'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+if [[ -x /usr/bin/dircolors ]]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls -F --color=auto --group-directories-first'
+	#alias dir='dir --color=auto'
+	#alias vdir='vdir --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -131,12 +130,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [[ -f ~/.bash_aliases ]]; then
-    . ~/.bash_aliases
-fi
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 # Alias ssh if terminal is kitty
-[[ "$TERM" = "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -157,20 +154,19 @@ stty -ixon
 
 # Run mint fortunes if installed
 # if [ -x /usr/bin/mint-fortune ]; then
-#      /usr/bin/mint-fortune
+# 	/usr/bin/mint-fortune
 # fi
 
-# Fuzzy Finder key-bindings
+# Fuzzy finder key-bindings
 [[ -x /usr/bin/fzf ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # Neofetch/Fastfetch
 if [[ -x /usr/bin/fastfetch ]]; then
-    /usr/bin/fastfetch
+	/usr/bin/fastfetch
 elif [[ -x /usr/bin/neofetch ]]; then
-    /usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
+	/usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
 elif [[ -f "$HOME/.local/share/doc/mosfanet.txt" ]]; then
 	cat "$HOME/.local/share/doc/mosfanet.txt"
 fi
 
-# Message of the day
-[[ -f ~/.local/share/doc/leave.txt ]] && printf "\e[93mMessage of the day:\e[0m %s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
+[[ -f ~/.local/share/doc/leave.txt ]] && printf "\e[93mMessage of the day: \e[0m%s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
