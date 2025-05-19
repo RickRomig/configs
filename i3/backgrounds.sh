@@ -31,11 +31,18 @@ set_sfw() {
 	while true;	do feh --bg-fill --no-fehbg --randomize "$sfw_dir"/*;	sleep 300; done &
 }
 
+ethernet_status() {
+	local eth
+	eth=$(nmcli dev | awk '/ethernet/ {print $3}')
+	[[ "$eth" == "connected" ]] && return 0 || return 1
+}
+
 select_background() {
-	local wifi wifi_int
-	wifi_int=$(/usr/bin/nmcli dev | awk '/wifi / {print $1}')
-	wifi="$(/sbin/iw dev "$wifi_int" link | awk '/SSID/ {print $2}')"
-	if [[ "$wifi" == "mosfanet" ]]; then
+	# local wifi wifi_int
+	# wifi_int=$(/usr/bin/nmcli dev | awk '/wifi / {print $1}')
+	# wifi="$(/sbin/iw dev "$wifi_int" link | awk '/SSID/ {print $2}')"
+	# if [[ "$wifi" == "mosfanet" ]]; then
+	if ethernet_status; then
 		set_nsfw
 	else
 		set_sfw
@@ -48,7 +55,7 @@ main() {
 	case "$local_host" in
 		hp-850-g3 )
 			select_background ;;
-		hp-8300 | hp-8300-usdt )
+		hp-8300 | hp-8300-usdt | probuook-6570b )
 			set_sfw ;;
 		* )
 			if [[ -d "$nsfw_dir" ]]; then
