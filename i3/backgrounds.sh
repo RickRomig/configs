@@ -7,8 +7,8 @@
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 07 Jan 2025
-# Version      : 2.3.25007
+# Last updated : 18 May 2025
+# Version      : 2.4.25138
 # Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
@@ -38,10 +38,6 @@ ethernet_status() {
 }
 
 select_background() {
-	# local wifi wifi_int
-	# wifi_int=$(/usr/bin/nmcli dev | awk '/wifi / {print $1}')
-	# wifi="$(/sbin/iw dev "$wifi_int" link | awk '/SSID/ {print $2}')"
-	# if [[ "$wifi" == "mosfanet" ]]; then
 	if ethernet_status; then
 		set_nsfw
 	else
@@ -55,7 +51,7 @@ main() {
 	case "$local_host" in
 		hp-850-g3 )
 			select_background ;;
-		hp-8300 | hp-8300-usdt | probuook-6570b )
+		hp-8300 | hp-8300-usdt | probook-6570b )
 			set_sfw ;;
 		* )
 			if [[ -d "$nsfw_dir" ]]; then
