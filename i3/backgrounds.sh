@@ -7,8 +7,8 @@
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 18 May 2025
-# Version      : 2.4.25138
+# Last updated : 19 May 2025
+# Version      : 2.5.25139
 # Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
@@ -16,7 +16,7 @@
 set -eu
 
 set_nsfw() {
-	local nsfw_dir="$HOME/Pictures/wallpaper"
+	local nsfw_dir="$1"
 	notify-send -t 3500 "Backgrounds" "NSFW"
 	[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
 	[[ -f /tmp/nsfw-bg ]] || touch /tmp/nsfw-bg
@@ -24,7 +24,7 @@ set_nsfw() {
 }
 
 set_sfw() {
-	local sfw_dir="$HOME/.config/backgrounds"
+	local sfw_dir="$1"
 	notify-send -t 3500 "Backgrounds" "SFW"
 	[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
 	[[ -f /tmp/sfw-bg ]] || touch /tmp/sfw-bg
@@ -38,28 +38,33 @@ ethernet_status() {
 }
 
 select_background() {
-	if ethernet_status; then
-		set_nsfw
-	else
-		set_sfw
-	fi
+	local local_host="${HOSTNAME:-$(hostname)}"
+	local nsfw_dir="$1"
+	local sfw_dir="$2"
+	case "$local_host" in
+		hp-850-g3 )
+			if ethernet_status; then
+				set_nsfw "$nsfw_dir"
+			else
+				set_sfw "$sfw_dir"
+			fi
+		;;
+		hp-8300 | hp-8300-usdt | probook-6570b )
+			set_sfw "$sfw_dir"
+		;;
+		* )
+			if [[ -d "$nsfw_dir" ]]; then
+				set_nsfw "$nsfw_dir"
+			else
+				set_sfw "$sfw_dir"
+			fi
+	esac
 }
 
 main() {
-	local local_host="${HOSTNAME:-$(hostname)}"
 	local nsfw_dir="$HOME/Pictures/wallpaper"
-	case "$local_host" in
-		hp-850-g3 )
-			select_background ;;
-		hp-8300 | hp-8300-usdt | probook-6570b )
-			set_sfw ;;
-		* )
-			if [[ -d "$nsfw_dir" ]]; then
-				set_nsfw
-			else
-				set_sfw
-			fi
-	esac
+	local sfw_dir="$HOME/.config/backgrounds"
+	select_background "$nsfw_dir" "$sfw_dir"
 }
 
 main "$@"
