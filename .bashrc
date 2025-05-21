@@ -160,11 +160,9 @@ stty -ixon
 # Fuzzy finder key-bindings
 [[ -x /usr/bin/fzf ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
-# Neofetch/Fastfetch
+# Fastfetch
 if [[ -x /usr/bin/fastfetch ]]; then
 	/usr/bin/fastfetch
-elif [[ -x /usr/bin/neofetch ]]; then
-	/usr/bin/neofetch --source ~/.local/share/doc/neo-atheist.txt
 elif [[ -f "$HOME/.local/share/doc/mosfanet.txt" ]]; then
 	cat "$HOME/.local/share/doc/mosfanet.txt"
 fi
