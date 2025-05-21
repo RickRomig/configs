@@ -36,7 +36,6 @@ alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"	# display a random l
 alias mv='mv -iv'	# interactive, verbose move
 alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
 alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
-alias neofetch='clear;neofetch --source ~/.local/share/doc/neo-atheist.txt'	# Run Neofetch with a custom configuration and logo
 alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
 alias rbt='sudo reboot'
 alias sba='source ~/.bash_aliases'
