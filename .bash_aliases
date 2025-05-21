@@ -122,7 +122,7 @@ restore-trash() { /usr/bin/trash-restore $1; }
 
 # Check if a package exists
 exist() {
-  command -v "$1" > /dev/null && echo "$1 installed" || echo "$1 not installed"
+  command -v "$1" > /dev/null 2>&1 && echo "$1 installed" || echo "$1 not installed"
 }
 
 inrepos() {
