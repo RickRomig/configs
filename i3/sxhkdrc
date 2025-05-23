@@ -125,13 +125,13 @@ super + ctrl + Return
 	kitty --name dropdown
 
 super + shift + Return
-	i3-msg [instance="dropdown"] scratchpad show; move position center
+	i3-msg [instance="dropdown"] scratchpad showr
 
 super + ctrl + f
 	kitty --class "UXTerm" -e "ranger"
 
 super + shift + f
-	i3-msg [class="UXTerm"] scratchpad show; move position center
+	i3-msg [class="UXTerm"] scratchpad show
 
 
 ##### redshift
