@@ -104,14 +104,14 @@ alt + {h,j,k,l}
 ##### audio
 
 # Change volume, chunky
-super + Insert
-    ~/scripts/changevolume up
+# super + Insert
+#     ~/scripts/changevolume up
 
-super + Delete
-	~/scripts/changevolume down
+# super + Delete
+# 	~/scripts/changevolume down
 
-super + m
-	~/scripts/changevolume mute
+# super + m
+# 	~/scripts/changevolume mute
 
 ##### Scratchpads #####
 
@@ -125,7 +125,7 @@ super + ctrl + Return
 	kitty --name dropdown
 
 super + shift + Return
-	i3-msg [instance="dropdown"] scratchpad showr
+	i3-msg [instance="dropdown"] scratchpad show
 
 super + ctrl + f
 	kitty --class "UXTerm" -e "ranger"
@@ -133,13 +133,13 @@ super + ctrl + f
 super + shift + f
 	i3-msg [class="UXTerm"] scratchpad show
 
-
 ##### redshift
-super + alt + r
-	~/scripts/redshift-on
 
-super + alt + b
-	~/scripts/redshift-off
+# super + alt + r
+# 	~/scripts/redshift-on
+
+# super + alt + b
+# 	~/scripts/redshift-off
 
 ##### Monitor Brightness #####
 
