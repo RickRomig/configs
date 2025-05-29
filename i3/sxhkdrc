@@ -201,10 +201,10 @@ super + shift + q
      i3-msg exit
 
 super + shift + c
-    i3-msg reload; notify-send 'i3' 'Reloaded'
+    i3-msg reload; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Reloaded'
 
 super + shift + r
-    i3-msg restart; notify-send 'i3' 'Restarted'
+    i3-msg restart; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Restarted'
 
 super + ctrl + {Left,Down,Up,Right}
     i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
