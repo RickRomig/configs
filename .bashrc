@@ -167,4 +167,4 @@ elif [[ -f "$HOME/.local/share/doc/mosfanet.txt" ]]; then
 	cat "$HOME/.local/share/doc/mosfanet.txt"
 fi
 
-[[ -f ~/.local/share/doc/leave.txt ]] && printf "\e[93mMessage of the day: \e[0m%s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
+[[ -f ~/.local/share/doc/leave.txt ]] && printf "\e[93mMOTD: \e[0m%s\n\n" "$(shuf -n 1 ~/.local/share/doc/leave.txt)"
