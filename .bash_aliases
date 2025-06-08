@@ -68,9 +68,9 @@ alias 755='chmod -R 755'	# rwxr-xr-x
 alias 777='chmod -R 777'	# rwxrwxrwx
 
 # file aliases
-alias ..='cd ..'
-alias ...='cd ../..'
-alias .3='cd ../../..'
+alias ..='cd ..'	# back 1 directory
+alias ...='cd ../..'	# back 2 directories
+alias .3='cd ../../..'	# back 3 directories
 # alias l='ls -CF'	# columns and append */=>@|
 # alias la='la -AF'	# all but without implied . and ..
 # alias ll='ls -alF'	# all, long listing, append */=>@|
@@ -82,16 +82,19 @@ alias lst='ls -trF'	# list by time, oldest first
 alias lslt='ls -lhtrF --time-style=long-iso'	# list by time, oldest first
 alias lf="ls -l | egrep -v '^d'"  # files only (not hidden)
 alias ldir="ls -l | egrep '^d'"   # directories only (not hidden)
-alias mkdir="mkdir -p"
-alias mkd='mkdir -pv'
-alias tree='tree -CAhF --dirsfirst'
-alias treed='tree -CAFd'	# directory tree
+alias mkdir="mkdir -p"	# create parent if it does not exist
+alias mkd='mkdir -pv'	# create parent if it does not exist with verbose
+alias tree='tree -CAhF --dirsfirst'	# list directories first
+alias treea='tree -CAahF --dirsfirst'	# list all files
+alias treed='tree -CAFd'	# directories only tree
 
 # git aliases
 alias batdiff='bat --diff'
 alias gc="git clone"
 alias gdiff='git diff'
+alias gcop='git checkout .;git pull'	# restore unstaged files then pull from repo
 alias gs='git status'
+alias gss='git status --short'	# short status
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glog1='git log --oneline'
 alias gpush='git push'
