@@ -7,8 +7,7 @@ start() {
 # Autostart applications
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-# bar start
-# ~/.config/i3/polybar-i3 &
+# status bar start
 ~/.config/polybar/polybar-i3 &
 
 # Systray apps
@@ -29,7 +28,7 @@ dunst &
 sxhkd -c ~/.config/i3/sxhkdrc &
 
 # Utilities in the background
-udiskie &
+udiskie -s &
 pgrep -f redshift | xargs -n1 kill -9
 redshift -c ~/.config/redshift.conf &
 
