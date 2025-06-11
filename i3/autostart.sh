@@ -28,9 +28,9 @@ dunst &
 sxhkd -c ~/.config/i3/sxhkdrc &
 
 # Utilities in the background
-udiskie -s &
+pgrep udiskie &>/dev/null || udiskie &
 pgrep -f redshift | xargs -n1 kill -9
 redshift -c ~/.config/redshift.conf &
 
 # wallpapers
-pgrep -f backgrounds.sh > /dev/null || ~/.config/i3/backgrounds.sh
+pgrep -f backgrounds.sh &>/dev/null || ~/.config/i3/backgrounds.sh
