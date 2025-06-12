@@ -10,15 +10,14 @@ start() {
 # status bar start
 ~/.config/polybar/polybar-i3 &
 
-# Systray apps
+# systray apps
 nm-applet &
 start volumeicon &
 killall -q xfce4-power-manager
 xfce4-power-manager --daemon
-# xset -dpms
 lsusb | grep -iq blue && blueman-applet &
 
-# compositor and notifications
+# compositor, numlock, notifications
 picom -b &
 numlockx off &
 dunst &
@@ -28,7 +27,7 @@ dunst &
 sxhkd -c ~/.config/i3/sxhkdrc &
 
 # Utilities in the background
-pgrep udiskie &>/dev/null || udiskie &
+pgrep -f udiskie &>/dev/null || udiskie &
 pgrep -f redshift | xargs -n1 kill -9
 redshift -c ~/.config/redshift.conf &
 
