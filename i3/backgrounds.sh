@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 ##########################################################################
 # Script Name  : backgrounds.sh
-# Description  : Sscipt to rotate through wallpapers on Debian i3 systems.
-# Dependencies : None
+# Description  : Sscipt to set wallpaper directory
+# Dependencies : feh
 # Arguments    : None
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 12 Jun 2025
-# Version      : 2.6.25163
+# Last updated : 14 Jun 2025
+# Version      : 2.6.25165
 # Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
