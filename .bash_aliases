@@ -240,28 +240,28 @@ decryptpdf() {
 
 # Stage a file and commit, using pre-commit hook
 gcommit() {
-	git status
+	git status --short
 	git add $1
 	git commit -m "$1: $2" # && git push
 }
 
 # Stage all modified files, and commit using pre-commit hook
 gcommitall() {
-	git status
+	git status --short
 	git add -A
 	git commit -m "$1" # && git push
 }
 
 # Stage a file and commit, without using pre-commit hook
 ncommit() {
-	git status
+	git status --short
 	git add $1
 	git commit -m "$1: $2" --no-verify # && git push
 }
 
 # Stage all modified files, and commit without using pre-commit hook
 ncommitall() {
-	git status
+	git status --short
 	git add -A
 	git commit -m "$1" --no-verify # && git push
 }
