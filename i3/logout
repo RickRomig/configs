@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
-# Manage logout with rofi
+###############################################################################
+# Script Name  : logout
+# Description  : manage i3 logout script using rofi
+# Dependencies : rofi, i3lock
+# Arguments    :
+# Author       : Copyright © 2025, Richard B. Romig, Mosfanet
+# Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
+# Created      : 18 Nov 2021
+# Last updated : 14 Jun 2025
+# Version      : 2.0.25165
+# Comments     :
+# TODO (Rick)  :
+# License      : GNU General Public License, version 2.0
+###############################################################################
+
 option=$(echo -e "suspend\nlock screen\nlogout\nreboot\npoweroff\nKill user $USER" | rofi -width 600 -dmenu -p system)
 case $option in
     suspend)
