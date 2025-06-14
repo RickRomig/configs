@@ -1,4 +1,18 @@
 #!/usr/bin/env bash
+###############################################################################
+# Script Name  : keyhelper.sh
+# Description  : Display i3 keybindings from a file.
+# Dependencies : None
+# Arguments    : None
+# Author       : Copyright © 2025, Richard B. Romig, Mosfanet
+# Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
+# Created      : 14 Jun 2025
+# Last updated : 14 Jun 2025
+# Version      : 2.0.25165
+# Comments     :
+# TODO (Rick)  :
+# License      : GNU General Public License, version 2.0
+###############################################################################
 
 # shellcheck disable=SC2034
 # bold=$(tput bold)
