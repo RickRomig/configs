@@ -6,7 +6,7 @@ super + Return
 
 #Rofi & dmenu
 
-super + space
+super + shift + d
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 
 super + d
