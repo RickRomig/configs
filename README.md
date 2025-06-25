@@ -108,6 +108,6 @@ Configuration files used for Linux computers and virtual machines on Mosfanet. S
 ### redshift.conf
 - `~/.config/redshift.conf` - configuration file for redshift.
 ### sleep.conf
-- `/etc/systemd/sleep.conf` - SystemD configuration file, disables sleep/susspend/hibernation.
+- `/etc/systemd/sleep.conf` - SystemD configuration file, disables sleep/suspend/hibernation.
 #### Rick Romig (*The Luddite Geek*)
-##### 13 June 2025
+##### 25 June 2025
