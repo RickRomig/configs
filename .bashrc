@@ -49,11 +49,6 @@ elif [[ -x /usr/bin/batcat ]]; then
 	export MANROFFOPT="-c"
 fi
 
-# parse_git_branch in prompt
-parse_git_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 # set variable identifying the chroot you work in (used in the prompt below)
 if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
 	debian_chroot=$(cat /etc/debian_chroot)
@@ -80,14 +75,31 @@ if [[ -n "$force_color_prompt" ]]; then
  	fi
 fi
 
+# parse git branch in prompt
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 if [[ "$color_prompt" = yes ]]; then
 	if [[ ${EUID} == 0 ]] ; then
 		PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \w\n\$\[\033[00m\] '
 	else
 		# Custom prompt
+		BRACKET_COLOR="\[\033[38;5;35m\]"
+		CLOCK_COLOR="\[\033[38;5;35m\]"
+		JOB_COLOR="\[\033[38;5;33m\]"
+		PATH_COLOR="\[\033[38;5;33m\]"
+		GIT_COLOR="\[\033[38;5;37m\]"
+		LINE_BOTTOM="\342\224\200"
+		LINE_BOTTOM_CORNER="\342\224\224"
+		LINE_COLOR="\[\033[38;5;248m\]"
+		LINE_STRAIGHT="\342\224\200"
+		LINE_UPPER_CORNER="\342\224\214"
+		END_CHARACTER="|"
+
 		[[ "$SSH_CLIENT" ]] && ssh_msg=" (SSH)"
-		tty -s && export PS1="\[\033[38;5;248m\]\342\224\214\342\224\200\342\224\200\[\033[38;5;35m\][\[\033[38;5;35m\]\t\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\[\033[38;5;33m\]\j\[\033[38;5;35m\]]\[\033[38;5;248m\]\342\224\200\[\033[38;5;35m\][\H${ssh_msg}:\]\[\033[38;5;33m\]\w\[\033[38;5;35m\[\033[37m\]\$(parse_git_branch)\[\033[38;5;35m\]]\n\[\033[38;5;248m\]\342\224\224\342\224\200\342\224\200|\[$(tput sgr0)\] "
-		fi
+		tty -s && export PS1="$LINE_COLOR$LINE_UPPER_CORNER$LINE_STRAIGHT$LINE_STRAIGHT$BRACKET_COLOR[$CLOCK_COLOR\t$BRACKET_COLOR]$LINE_COLOR$LINE_STRAIGHT$BRACKET_COLOR[$JOB_COLOR\j$BRACKET_COLOR]$LINE_COLOR$LINE_STRAIGHT$BRACKET_COLOR[\H${ssh_msg}:\]$PATH_COLOR\w$GIT_COLOR\$(parse_git_branch)$BRACKET_COLOR]\n$LINE_COLOR$LINE_BOTTOM_CORNER$LINE_STRAIGHT$LINE_BOTTOM$END_CHARACTER\[$(tput sgr0)\] "
+	fi
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
 fi
@@ -97,9 +109,9 @@ unset color_prompt force_color_prompt
 case "$TERM" in
 	xterm*|rxvt*)
 		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
-	;;
+		;;
 	*)
-	;;
+		;;
 esac
 
 # enable color support of ls and also add handy aliases
