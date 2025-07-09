@@ -1,7 +1,11 @@
-  {
-     "Alt-/": "lua:comment.comment",
-     "CtrlUnderscore": "lua:comment.comment",
-     "Alt-s": "Save,Quit",
-     "Ctrl-Alt-v": "VSplit",
-     "Ctrl-Alt-z": "HSplit"
-    }
+{
+    "Alt-/": "lua:comment.comment",
+    "Alt-s": "Save,Quit",
+    "Ctrl-Alt-v": "VSplit",
+    "Ctrl-Alt-z": "HSplit",
+    "Ctrl-F2": "command:toggleBookmark",
+    "CtrlShift-F2": "command:clearBookmarks",
+    "CtrlUnderscore": "lua:comment.comment",
+    "F2": "command:nextBookmark",
+    "Shift-F2": "command:prevBookmark"
+}
