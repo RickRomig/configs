@@ -9,6 +9,7 @@ alias dc="date +'%A %d %B %Y %R' && cal -3"	# date with 3-month calendar
 alias df='df -h -x tmpfs -x fuse.portal' # ignot tmps and fuse.portal
 alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'	# send command to all systems using DSH
+alias fcd='cd "./$(find -maxdepth 1 -type d | fzf)"'
 alias ff='clear;fastfetch'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"	# Dectect Wi-Fi networks
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"	# change .jpeg to .jpt in Pictures directory
