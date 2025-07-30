@@ -85,6 +85,7 @@ alias lf="ls -l | egrep -v '^d'"  # files only (not hidden)
 alias ldir="ls -l | egrep '^d'"   # directories only (not hidden)
 alias mkdir="mkdir -p"	# create parent if it does not exist
 alias mkd='mkdir -pv'	# create parent if it does not exist with verbose
+alias PH-time='TZ="Asia/Manila" date +"%F %R"'	# date and time in the Philippines
 alias tree='tree -CAhF --dirsfirst'	# list directories first
 alias treea='tree -CAahF --dirsfirst'	# list all files
 alias treed='tree -CAFd'	# directories only tree
