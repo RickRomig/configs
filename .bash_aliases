@@ -99,6 +99,7 @@ alias gs='git status'
 alias gss='git status --short'	# short status
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glog1='git log --oneline'
+alias glogn='git log -n --graph --abbrev-commit --decorate --date=relative --all -n'
 alias gpush='git push'
 alias grestore='git restore'
 alias gunstage='git restore --staged'
