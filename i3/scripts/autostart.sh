@@ -7,8 +7,8 @@
 # Author       : Copyright © 2025, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 18 Nov 2021
-# Last updated : 14 Jun 2025
-# Version      : 2.0.25165
+# Last updated : 14 Aug 2025
+# Version      : 2.1.25226
 # Comments     : New installs - sxhkdrc will be in i3 directory not sxhkd subdirectory
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
@@ -33,4 +33,5 @@ sxhkd -c ~/.config/i3/sxhkdrc &
 pgrep -f udiskie &>/dev/null || udiskie &
 pgrep -f redshift | xargs -n1 kill -9
 redshift -c ~/.config/redshift.conf &
-pgrep -f backgrounds.sh &>/dev/null || ~/.config/i3/backgrounds.sh
+# pgrep -f backgrounds.sh &>/dev/null || ~/.config/i3/backgrounds.sh
+pgrep -f backgrounds.sh &>/dev/null || ~/.config/i3/scripts/backgrounds.sh
