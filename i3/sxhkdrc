@@ -1,34 +1,69 @@
 super + Escape
     pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reload config'
 
-super + Return
-   kitty
+super + q
+    i3-msg kill
 
-#Rofi & dmenu
+super + shift + q
+     i3-msg exit
 
-super + shift + d
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+super + shift + c
+    i3-msg reload; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Config Reloaded'
 
+super + shift + r
+    i3-msg restart; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Restarted i3'
+
+super + ctrl + {Left,Down,Up,Right}
+    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+
+super + x
+	~/.config/i3/scripts/logout
+
+##### i3 Specific Keybindings #####
+
+super + alt + v
+    i3-msg split v; notify-send 'i3wm' 'vertical split'
+
+super + alt + z
+    i3-msg split h; notify-send 'i3wm' 'horizonal split'
+
+super + alt + f
+    i3-msg fullscreen toggle
+
+super + alt + space
+    i3-msg floating toggle
+
+super + ctrl + space
+    i3-msg focus mode_toggle
+
+super + a
+    i3-msg focus parent
+
+##### Rofi & Dmenu #####
+
+# Dmenu
 super + d
 	dmenu_run
 
+# Application menu
+super + shift + space
+   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+
+# Dmenu script to edit configs
 super + shift + e
-    ~/.local/bin/dmconf.sh
-
-super + f
-    wmctrl -a Thunar || thunar
-
-super + shift + d
- rofi -show
+    ~/.config/i3/scripts/dmconf.sh
 
 # help with shortcuts
 super + shift + h
-	kitty -e ~/.config/i3/keyhelper.sh
+	kitty -e ~/.config/i3/scripts/keyhelper.sh
 
-##### Application Keybindings #####
+##### Applications #####
 
-super + r
-	kitty -e "ranger"
+super + Return
+   kitty
+
+super + f
+    wmctrl -a Thunar || thunar
 
 super + e
     wmctrl -a VSCodium || codium
@@ -50,17 +85,97 @@ super + g
 super + k
 	keepassxc
 
-super + p
-    kitty -e pulsemixer
+# Screenshot (Region Select)
+super + Print
+	flameshot gui --path ~/Screenshots/
 
-ctrl + alt + s
-    flameshot gui
+# Screenshot (Fullscreen)
+Print
+	flameshot full --path ~/Screenshots/
+
+##### Scratchpads #####
+
+# Move to scratchpad
+super + minus
+	i3-msg move scratchpad; i3-msg scratchpad show, resize set 1200 800, move position center
+
+# Toggle scratchpad
+super + equal
+	i3-msg scratchpad show
+
+# Move scratchpad back to tiling
+super + shift + equal
+	i3-msg floating disable
+
+# Kitty scratchpad
+super + ctrl + Return
+	kitty --name dropdown
+
+super + shift + Return
+	i3-msg [instance="dropdown"] scratchpad show
+
+# Ranger scratchpad
+super + ctrl + f
+	kitty --class "UXTerm" -e "ranger"
+
+super + shift + f
+	i3-msg [class="UXTerm"] scratchpad show
+
+##### Workspaces #####
+
+#  Show open workspaces
+super + shift + d
+ rofi -show
+
+# Switch to workspace
+super + {1-9,0}
+    i3-msg workspace {1-9,10}
+
+# Move contaniner to workspace
+super + shift+{1-9,0}
+    i3-msg move container to workspace number {1-9,10}
+
+# Next/Previous workspace
+super + alt + {Right,Left}
+	i3-msg workspace {next,prev}
+
+##### Movement #####
+
+# Focus left, down, up, right
+super+{Left,Down,Up,Right}
+    i3-msg focus {left,down,up,right}
+
+# Move left, down, up, right
+super+shift+{Left,Down,Up,Right}
+    i3-msg move {left,down,up,right}
+
+##### Monitor Brightness #####
+
+XF86MonBrightnessUp
+	xbacklight +10
+
+XF86MonBrightnessDown
+	xbacklight -10
+
+# dedicated backlight keys
+# {XF86MonBrightnessUp,XF86MonBrightnessDown}
+# 	xbacklight {+10,-10}
 
 ##### Audio Keybindings #####
 
+# Change volume
+# super + Insert
+#     ~/.config/i3/scripts/changevolume up
+
+# super + Delete
+# 	~/.config/i3/scripts/changevolume down
+
+# super + m
+# 	~/.config/i3/scripts/changevolume mute
+
 # dedicated volume keys
-{XF86AudioRaiseVolume,XF86AudioLowerVolume}
-	pamixer {-i,-d} 2
+# {XF86AudioRaiseVolume,XF86AudioLowerVolume}
+# 	pamixer {-i,-d} 2
 
 # XF86AudioRaiseVolume
 #         amixer -c 0 -- sset Master 2db+
@@ -77,17 +192,17 @@ ctrl + alt + s
 # alt + a
 #         amixer -c 0 -- sset Master 2db-
 
-XF86AudioPlay
-    playerctl play-pause
+# XF86AudioPlay
+#     playerctl play-pause
 
 ctrl + alt + p
     playerctl play-pause
 
-XF86AudioNext
-    playerctl next
+# XF86AudioNext
+#     playerctl next
 
-XF86AudioPrev
-    playerctl previous
+# XF86AudioPrev
+#     playerctl previous
 
 ctrl + shift + period
     playerctl next
@@ -95,122 +210,16 @@ ctrl + shift + period
 ctrl + shift + comma
     playerctl previous
 
-XF86AudioStop
-    playerctl stop
+# XF86AudioStop
+#     playerctl stop
 
 alt + {h,j,k,l}
    mpc {prev,next,play,pause}
 
-##### audio
+##### Other bindings #####
 
-# Change volume, chunky
-# super + Insert
-#     ~/scripts/changevolume up
+super + shift + w
+    notify-send -t 3600 "Current Weather" "$(~/.config/i3/scripts/current_wx.sh)"
 
-# super + Delete
-# 	~/scripts/changevolume down
-
-# super + m
-# 	~/scripts/changevolume mute
-
-##### Scratchpads #####
-
-super + shift + minus
-	i3-msg move scratchpad
-
-super + minus
-	i3-msg scratchpad show
-
-super + ctrl + Return
-	kitty --name dropdown
-
-super + shift + Return
-	i3-msg [instance="dropdown"] scratchpad show
-
-super + ctrl + f
-	kitty --class "UXTerm" -e "ranger"
-
-super + shift + f
-	i3-msg [class="UXTerm"] scratchpad show
-
-##### redshift
-
-# super + alt + r
-# 	~/scripts/redshift-on
-
-# super + alt + b
-# 	~/scripts/redshift-off
-
-##### Monitor Brightness #####
-
-XF86MonBrightnessUp
-	xbacklight +10
-
-XF86MonBrightnessDown
-	xbacklight -10
-
-# dedicated backlight keys
-{XF86MonBrightnessUp,XF86MonBrightnessDown}
-	xbacklight {+10,-10}
-
-##### workspaces #####
-
-super + {1-9,0}
-    i3-msg workspace {1-9,10}
-
-super + shift+{1-9,0}
-    i3-msg move container to workspace number {1-9,10}
-
-super + alt + {Right,Left}
-	i3-msg workspace {next,prev}
-
-##### movement #####
-
-super+{Left,Down,Up,Right}
-    i3-msg focus {left,down,up,right}
-
-super+shift+{Left,Down,Up,Right}
-    i3-msg move {left,down,up,right}
-
-##### i3 Specific Keybindings #####
-
-super + v
-    i3-msg split v; notify-send 'vertical split'
-
-super + h
-    i3-msg split h; notify-send 'horizonal split'
-
-super + alt + f
-    i3-msg fullscreen toggle
-
-super + shift + space
-    i3-msg floating toggle
-
-super + ctrl + space
-    i3-msg focus mode_toggle
-
-super + a
-    i3-msg focus parent
-
-##### other bindings #####
-
-super + q
-    i3-msg kill
-
-super + shift + q
-     i3-msg exit
-
-super + shift + c
-    i3-msg reload; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Reloaded'
-
-super + shift + r
-    i3-msg restart; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Restarted'
-
-super + ctrl + {Left,Down,Up,Right}
-    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
-
-super + x
-	~/.config/i3/logout
-
-super + t
-    notify-send -t 3600 "Current Weather" "$(~/.local/bin/current_wx.sh)"
+super + shift + u
+	notify-send -t 3600 "Updates" "$(~/.config/i3/scripts/check-updates.sh)"
