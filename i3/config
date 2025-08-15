@@ -11,6 +11,7 @@ font pango:"JetBrainsMono Nerd Font" 14
 
 # exec_always --no-startup-id ~/.local/bin/autoxandr.sh
 exec_always --no-startup-id ~/.config/i3/autostart.sh
+# exec_always --no-startup-id ~/.config/i3/scripts/autostart.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -22,7 +23,3 @@ gaps outer 4
 focus_on_window_activation focus
 focus_follows_mouse yes
 workspace_auto_back_and_forth yes
-
-# Window rules
-# Kitty on hp-850-g3 laptop
-# for_window [class=kitty] floating enable
