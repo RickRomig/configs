@@ -74,7 +74,7 @@ alias 777='chmod -R 777'	# rwxrwxrwx
 # file aliases
 alias ..='cd ..'	# back 1 directory
 alias ...='cd ../..'	# back 2 directories
-alias .3='cd ../../..'	# back 3 directories
+alias ....='cd ../../..'	# back 3 directories
 # alias l='ls -CF'	# columns and append */=>@|
 # alias la='la -AF'	# all but without implied . and ..
 # alias ll='ls -alF'	# all, long listing, append */=>@|
@@ -95,14 +95,16 @@ alias treed='tree -CAFd'	# directories only tree
 
 # git aliases
 alias batdiff='bat --diff'
-alias gc="git clone"
-alias gdiff='git diff'
+alias gc="git clone"	# clone a git repository
+alias gdiff='git diff'	# show the difference with committed file
 alias gcop='git checkout .;git pull'	# restore unstaged files then pull from repo
 alias gs='git status'
 alias gss='git status --short'	# short status
+alias gl='git log --oneline --graph --decorate'	# log 1 commit per line
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
-alias glog1='git log --oneline'
-alias glogn='git log -n --graph --abbrev-commit --decorate --date=relative --all -n'
+alias gln='git log -n --graph --abbrev-commit --decorate --date=relative --all -n'	# last n commits
+alias gp='git push'
+alias gpl='git pull'
 alias gpush='git push'
 alias grestore='git restore'
 alias gunstage='git restore --staged'
