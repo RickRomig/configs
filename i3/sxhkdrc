@@ -1,43 +1,55 @@
+# Reload SXHKD config
 super + Escape
-    pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reload config'
-
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reload config'
+# Kill current window
 super + q
-    i3-msg kill
+	i3-msg kill
 
+# Exit i3
 super + shift + q
-     i3-msg exit
+	i3-msg exit
 
+# reload i3 config
 super + shift + c
-    i3-msg reload; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Config Reloaded'
+	i3-msg reload; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Config Reloaded'
 
+# Restart i3
 super + shift + r
-    i3-msg restart; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Restarted i3'
+	i3-msg restart; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Restarted i3'
 
+# Resize window
 super + ctrl + {Left,Down,Up,Right}
-    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+	i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
 
+# Logout, lock screen, reboot, shutdown, suspend
 super + x
 	~/.config/i3/scripts/logout
 
 ##### i3 Specific Keybindings #####
 
+# Vertical split
 super + alt + v
-    i3-msg split v; notify-send 'i3wm' 'vertical split'
+	i3-msg split v; notify-send 'i3wm' 'vertical split'
 
+# Horizonal split
 super + alt + z
-    i3-msg split h; notify-send 'i3wm' 'horizonal split'
+	i3-msg split h; notify-send 'i3wm' 'horizonal split'
 
+# Toggle fullscreen
 super + alt + f
-    i3-msg fullscreen toggle
+	i3-msg fullscreen toggle
 
+# Toggle floating window
 super + alt + space
-    i3-msg floating toggle
+	i3-msg floating toggle
 
+# Toggle floating & tiling
 super + ctrl + space
-    i3-msg focus mode_toggle
+	i3-msg focus mode_toggle
 
+# Focus on parent window
 super + a
-    i3-msg focus parent
+	i3-msg focus parent
 
 ##### Rofi & Dmenu #####
 
@@ -45,43 +57,51 @@ super + a
 super + d
 	dmenu_run
 
-# Application menu
+# Rofi application menu
 super + shift + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 
-# Dmenu script to edit configs
+# Edit configs
 super + shift + e
-    ~/.config/i3/scripts/dmconf.sh
+	~/.config/i3/scripts/dmconf.sh
 
-# help with shortcuts
+# Help with keybindings
 super + shift + h
-	kitty -e ~/.config/i3/scripts/keyhelper.sh
+	~/.config/i3/scripts/help
 
 ##### Applications #####
 
+# Terimal (Kitty)
 super + Return
-   kitty
+	kitty
 
+# File manager
 super + f
-    wmctrl -a Thunar || thunar
+	wmctrl -a Thunar || thunar
 
+# Editor
 super + e
-    wmctrl -a VSCodium || codium
-    # wmctrl -a Geany || geany
+	wmctrl -a VSCodium || codium
+	# wmctrl -a Geany || geany
 
+# Chromium browser
 super + c
 	wmctrl -a Chromium || chromium
-    # wmctrl -a "Google Chrome" || google-chrome-stable
+	# wmctrl -a "Google Chrome" || google-chrome-stable
 
+# Brave browser
 super + b
-    wmctrl -a Brave || brave-browser
+	wmctrl -a Brave || brave-browser
 
+# Firefox browser
 super + w
-    wmctrl -a "Mozilla Firefox" || firefox
+	wmctrl -a "Mozilla Firefox" || firefox
 
+# Gnome calculator
 super + g
-    gnome-calculator
+	gnome-calculator
 
+# KeepassXC
 super + k
 	keepassxc
 
@@ -111,6 +131,7 @@ super + shift + equal
 super + ctrl + Return
 	kitty --name dropdown
 
+# Toggle Kitty scratchpad
 super + shift + Return
 	i3-msg [instance="dropdown"] scratchpad show
 
@@ -118,22 +139,23 @@ super + shift + Return
 super + ctrl + f
 	kitty --class "UXTerm" -e "ranger"
 
+# Toggle Ranger scratchpad
 super + shift + f
 	i3-msg [class="UXTerm"] scratchpad show
 
 ##### Workspaces #####
 
-#  Show open workspaces
+# Open workspaces
 super + shift + d
- rofi -show
+	rofi -show
 
 # Switch to workspace
 super + {1-9,0}
-    i3-msg workspace {1-9,10}
+	i3-msg workspace {1-9,10}
 
 # Move contaniner to workspace
 super + shift+{1-9,0}
-    i3-msg move container to workspace number {1-9,10}
+	i3-msg move container to workspace number {1-9,10}
 
 # Next/Previous workspace
 super + alt + {Right,Left}
@@ -143,11 +165,11 @@ super + alt + {Right,Left}
 
 # Focus left, down, up, right
 super+{Left,Down,Up,Right}
-    i3-msg focus {left,down,up,right}
+	i3-msg focus {left,down,up,right}
 
 # Move left, down, up, right
 super+shift+{Left,Down,Up,Right}
-    i3-msg move {left,down,up,right}
+	i3-msg move {left,down,up,right}
 
 ##### Monitor Brightness #####
 
@@ -157,69 +179,42 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	xbacklight -10
 
-# dedicated backlight keys
-# {XF86MonBrightnessUp,XF86MonBrightnessDown}
-# 	xbacklight {+10,-10}
-
 ##### Audio Keybindings #####
 
-# Change volume
-# super + Insert
-#     ~/.config/i3/scripts/changevolume up
+# Increase volume
+super + Insert
+	~/.config/i3/scripts/changevolume up
 
-# super + Delete
-# 	~/.config/i3/scripts/changevolume down
+# Decrease volume
+super + Delete
+	~/.config/i3/scripts/changevolume down
 
-# super + m
-# 	~/.config/i3/scripts/changevolume mute
+# Mute volume
+super + m
+	~/.config/i3/scripts/changevolume mute
 
-# dedicated volume keys
-# {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-# 	pamixer {-i,-d} 2
-
-# XF86AudioRaiseVolume
-#         amixer -c 0 -- sset Master 2db+
-
-# XF86AudioLowerVolume
-#         amixer -c 0 -- sset Master 2db-
-
-# XF86AudioMicMute
-#         amixer -c 0 -- sset Master toggle
-
-# alt + d
-#         amixer -c 0 -- sset Master 2db+
-
-# alt + a
-#         amixer -c 0 -- sset Master 2db-
-
-# XF86AudioPlay
-#     playerctl play-pause
-
+# Player = pause
 ctrl + alt + p
-    playerctl play-pause
+	playerctl play-pause
 
-# XF86AudioNext
-#     playerctl next
-
-# XF86AudioPrev
-#     playerctl previous
-
+# Player - next
 ctrl + shift + period
-    playerctl next
+	playerctl next
 
+# Player - previous
 ctrl + shift + comma
-    playerctl previous
+	playerctl previous
 
-# XF86AudioStop
-#     playerctl stop
-
+#  MPC Player = prev, next, play, pause
 alt + {h,j,k,l}
-   mpc {prev,next,play,pause}
+	mpc {prev,next,play,pause}
 
 ##### Other bindings #####
 
+# Current weather
 super + shift + w
-    notify-send -t 3600 "Current Weather" "$(~/.config/i3/scripts/current_wx.sh)"
+	notify-send -t 3600 "Current Weather" "$(~/.config/i3/scripts/current_wx.sh)"
 
+# Check updates
 super + shift + u
 	notify-send -t 3600 "Updates" "$(~/.config/i3/scripts/check-updates.sh)"
