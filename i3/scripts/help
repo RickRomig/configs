@@ -1,0 +1,45 @@
+#!/bin/bash
+###############################################################################
+# Script Name  : help
+# Description  : Help with i3 keybindings
+# Dependencies : rofi, sxhkd
+# Arguments    : None
+# Author       : Copyright © 2025, Richard B. Romig, Mosfanet
+# Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
+# Created      : 22 Aug 2025
+# Last updated : 22 Aug 2025
+# Comments     : Original script by Drew Grif @ https://github.com/drewgrif
+# TODO (Rick)  :
+# License      : GNU General Public License, version 2
+# License URL  : https://github.com/RickRomig/scripts/blob/main/LICENSE
+###############################################################################
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# Extract keybindings and descriptions and format into fixed-width columns
+keybindings=$(awk '
+    /^[a-z]/ && last {
+        # Use printf for consistent column widths and padding
+        printf "%-30s | %-40s\n", $0, last
+    }
+    { last="" }
+    /^#/ { last=substr($0, 3) }' ~/.config/i3/sxhkdrc)    # ~/.config/i3/sxhkd/sxhkdrc
+
+# Pad the content with a fixed-width column approach
+formatted_keybindings=$(echo "$keybindings" | column -t -s '|')
+
+# Show in rofi and capture the selected line
+selected=$(echo "$formatted_keybindings" | rofi -dmenu -i -p "Keybindings" -line-padding 4 -hide-scrollbar -theme ~/.config/i3/rofi/keybinds.rasi)
+
+# Execute the selected keybinding's command (if needed)
+if [ -n "$selected" ]; then
+    command=$(echo "$selected" | awk -F'|' '{print $1}' | xargs)
+    nohup "$command" &>/dev/null &
+fi
