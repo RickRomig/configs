@@ -12,6 +12,7 @@ alias deb-verify512='gpg --verify SHA512SUMS.sign SHA512SUMS'
 alias df='df -h -x tmpfs -x fuse.portal' # ignot tmps and fuse.portal
 alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'	# send command to all systems using DSH
+alias du='du -h'
 alias fcd='cd "./$(find -maxdepth 1 -type d | fzf)"'
 alias ff='clear;fastfetch'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"	# Dectect Wi-Fi networks
@@ -29,18 +30,22 @@ alias install="sudo apt install"	# install package
 alias icat="kitten icat"	# display an image in the terminal
 alias ip='ip -color'	# show color in ip results
 alias jdate="date +'%A, %d %b %Y (%y%j)'"	# show current and Juiian date
+alias k9='kill -9'
+alias killall='killall -v'
 alias kernels="dpkg -l | grep -E 'linux-headers|linux-image' | cut -d' ' -f1,3"	# list currently installed kernels
 alias list-tar="tar tvf"	# list contents of a tar archive
 alias list-zip="unzip -l"	# list contents of a zip archive
 alias lsmount="mount | column -t"	# show mounted file systems in column format
-alias mcalias="micro ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with micro and source on exit
-alias mcbash="micro ~/.bashrc && source ~/.bashrc"	# Edit .bashrc and source on exit
+alias m='micro'	# launch micro
+alias mcalias="${EDITOR} ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with micro and source on exit
+alias mcbash="${EDITOR} ~/.bashrc && source ~/.bashrc"	# Edit .bashrc and source on exit
 alias mem5="ps auxf | sort -nr -k 4 | head -5"	# top 5 processes in memory
 alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"	# display a random line from leave.txt file
 alias move='mv -iv'	# interactive, verbose move
 alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
 alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
 alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
+alias ps='ps auxf'
 alias rbt='sudo reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
@@ -52,8 +57,9 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias sshi='~/bin/sshin'	# call script to connect SSH via IP address
 alias sshl='~/bin/sshlocal'	# call script to connect SSH via .local hostname
 alias tb='nc termbin.com 9999'	# Share a file on Termbin
+alias termsize='echo "Rows=$(tput lines) Cols=$(tput cols)"'	# show size of terminal
 alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share/doc/"	# Send todo list to main system
-alias term_size='echo "Rows=$(tput lines) Cols=$(tput cols)"'	# show size of terminal
+alias top='btop || htop || top'
 alias txt2pdf='libreoffice --convert-to pdf'	# convert a LibreOffice .odt file to PDF
 alias upgrade="sudo apt update && sudo apt dist-upgrade"	# update apt cache and install updates
 alias wifipass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | cut -d'/' -f5 | sed 's/.nmconnection:psk=/ = /'"	# show WiFi passwords
@@ -311,7 +317,7 @@ help() {
 }
 
 cheat() {
-	curl -s cheat.sh/$1 | bat
+	curl -s cheat.sh/$1 | bat -p
 }
 
 tsl() {
@@ -320,7 +326,7 @@ tsl() {
 
 preview-file() {
 	file=$(find . -type f | sort -d | fzf --reverse --preview="bat --style=full --color=always --line-range=:500 {}" --bind shift-up:preview-page-up,shift-down:preview-page-down --border=rounded)
-	[[ "$file" ]] && micro "$file"
+	[[ "$file" ]] && ${EDITOR} "$file"
 }
 
 field() {
