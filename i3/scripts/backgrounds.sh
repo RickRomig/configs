@@ -7,7 +7,7 @@
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 08 Aug 2025
+# Last updated : 08 Sep 2025
 # Version      : 2.7.25251
 # Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
@@ -45,7 +45,6 @@ ethernet_status() {
 select_background() {
 	local local_host="${HOSTNAME:-$(hostname)}"
 	local nsfw_dir="$HOME/Pictures/wallpaper"
-	local sfw_dir="$HOME/.config/backgrounds"
 	local sfw_dir="$HOME/Pictures/backgrounds"
 	case "$local_host" in
 		hp-850-g3 )
