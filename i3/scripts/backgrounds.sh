@@ -46,24 +46,25 @@ select_background() {
 	local local_host="${HOSTNAME:-$(hostname)}"
 	local nsfw_dir="$HOME/Pictures/wallpaper"
 	local sfw_dir="$HOME/.config/backgrounds"
+	local sfw_dir="$HOME/Pictures/backgrounds"
 	case "$local_host" in
 		hp-850-g3 )
 			if ethernet_status; then
 				set_nsfw "$nsfw_dir"
 			else
-				[[ -d "$HOME/Pictures/backgrounds" ]] && sfw_dir="$HOME/Pictures/backgrounds"
+				[[ -d "$HOME/Pictures/backgrounds" ]] || sfw_dir="$HOME/.config/backgrounds"
 				set_sfw "$sfw_dir"
 			fi
 		;;
 		hp-8300 | hp-8300-usdt | probook-6570b )
-			[[ -d "$HOME/Pictures/backgrounds" ]] && sfw_dir="$HOME/Pictures/backgrounds"
+			[[ -d "$HOME/Pictures/backgrounds" ]] || sfw_dir="$HOME/.config/backgrounds"
 			set_sfw "$sfw_dir"
 			;;
 		* )
 			if [[ -d "$nsfw_dir" ]]; then
 				set_nsfw "$nsfw_dir"
 			else
-				[[ -d "$HOME/Pictures/backgrounds" ]] && sfw_dir="$HOME/Pictures/backgrounds"
+			[[ -d "$HOME/Pictures/backgrounds" ]] || sfw_dir="$HOME/.config/backgrounds"
 				set_sfw "$sfw_dir"
 			fi
 	esac
