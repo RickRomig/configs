@@ -1,4 +1,5 @@
 # aliases
+alias bp='bat -p'	# bat plain style without line numbers
 alias chkcmd="type -t"	# Check if a command is alias, builtin, or file
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'	# check for updates with Nala
 alias cleancat="grep -Ev '^(#|$)'"	# display a file, ignoring commented and blank lines
@@ -20,7 +21,7 @@ alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/
 alias freshclam='sudo freshclam'
 alias free='free -h'	# Memory status
 alias fu='~/bin/iru-fastfetch -u'	# update Fastfetch
-alias getclip="xclip -selection clipboard -o"	# past clipboard to terminal
+alias getclip="xclip -selection clipboard -o"	# paste clipboard to terminal
 alias glow='glow -p'
 # alias grep='grep --color=auto'
 # alias fgrep='fgrep --color=auto'
