@@ -58,7 +58,7 @@ super + d
 	dmenu_run
 
 # Rofi application menu
-super + shift + space
+super + alt + d
 	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 
 # Edit configs
