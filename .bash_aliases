@@ -127,6 +127,7 @@ alias pro='ping -4 -c 8 192.168.0.1'	# ping local gateway
 alias fuck='sudo'
 alias please='sudo'
 alias shit='sudo'
+alias suod='sudo'
 
 # trash aliases (requires trash-cli)
 alias trash='/usr/bin/trash-put'
