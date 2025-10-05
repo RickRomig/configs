@@ -5,7 +5,7 @@
          "source": "~/.local/share/fastfetch/logos/logo.png",
     	"padding": {
     	    "left": 2,
-            "right": 2,
+            "right": 4,
             "top": 2
         },
         "width": 32,
