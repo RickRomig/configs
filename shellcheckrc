@@ -1,0 +1,4 @@
+# Shellcheck: Global Rules
+
+# Allow the sourcing of files
+external-sources=true
