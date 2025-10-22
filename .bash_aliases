@@ -48,16 +48,16 @@ alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' '"	# d
 alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
 alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
 alias ps='ps auxf'
-alias rbt='sudo reboot'
+alias rbt='sudo systemctl reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
 alias sc='shellcheck'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 # alias shellcheck='shellcheck -x'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
-alias sdn='sudo shutdown now'
+alias sdn='sudo systemctl poweroff'
 alias setclip="xclip -o -selection clipboard"	# Copy to clipboard
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 alias sshi='~/bin/sshin'	# call script to connect SSH via IP address
-alias sshl='~/bin/sshlocal'	# call script to connect SSH via .local hostname
+alias sshl='~/bin/sshlocal'	# call script to connect SSH via local hostname
 alias tb='nc termbin.com 9999'	# Share a file on Termbin
 alias termsize='echo "Rows=$(tput lines) Cols=$(tput cols)"'	# show size of terminal
 alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share/doc/"	# Send todo list to main system
@@ -77,7 +77,7 @@ alias 644='chmod -R 644'	# rw-r--r--
 alias 664='chmod -R 664'	# rw-rw-r--
 alias 666='chmod -R 666'	# rw-rw-rw-
 alias 755='chmod -R 755'	# rwxr-xr-x
-alias 777='chmod -R 777'	# rwxrwxrwx
+alias 777='chmod -R 777'	# rwxrwxrwx (never use)
 
 # file aliases
 alias ..='cd ..'	# back 1 directory
