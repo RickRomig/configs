@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily ClamAV Scan
+
+[Service]
+Type=oneshot
+Nice=10
+ExecStart=/usr/bin/clamscan -r --exclude-dir=^/sys --exclude-dir=^/proc --exclude-dir=^/dev --move=/var/log/clamav/infected /home /var/www/html

@@ -1,0 +1,12 @@
+[Unit]
+Description=Schedule Daily ClamAV Scan
+
+[Timer]
+OnCalendar=daily
+AccuracySec=1h
+Persistent=true
+# Set the desired time (e.g., 03:00 local time)
+OnCalendar=*-*-* 03:00:00
+
+[Install]
+WantedBy=timers.target
