@@ -48,6 +48,7 @@ alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' '"	# d
 alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
 alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
 alias ps='ps auxf'
+alias pusdh='pushd'
 alias rbt='sudo systemctl reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
@@ -77,7 +78,7 @@ alias 644='chmod -R 644'	# rw-r--r--
 alias 664='chmod -R 664'	# rw-rw-r--
 alias 666='chmod -R 666'	# rw-rw-rw-
 alias 755='chmod -R 755'	# rwxr-xr-x
-alias 777='chmod -R 777'	# rwxrwxrwx (never use)
+alias 777='chmod -R 777'	# rwxrwxrwx
 
 # file aliases
 alias ..='cd ..'	# back 1 directory
@@ -139,9 +140,9 @@ restore-trash() { /usr/bin/trash-restore $1; }
 
 # Alias Functions
 
-# Check if a package exists
+# Check if a package exists in user's path
 exist() {
-  command -v "$1" > /dev/null 2>&1 && echo "$1 installed" || echo "$1 not installed"
+  command -v "$1" &>/dev/null && echo "$1 installed" || echo "$1 not installed"
 }
 
 inrepos() {
