@@ -32,7 +32,7 @@ super + alt + v
 	i3-msg split v; notify-send 'i3wm' 'vertical split'
 
 # Horizonal split
-super + alt + z
+super + alt + h
 	i3-msg split h; notify-send 'i3wm' 'horizonal split'
 
 # Toggle fullscreen
@@ -66,7 +66,7 @@ super + shift + e
 	~/.config/i3/scripts/dmconf.sh
 
 # Help with keybindings
-super + shift + h
+super + /
 	~/.config/i3/scripts/help
 
 ##### Applications #####
@@ -153,7 +153,7 @@ super + shift + d
 super + {1-9,0}
 	i3-msg workspace {1-9,10}
 
-# Move contaniner to workspace
+# Move container to workspace
 super + shift+{1-9,0}
 	i3-msg move container to workspace number {1-9,10}
 
