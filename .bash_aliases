@@ -1,6 +1,7 @@
 # aliases
 alias bp='bat -p'	# bat plain style without line numbers
 alias chkcmd="type -t"	# Check if a command is alias, builtin, or file
+alias check-clones='bat -p ~/.local/share/logs/repo-update.log'	# read update log for cloned repositories
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'	# check for updates with Nala
 alias cleancat="grep -Ev '^(#|$)'"	# display a file, ignoring commented and blank lines
 alias cleantmp='/usr/bin/find /tmp -type f \( ! -user root \) -atime +2 -delete 2>/dev/null'	# non-root temp files > 2 days
