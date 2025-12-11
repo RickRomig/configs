@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 ###############################################################################
-# Script Name  : logout
-# Description  : manage i3 logout script using rofi
+# Script Name  : power.sh
+# Description  : suspend, lock screen, logout, reboot, power off, kill user script using rofi
 # Dependencies : rofi, i3lock
 # Arguments    : none
 # Author       : Copyright © 2025, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 18 Nov 2021
-# Last updated : 122 Aug 2025
-# Version      : 2.1.25234
+# Last updated : 11 Dec 2025
+# Version      : 2.2.25345
 # Comments     :
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
