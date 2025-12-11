@@ -1,6 +1,6 @@
 # Reload SXHKD config
 super + Escape
-	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reload config'
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 # Kill current window
 super + q
 	i3-msg kill
@@ -11,28 +11,40 @@ super + shift + q
 
 # reload i3 config
 super + shift + c
-	i3-msg reload; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Config Reloaded'
+	i3-msg reload; notify-send -i ~/.icons/i3wm.png 'i3wm' 'i3 Config Reloaded'
 
 # Restart i3
 super + shift + r
-	i3-msg restart; notify-send -i ~/.icons/i3wm.png 'i3wm' 'Restarted i3'
+	i3-msg restart; notify-send -i ~/.icons/i3wm.png 'i3wm' 'i3 Restarted'
 
 # Resize window
 super + ctrl + {Left,Down,Up,Right}
 	i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
 
+# Layout Stacking
+super + s
+	i3-msg layout stacking
+
+# Layout Tabbed
+super + w
+	i3-msg layout tabbed
+
+# Layout Toggle Split
+super + t
+	i3-msg layout toggle split
+
 # Logout, lock screen, reboot, shutdown, suspend
 super + x
-	~/.config/i3/scripts/logout
+	~/.config/i3/scripts/power.sh
 
 ##### i3 Specific Keybindings #####
 
 # Vertical split
-super + alt + v
+super + v
 	i3-msg split v; notify-send 'i3wm' 'vertical split'
 
 # Horizonal split
-super + alt + h
+super + h
 	i3-msg split h; notify-send 'i3wm' 'horizonal split'
 
 # Toggle fullscreen
@@ -57,7 +69,7 @@ super + a
 super + d
 	dmenu_run
 
-# Rofi application menu
+# Application menu
 super + alt + d
 	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 
@@ -65,7 +77,7 @@ super + alt + d
 super + shift + e
 	~/.config/i3/scripts/dmconf.sh
 
-# Help with keybindings
+# Keybinding help
 super + slash
 	~/.config/i3/scripts/help
 
@@ -94,7 +106,7 @@ super + b
 	wmctrl -a Brave || brave-browser
 
 # Firefox browser
-super + w
+super + m
 	wmctrl -a "Mozilla Firefox" || firefox
 
 # Gnome calculator
@@ -106,11 +118,11 @@ super + k
 	keepassxc
 
 # Screenshot (Region Select)
-super + Print
+super + shift + p
 	flameshot gui --path ~/Screenshots/
 
 # Screenshot (Fullscreen)
-Print
+super + p
 	flameshot full --path ~/Screenshots/
 
 ##### Scratchpads #####
@@ -127,21 +139,13 @@ super + equal
 super + shift + equal
 	i3-msg floating disable
 
-# Kitty scratchpad
+# Kitty scratchpad (initialize)
 super + ctrl + Return
 	kitty --name dropdown
 
 # Toggle Kitty scratchpad
 super + shift + Return
 	i3-msg [instance="dropdown"] scratchpad show
-
-# Ranger scratchpad
-super + ctrl + f
-	kitty --class "UXTerm" -e "ranger"
-
-# Toggle Ranger scratchpad
-super + shift + f
-	i3-msg [class="UXTerm"] scratchpad show
 
 ##### Workspaces #####
 
@@ -173,25 +177,35 @@ super+shift+{Left,Down,Up,Right}
 
 ##### Monitor Brightness #####
 
+# Brightness Up (Media Key)
 XF86MonBrightnessUp
 	xbacklight +10
 
+# Brightness Down (Media Key)
 XF86MonBrightnessDown
 	xbacklight -10
 
 ##### Audio Keybindings #####
 
 # Increase volume
-super + Insert
+super + F12
 	~/.config/i3/scripts/changevolume up
 
 # Decrease volume
-super + Delete
+super + F11
 	~/.config/i3/scripts/changevolume down
 
 # Mute volume
-super + m
+super + F10
 	~/.config/i3/scripts/changevolume mute
+
+# Volume Up (Media Key)
+XF86AudioRaiseVolume
+	pamixer -i 2
+
+# Volume Down (Media Key)
+XF86AudioLowerVolume
+	pamixer -d 2
 
 # Player = pause
 ctrl + alt + p
