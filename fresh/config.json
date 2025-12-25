@@ -1,0 +1,10 @@
+{
+  "theme": "dark",
+  "editor": {
+    "tab_size": 2,
+    "line_wrap": true
+  },
+  "file_explorer": {
+    "show_hidden": true
+  }
+}
