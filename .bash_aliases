@@ -166,18 +166,29 @@ rm~() {
   find ./ -maxdepth 1 -type f -regex '\./.*~$' -print -exec rm {} \;
 }
 
-# cd to a directory and list contents
+# Show a directory listing when using 'cd'
 cdls() {
   local dir="${1:-$HOME}"
   if [[ -d "$dir" ]]; then
-    cd "$dir" >/dev/null; ls -CF --group-directories-first --color=auto
+    builtin cd "$dir" >/dev/null; /bin/ls -CF --group-directories-first --color=auto
   else
-    echo "bash: cdls: $dir: Directory not found"
+    printf "bash: cdls: $dir: Directory not found\n"
   fi
 }
 
+# Show a long directory listing when using 'cd'
+cdlh() {
+	local dir="$*"
+	[[ "$#" -eq 0 ]] && dir="${HOME}"
+	if [[ -d "$dir" ]]; then
+		builtin cd "${dir}" && /bin/ls -lhF --time-style=long-iso --group-directories-first --color=auto --ignore=lost+found
+	else
+    printf "bash: cdls: $dir: Directory not found\n"
+	fi
+}
+
 # Goes up a specified number of directories  (i.e. up 4)
-up() {
+cdup() {
 	local d=""
 	limit=$1
 	for ((i = 1; i <= limit; i++)); do
