@@ -170,7 +170,7 @@ rm~() {
 cdls() {
   local dir="${1:-$HOME}"
   if [[ -d "$dir" ]]; then
-    builtin cd "$dir" >/dev/null; /bin/ls -CF --group-directories-first --color=auto
+    builtin cd "$dir" >/dev/null; /bin/ls -ACF --group-directories-first --color=auto
   else
     printf "bash: cdls: $dir: Directory not found\n"
   fi
@@ -181,7 +181,7 @@ cdlh() {
 	local dir="$*"
 	[[ "$#" -eq 0 ]] && dir="${HOME}"
 	if [[ -d "$dir" ]]; then
-		builtin cd "${dir}" && /bin/ls -lhF --time-style=long-iso --group-directories-first --color=auto --ignore=lost+found
+		builtin cd "${dir}" && /bin/ls -lhAF --time-style=long-iso --group-directories-first --color=auto --ignore=lost+found
 	else
     printf "bash: cdls: $dir: Directory not found\n"
 	fi
