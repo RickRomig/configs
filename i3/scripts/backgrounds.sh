@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 ##########################################################################
 # Script Name  : backgrounds.sh
-# Description  : Sscipt to set wallpaper directory
+# Description  : Set wallpaper directory
 # Dependencies : feh
 # Arguments    : None
 # Author       : Copyright © 2024 Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.net
 # Created      : 13 Nov 2024
-# Last updated : 08 Sep 2025
-# Version      : 2.7.25251
+# Last updated : 13 Jan 2026
+# Version      : 3.0.26013
 # Comments     : Called at the end of autostart.sh
 # License      : GNU General Public License, version 2.0
 ##########################################################################
@@ -22,51 +22,83 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 
-set_nsfw() {
-	local nsfw_dir="$1"
-	notify-send -t 3500 "Backgrounds" "NSFW"
+notify_nsfw() {
+	# set flag files in /tmp
+	[[ -f /tmp/new-bg ]] && rm /tmp/new-bg
 	[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
 	[[ -f /tmp/nsfw-bg ]] || touch /tmp/nsfw-bg
-	while true;	do feh --bg-fill --no-fehbg --randomize "$nsfw_dir"/*; sleep 300; done &
+	notify-send -t 3500 "Backgrounds" "Not Safe For Work"
 }
 
-set_sfw() {
-	local sfw_dir="$1"
-	notify-send -t 3500 "Backgrounds" "SFW"
+notify_sfw() {
+	# set flag files in /tmp
+	[[ -f /tmp/new-bg ]] && rm /tmp/new-bg
 	[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
 	[[ -f /tmp/sfw-bg ]] || touch /tmp/sfw-bg
-	while true;	do feh --bg-fill --no-fehbg --randomize "$sfw_dir"/*;	sleep 300; done &
+	notify-send -t 3500 "Backgrounds" "Safe For Work"
+}
+
+notify_new() {
+	# set flag files in /tmp
+	[[ -f /tmp/sfw-bg ]] && rm /tmp/sfw-bg
+	[[ -f /tmp/nsfw-bg ]] && rm /tmp/nsfw-bg
+	[[ -f /tmp/new-bg ]] || touch /tmp/new-bg
+	notify-send -t 3500 "Backgrounds" "New Install"
 }
 
 ethernet_status() {
-	[[ "$(nmcli dev | awk '/ethernet/ {print $3}')" == "connected" ]] && return 0 || return 1
+	[[ $(awk '/ethernet/ {print $3}' <(nmcli dev)) == 'connected' ]] && return 0 || return 1
 }
 
 select_background() {
 	local local_host="${HOSTNAME:-$(hostname)}"
-	local nsfw_dir="$HOME/Pictures/wallpaper"
-	local sfw_dir="$HOME/Pictures/backgrounds"
+	local bg_dir
+	local bg_dirs=("$HOME/Pictures/wallpaper" "$HOME/Pictures/backgrounds" "$HOME/.config/backgrounds")
 	case "$local_host" in
 		hp-850-g3 )
 			if ethernet_status; then
-				set_nsfw "$nsfw_dir"
+				if [[ -d "${bg_dirs[0]}" ]]; then
+					bg_dir=${bg_dirs[0]}
+					notify_nsfw
+				elif [[ -d "${bg_dirs[1]}" ]]; then
+					bg_dir=${bg_dirs[1]}
+					notify_sfw
+				else
+					bg_dir=${bg_dirs[2]}
+					notify_new
+				fi
 			else
-				[[ -d "$HOME/Pictures/backgrounds" ]] || sfw_dir="$HOME/.config/backgrounds"
-				set_sfw "$sfw_dir"
+				if [[ -d "${bg_dirs[1]}" ]]; then
+					bg_dir=${bg_dirs[1]}
+					notify_sfw
+				else
+					bg_dir=${bg_dirs[2]}
+					notify_new
+				fi
 			fi
 		;;
-		hp-8300 | hp-8300-usdt | probook-6570b )
-			[[ -d "$HOME/Pictures/backgrounds" ]] || sfw_dir="$HOME/.config/backgrounds"
-			set_sfw "$sfw_dir"
+		hp-8300 | hp-8300-usdt | probook-6570b | hp-800-g1-dm | hp-800-g1-usdt | hp-6005 )
+			if [[ -f "${bg_dirs[1]}" ]]; then
+				bg_dir=${bg_dirs[1]}
+				notify_sfw
+			else
+				bg_dir=${bg_dirs[2]}
+				notify_new
+			fi
 			;;
 		* )
-			if [[ -d "$nsfw_dir" ]]; then
-				set_nsfw "$nsfw_dir"
+			if [[ -d "${bg_dirs[0]}" ]]; then
+				bg_dir=${bg_dirs[0]}
+				notify_nsfw
+			elif [[ -d "${bg_dirs[1]}" ]]; then
+				bg_dir=${bg_dirs[1]}
+				notify_sfw
 			else
-			[[ -d "$HOME/Pictures/backgrounds" ]] || sfw_dir="$HOME/.config/backgrounds"
-				set_sfw "$sfw_dir"
+				bg_dir=${bg_dirs[2]}
+				notify_new
 			fi
 	esac
+	while true;	do feh --bg-fill --no-fehbg --randomize "$bg_dir"/*;	sleep 300; done &
 }
 
 main() {
