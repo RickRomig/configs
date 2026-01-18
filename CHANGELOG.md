@@ -1,3 +1,5 @@
+-Tux backgrounds
+-CHANGELOG.md: initial commit - Changelog from git log
 -renamed image files
 -dsh/machines.list: added 192.168.0.19
 -.bash_aliases: cdls() & cdlh() - added -A flag to ls command to show hidden files
