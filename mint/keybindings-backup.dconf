@@ -1,15 +1,10 @@
 [/]
-custom-list=['custom0', 'custom10', 'custom7', 'custom5', 'custom4', 'custom3', 'custom1', '__dummy__', 'custom2', 'custom6', 'custom8', 'custom9', 'custom11']
+custom-list=['custom0', 'custom10', 'custom7', 'custom5', 'custom3', 'custom2', 'custom6', 'custom8', 'custom11', '__dummy__']
 
 [custom-keybindings/custom0]
-binding=['<Shift><Super>Return']
+binding=['<Super>Return']
 command='/usr/bin/kitty'
 name='Kitty'
-
-[custom-keybindings/custom1]
-binding=['<Super>Return']
-command='/usr/bin/terminator'
-name='Terminator'
 
 [custom-keybindings/custom10]
 binding=['<Shift><Super>v']
@@ -31,11 +26,6 @@ binding=['<Shift><Super>k']
 command='/usr/bin/keepassxc'
 name='KeePassXC'
 
-[custom-keybindings/custom4]
-binding=['<Shift><Super>p']
-command='/usr/bin/password-gorilla'
-name='Password Gorilla'
-
 [custom-keybindings/custom5]
 binding=['<Shift><Super>f']
 command='/usr/bin/firefox'
@@ -55,11 +45,6 @@ name='Marktext'
 binding=['<Shift><Super>x']
 command='/usr/bin/xed'
 name='Xed'
-
-[custom-keybindings/custom9]
-binding=['<Shift><Super>g']
-command='/usr/bin/geany'
-name='Geany'
 
 [wm]
 move-to-workspace-1=['<Primary><Shift><Alt>KP_End']
