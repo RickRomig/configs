@@ -1,0 +1,532 @@
+-removed backgrounds
+-removed backgrounds
+-mint/keybindings-backup.dconf: updated keybindings
+-added backgrounds
+-CHANGELOG.md: added Tux backgrounds
+-Tux backgrounds
+-CHANGELOG.md: initial commit - Changelog from git log
+-renamed image files
+-dsh/machines.list: added 192.168.0.19
+-.bash_aliases: cdls() & cdlh() - added -A flag to ls command to show hidden files
+-i3/scripts/backgrounds.sh: refactored background directory selection and notification processes
+-.bash_aliases: added cdlh() to show long direcrory list when using 'cd'
+-PICT0029.jpg: removed
+-local/leave.txt: changed a phrase
+-local/leave.txt: added 2 more phrases
+-local/leave.txt: added quotes
+-removed 4 backgrounds
+-removed PICT0070.jpg
+-new backgrounds
+-new background images
+-local/leave.txt: added quote from Hot Shots
+-.bash_aliases: added 'push' for pushd
+-sudoers/10-timeout: renamed
+-moved Symbols Only Nerd Fonts to nerdfonts/
+-fastfetch/config.jsonc: changed logo type from kitty-direct to kitty
+-99-sleep.conf: renamed
+-fresh/config.json: initial commit - configuration file for fresh-editor
+-polybar/update-status.sh: used awk instead of grep and cut
+-update-status.sh: removed 'LANG=C' was preventing updates from being counted.
+-update-status.sh: removed UPD from echo (not needed)
+-config.ini: [module/updates] - added format-prefix and format-prefix-foreground to add color to UPD
+-update-status.sh: updated
+-config.ini: fixed exec line in updates module
+-update-status.sh: changed 'update' to 'UPD'
+-config.ini: added updates module to check for apt updates hourly
+-update-status.sh: initial commit; checks hourly for apt updates
+-local/leave.txt: changed a phrase.
+-i3/rules.conf: udpated rules for Google Chrome
+-i3/sxhkdrc: changed some keybindings
+-i3/scripts/power.sh: renamed from logout to power.sh (changed in sxhkdrc)
+-.bash_aliases: added alias to view repo update log
+-i3/sxhkdrc: changed keybind help to Super+slash
+-i3/sxhkdrc: changed keybind help to Super+h; horizontal split to Super+h
+-local/leave.txt: a few new phrases
+-dsh/groups/i3wm: removed 192.168.0.14 from i3wm group
+-local/leave.txt: added a new phrase
+-added pictures to backgrounds
+-.bash_aliases: added pusdh -> pushd
+-local/leave.txt: new phrases
+-local/leave.txt: quotes by computer guys
+-local/leave.txt: added new phrase
+-local/leave.txt: added new phrases
+-local/leave.txt: added a new phrase
+-local/leave.txt: added new phrases
+-local/leave.txt: added phrases
+-VSCodium/User/settings.json: added 'window.zoomLevel' with value of 1.2
+-systemd/system/: service/timer files for clamscan service
+-backgrounds/breakers.jpg: new image
+-local/leave.txt: added a phrase
+-sleep.conf: removed comments; sudo cp to '/etc/systemd/sleep.conf.d/'
+-.bash_aliases: changed rbt & sdn aliases to use systemctl
+-files for Nerd Font Symbols
+-local/leave.txt: added another message
+-.bash_aliases: changed sc & shellcheck aliases, removed -x flag because shellcheckrc
+-shellcheckrc: initial commit
+-local/leave.txt: added a new message
+-local/leave.txt: added a new mesage
+-geany/geany.conf: changed some settings
+-geany/keybindings.conf: initial commit - keybindings for geany editor
+-geany/geany.conf: initial commit - configuration file for geany editor
+-.bash_aliases: added 'cleantmp' to clean non-root temp files older than 2 days
+-X11/10-force-kvm.conf: cleand up Modeline line
+-fastfetch/config.jsonc.ascii: changed logo width & height
+-fastfetch/config.jsonc: Changed logo padding
+-.bash_aliases: added suod = sudo
+-90-swappiness.conf: initial commit; sets swappiness
+-i3/sxhkdrc: changed keybinding for Rofi app menu from Super+shift+space to Super+alt+d
+-local/leave.txt: added message
+-.bash_aliases: added bp - bat -p
+-polybar/polybar-i3: updated comments; changes env from sh to bash
+-fastfetch/config.jsonc.ascii: corrected line 6, added comma at the end
+-backgrounds/OV-10_03.jpg: new image
+-local/leave.txt:
+-local/leave.txt: addded a new phrase
+-i3/scripts/backgrounds.sh: corrected date of update; changed sfw_dir assignment
+-Revert "i3/scripts/backgrounds.sh: corrected date of update"
+-i3/scripts/backgrounds.sh: corrected date of update
+-backgrounds/CS-III_Norway.jpg: new background image
+-i3/scripts/backgrounds.sh: check for ~/Pictures/backgrounds first
+-i3/scripts/backgrounds.sh: set 'sfw_dir' to ~/Pictures/backgrounds if it exists
+-new/updated backgrounds
+-backgrounds/Riverside_High-School.jpg: resized image to 1920x1080 pixels
+-local/leave.txt: added new phrases
+-.bash_aliases: updated cheat() alias with 'bat -p'
+-apt/nosnap.pref: initial commit; disables snapd & snap package installation
+-apt/noflatpak.pref: initial commit; disables flatpak installation
+-local/leave.txt: added messages & sorted
+-local/leave.txt: added new message
+-local/leave.txt: added new message
+-.bash_aliases: added new git aliases
+-keyhelper.sh: removed keybinds.txt & keyhelper.sh, obsolete
+-scripts/help: initial commit - display keybindings in rofi window
+-sxhkdrc: Updated and formatted for i3 help script
+-scripts/logout: added GPL license info
+-scripts/dmconf.sh: added GPL license info
+-scripts/changevolume: added header comments and GPL license info
+-scripts/current_wx.sh: added header comments and GPL license info
+-scripts/check_updates.sh: added header comments and GPL license info
+-scripts/backgrounds.sh: added GPL license info
+-scripts/autostart.sh: added GPL notice
+-local/leave.txt: added a new message
+-local/leave.txt: removed stupid message
+-sxhkdrc: updated and cleaned up
+-i3/config: updated location of autostart.sh & commented old location
+-i3/workspaces.conf: dual monitors - even ws on left, odd on right; updated workspace assignments
+-i3/config: updated location of autostart.sh
+-i3/scripts/changevolume: initial commit - change volume or mute
+-i3/scripts/autostart.sh: moved to i3/scripts; updated
+-i3/scripts/dmconf.sh: initial commit - moved from i3wm-debian and updated
+-i3/scripts/check_updates.sh: initial commit - check for system updates, used with notify-send
+-i3/i3-notes.md: initial commit - class/instance chart & resize chart
+-i3/rules.conf: floating enabled for browsers; set resize settings; added Mousepad
+-local/leave.txt: added another message
+-.bash_aliases: added aliases for Debian GPP keys and verify checksums
+-.bashrc: enabled shopt -s globstar
+-.bash_aliases: added glogn alias to show last N commits
+-local/leave.txt: added a new message
+-local/leave.txt: added a new message
+-.bash_aliases: added alias for time in the Philippines
+-local/leave.txt: added new message
+-local/leave.txt: corrected spelling in a message
+-local/leave.txt: added new messages
+-local/leave.txt: added new content.
+-backgrounds/the_trestle_1972_00.jpg:
+-local/leave.txt: added new messages.
+-micro/bindings.json: added bindings for bookmark plugin.
+-micro/settings.json: added scrollbar true
+-.bash_aliases: added 'fcd' alias to emulate FZF Alt-C behavior.
+-.wgetrc: user-agent for wget command.
+-.curlrc: user-agent for curl command.
+-local/leave.txt: added a new message.
+-local/leave.txt: added a new message.
+-.bashrc: set up and implemented variables for PS1 prompt.
+-backgrounds/Malisha_3gn-002.jpg: added to SFW backgrounds.
+-terminator/config: changed login_shell from False to True (login shell by default)
+-added HomeBank preferences
+-glow/: configuration file for glow
+-README.md: corrected spelling
+-i3/sxhkdrc: changed rofi keybinding to 'super + shift + d'
+-local/leave.txt: changed 867-5308/Jenny
+-.bash_aliases: added '--short' flag to git status in commit functions.
+-logout: added header comments
+-keyhelper.sh: added header comments
+-bar.conf: added 'for reference only' comment
+-backgrounds.sh: added header comments
+-autostart.sh: added header comments
+-README.md: updated information
+-deleted slick-greetr.conf; moved Mint-specific files to mint folder.
+-i3/backgrounds.sh: moved nsfw_dir & sfw_dir declarations to select_background(); ethernet_status(): took out eth variable
+-i3/autostart.sh: added '-f' flag to pgrep udiskie
+-i3/autostart.sh: added check for udiskie pid; removed flag from udiskie
+-.bash_aliases: added new git aliases
+-i3/autostart.sh: added '-s' flag to udiskie (smart tray option)
+-dunst/dunstrc: changed max_icon_size to 32
+-made picom.sample.conf the default
+-renamed basic picom.conf
+-picom/picom.sample.conf: picom's default config if others don't work.
+-picom/picom.conf: borrowed from BreadOnPenguins
+-picom.conf: basic picom config
+-picom: added picom.conf
+-.bash_aliases: changed cp alias to copy & mv alias to move
+-local/leave.txt: added two messages.
+-neofetch/neo-atheist.txt: added
+-kitty/kitty.conf: added not for 800-g3 window padding
+-kitty/kitty.conf: background_opacity 0.9 to 0.7
+-.bashrc: changed MOTD line.
+-X11/10-force-kvm.conf: forces detection of monitor connected to a KVM device.
+-removed usb-drive-fill-svg
+-local/leave.txt: updated
+-i3/sxhkdrc: added icon to i3 reloaded/restarted notification.
+-dunst/dunstrc: changed padding between icon and text.
+-icons/i3wm.png: added
+-dunst/dunstrc: changed max_icon_size to 64; added ~/.icons to icon_path
+-icons/: added icons for notify-send
+-i3/keybinds.txt: updated
+-local/leave.txt: added new messages.
+-i3/workspaces.conf: removed extra blank lines.
+-i3/rules.conf: removed extra blank lines.
+-i3/sxhkdrc: Commented out currently non-applicable keybindings
+-i3/sxhkdrc: removed 'move position center' from  keybinding for kitty and ranger dropdowns.
+-i3/rules.conf: added 'move absolute position conter' to kitty and ranger dropdown windows.
+-local/leave.txt: added messages.
+-.bash_aliases: removed neofetch alias
+-.bashrc: removed Neofetch
+-.bash_aliases: updated exist() redirection to redirect STD_ERR to /dev/null
+-renamed sudoers/rick to sudoers/10timeout
+-i3/backgrounds.sh: moved background selection process from main() to select_background()
+-local/leave.txt: updated
+-i3/backgrounds.sh: select_background(): deleted locl variables & references to wifi connection.
+-i3/backgrounds.sh: added ethernet_status() to check for wired connection on hp-850-g3 & changed select_background to call it.
+-local/leave.txt: updated
+-renamed group to groups
+-.bashrc: changed PS1 prompt, moved space after hostname to ssh_msg string.
+-.bashrc: put a space after the hostname is PS1 prompt.
+-.bashrc: standardized tabs; added 'ssh session' to PS1 prompt.
+-.bash_aliases: corrected free alias; added myip alias to show local and public IPs.
+-sudoers: initial commit; password feedback and sudo time out files.
+-kitty/kitty.conf: added symbol map for non-patched Nerd Fonts.
+-changed names of logo images.
+-local/leave.txt: used by leave function.
+-flameshot/: directory for flameshot config
+-i3/autostart.sh: changed sxhkd to start in i3 directory (not i3/sxhkd)
+-Revert "i3/autostart.sh: changed sxhkd to start in i3 directory (not i3/sxhkd)"
+-i3/autostart.sh: changed sxhkd to start in i3 directory (not i3/sxhkd)
+-removed git directory:
+-removed git/credentials:
+-.gitignore: initial commit
+-Revert ".bash_logout: test change to history."
+-.bash_logout: test change to history.
+-.bash_aliases: added setclip & getclip to copy to and paste from clipboard using xclip.
+-.bash_aliases: commented out batdiff() function, unknown syntax error.
+-.bash_aliases: added batdiff(), wrapper for git diff
+-bat/config: changed theme from OneHalfDark to Coldark-Dark.
+-backgrounds/Spaceballs-00.jpg: added background
+-backgrounds/Spaceballs-02.jpg: added to SFW backgrounds.
+-backgrounds/Spaceballs-01.jpg: added to SFW backgrounds.
+-.bash_aliases: added cheat function.
+-.bash_aliases: replaced ' - ' with ': ' in gcommit() & ncommit()
+-backgrounds/PeriodicTableChartBBG.png - removed, too busy a background.
+-.bash_aliases - added 'sshi' & 'sshl' to call 'sshin' & 'sshlocal' scripts.
+-.bash_aliases - changed kernels alias to list kernels by status and name only.
+-.bash_aliases - added 'kernels' to list installed linux kernels.
+-git/config - replaced beginning spaces with tabs.
+-git/ - initial commit - git config & credentials
+-backgrounds/PeriodicTableChartBBG.png - added to backgrounds.
+-.bash_aliases - added aliases to list contents of tar and zip archives.
+-.bash_aliases - added alias for kitten icat.
+-deleted images
+-.bashrc - expanded conditional statements for setting bat as manpager. Added MANROFFOPT
+-.bash_aliases - added field(), renamed checkcommand to chkcmd
+-kitty/kitty.conf - changed window_padding_width to 20
+-.bashrc - replaced Twitter name with tech blog url.
+-.bash_aliases - added 'batdiff'
+-bat/config - added '--tabs 2' to set tab width to 2 spaces.
+-kitty/kitty.conf - changed default font to 'FiraCode Nerd Font Mono'
+-VSCodium/User/settings.json - changed default font to 'Fira Code Nerd Font
+-OV-10 background images.
+-backgrounds/Harpersfield_Bridge_Winter-3.jpg - new image
+-i3/backgrounds.sh - corrected sfw_dir path in set_sfw()
+-i3/backgrounds.sh - created local variables for background directories.
+-new background images.
+-i3/backgrounds.sh - select_background() - added variable for wifi interface; main() - added hp-8300-usdt to case for set_sfw()
+-i3/autostart.sh - removed start_feh() and used function code directly.
+-README.md - added sleep.conf
+-sleep.conf - initial commit; systemd file to disable sleep/suspend/hibernate (needed for Redshift to work right.
+-i3/autostart.sh - changed pidof to pgrep; changed method of launching redshift.
+-dunst/dunstrc - transferred configuration to current default configuration file.
+-i3/autostart.sh - added 'xset -dpms' (used for i3 systems on KVM)
+-i3/backgrounds.sh - renamed functions; on hp-850-g3, call function to set type of background.
+-i3/autostart.sh - changed start_feh() to use pgrep -f instead of ps -aux to determine if backgrounds.sh is running.
+-i3/sxhkdrc - changed mod4+t to run current_wx.sh, weather notification.
+-local/bin/current_wx.sh - initial commit. Basic weather notification script.
+-README.md - added alternate config and logo to Fastfetch.
+-README.md - added redshift.conf, & slick-greeter.conf
+-redshift.conf - set day & night color temps to defaults (6500 & 4500)
+-backgrounds.sh - added tmp files to indicate SFW/NSFW backgrounds and change when needed.
+-kitty/kitty.conf - added 'disable_ligatures never' to configuration. Adjust font size for laptop screens.
+-i3/autostart.sh - removed --animations from picom command. Remember to change polybar launcher and sxhkdrc for old setups.
+-kitty/kitty.conf - changed font_family to FiraCode and font_size to 16.0
+-VSCodium/User/settings.json - changed default fonts to Fira Code, Iosevka Nerd Font
+-systemd/ - imwheel.service unit
+-i3/backgrounds.sh - made while loops single lines;corrected laptop hostname; added sleep 200 to loops.
+-i3/backgrounds.sh - changed home_or_away() to check if wired connection is up to determine background folder. Added notification to show background source, case based on hostname to determine which function to use.
+-i3/autostart.sh - rearranged order of applications with feh last.
+-Revert "polybar/config.ini - test"
+-polybar/config.ini - test
+-polybar/config.ini - added Roboto Mono & Isevka Nerd Fonts for icon support; added better icons to battery module.
+-kitty/kitty.conf - added 'hide_window_decorations yes' to hide title bar.
+-moved sxhkdrc to i3 for compatibility with new Debian i3 installations.
+-i3/polybar-i3 - added polybar-i3 launch script for new Debian i3 installations.
+-i3/keybinds.txt - changed permissions to 665, no need to be executable.
+-i3/backgrounds - neutral backgrounds for i3 installations.
+-i3/autostart.sh - added start_feh() to launch backgrounds.sh for backgrounds.
+-i3/autostart.sh - run_feh() - made wifi-ssid a local variable.
+-i3/autostart.sh - added feh command for standard use.
+-i3/autostart.sh - added run_feh() - chooses background source directory based on SSID; check if feh is running before calling run_feh().
+-i3/keyhelper.sh - put while loop inside brackets & piped to less.
+-i3/rules.conf - added floating window rules for Gnome-calculator, KeePassXC.
+-i3/sxhkd/sxhkdrc - updated keybindngs.
+-i3/sxhkd/sxhkdrc - updated keybindngs.
+-i3/rules.conf - added floating window rules for Gnome-calculator, KeePassXC.
+-i3/keybinds.txt - udpated to match sxhkdrc bindings.
+-i3/autostart.sh - added code for HP 850 G3 laptop to choose wallpaper directory based on SSID.
+-gtk-3.0/ - gtk-3.0 settings for debian-i3 installation.
+-i3/rules.conf - i3 windows rules.
+-i3/keyhelper.sh - fixed shellcheck warnings in reading keybindings.txt
+-i3/keybinds.txt - keybindings help file read by keyhelper.sh
+-i3/sxhkd/sxhkdrc - modified with keybindings from debian-i3 installation's sxhkdrc.
+-i3/workspaces.conf - modified for debian-i3 install.
+-i3/config - modified for debian-i3 install.
+-i3/autostart.sh - cleaned up and added command from debian-i3
+-backgrounds/ - backgrounds for i3 installation
+-slick-greeter.conf - for lightDM installation and configuration.
+-VSCodium/User/settings.json -  added window.titleBarStyle: custom to config to prevent codim from crashing when File menu is right-clicked.
+-i3/autostart.sh - prepended redshift command with the start() function.
+-.bashrc - updated Neofetch/Fastfetch entry, replaced else with elif.
+-.bashrc - updated Neofetch/Fastfetch entry - added mosfanet.txt as default if neither exists.
+-X11/lenovo/ - Acer 24-in monitor configuration for Lenove M91p.
+-X11/hp-probook-6570/10-monitor.conf - added modeline to VGA-1 (Acer 24-in).
+-.bashrc - added source fzf key-bindings if fzf installed; added if-elif to launch Fastfetch/NeoFetch.
+-redshift.conf - moved back to .config/
+-redshift.conf - moved to redshift/redshift.conf
+-i3/autostart.sh - added redshift; set numlockx to off & no longer parameter for start().
+-redshift.conf - intiial commit. Configuration file for Redshift on Linux Mint and i3 systems.
+-dunst/dunstrc - changed text_icon_padding to 5 (was 1)
+-dunst/dunstrc - new configuration using modified default dunstrc.
+-i3/dmconf.sh - deleted because it is .local/bin in i3debian repo
+-i3/sxhkd/sxhkdrc - changed location of dmconf.sh
+-.bash_aliases - added full day of the week to jdate alias.
+-.bash_aliases - added '--border=rounded' to micro-file() to give fzf output rounded borders.
+-.bash_aliases - added --bind option to page up/down in fzf preview.
+-.bash_aliases - commented 'gpush' lines in git commit functiions.
+-dunst/dunstrc - changed font size from 10 to 12
+-.bash_aliases - added check if file selected. Ctrl+c does not launch micro.
+-.bash_aliases - added micro-file(), uses fzf to select a file to be edited by micro text editor.
+-.bash_aliases - removed mc alias for micro text editor.
+-i3/logout - renamed image file for i3lock to match file in backgrounds directory.
+-i3/autostart.sh - added start() to prevent systray apps from being duplicated in the systray. Function calls volumeicon and numlockx
+-.bash_aliases - added inrepos() to check if a package is available in repositories and apt cache.
+-.bash_aliases - added 'fu' alias to update FastFetch.
+-i3/bindings.list - removed 'super + {v,b} as split toggle.
+-i3/bindings.list - updated i3 keybindings.
+-i3/sxhkd/sxhkdrc - added keybinding to launch Qalculate-GTK
+-.bashrc - corrected color escapt sequences for MOTD.
+-Revert ".bashrc - corrected color escapt sequences for MOTD."
+-.bashrc - corrected color escapt sequences for MOTD.
+-.bashrc - added color (lightyellow) to Message of the Day.
+-.bash_aliases - added rm-trash alias for /usr/bin/trash-rm
+-.bash_aliases - changed trash aliases to use trash-cli commands instead of gio trash.
+-.bash_aliases - added ssh-cmd() to send command to a ~remote server
+-i3/sxhkd/sxhkdrc - removed keybindings for gnome-calculator scratchpad.
+-i3/config - removed references to gnome-calculator scratchpad and gedit window.
+-i3/logout - replaces backtics for option with ; replaced single quotes in kill user case with double quotes. Changes based on Shellcheck suggestions.
+-.bash_aliases - changed list-trash alias to use 'gio list -h' if 'gio trash --list' fails.
+-.bash_aliases - corrected spacing error in bash function cdls()
+-.bash_aliases - changed list-trash alias back to 'gio trash --list, not compatible with Bullseye.
+-.bash_aliases - added alias for 'git diff'
+-.bash_aliases - renamed/updaed mc, mcalias,mcbash (bconf) aliases.
+-i3/autostart.sh - added xfce4-power-manager
+-.bash_aliases - removed bat alias
+-.bash_aliases - commented out bat alias since I have a symbolic link to handle it.
+-dsh/group/laptops - removed off-line computers.
+-dsh/group/desktops - removed off-line computers.
+-dsh/machines.list - removed off-line computers.
+-.bash_aliases - added fastfetch alias; added clear to neofetch alias.
+-fastfetch/config.jsonc.ascii - cleaned up json formatting.
+-fastfetch/config.jsonc - cleaned up json formatting.
+-fastfetch/config.jsonc.ascii - Fastfetch configuration file for ASCII art image.
+-.bashrc - added 'Message of the day' after Neofetch/Fastfetch.
+-fastfetch/atheism.png - added PNG image
+-fastfetch/config.jsonc - modified to user PNG image instead of ASCII art image
+-README.md - updated - moved note in Xi1 entry.
+-README.md - updated - corrected spelling, specified paths.
+-README.md - added 'refresh_nemo_actions'
+-refresh_nemo_actions - initial commit - adds refresh to Nemo context menu.
+-.bash_aliases - added bat alias (only works with bat 0.20.0 and newer)
+-.bash_aliases - corrected tsl() function to redirect all output from dpkg -l to /dev/null.
+-.bash_aliases - changed tsl alias to a function that displays a message if timeshift is not present.
+-X11/8300-usdt-gitea/ - initial commit; dipslay settings for HP-8300-USDT (Gitea server)
+-dsh/group/i3wm - added 192.168.0.24 to address list.
+-.bash_aliases - added 'git push' to git commit aliases.
+-polybar/config - removed, same as config.ini
+-fastfetch/config.jsonc - changed display line; added wifi line.
+-.bash_aliases - changed jdate to show current date along with Julian
+-X11/hp-850-g3/ - backlight control for hp-850-g3
+-X11/probook-6570/20-intel-backlight.conf - backlight control
+-.bash_aliases - shortedn gstat to gs
+-dsh/group/i3wm - added 192.168.0.23 to address list.
+-i3/config - added comments, changed floating window sizes to match percent of screen resolution
+-i3/config - added window rules for Brave-browser on 850 G3, makint it a floating window taking up 90% of the screen.
+-i3/autostart.sh - changed feh --bg-max back to --bg-fill
+-.bashrc - added call to fastfetch if it's installed.
+-local/bin/autoxrandr.sh - moved from i3debian repository
+-polybar/polybar-i3 - moved from i3debian repositiory
+-i3/dmconf.sh - moved from i3debian repository to i3 config directory
+-i3/sxhkd/sxhkdrc - updated keybindings for dmconf
+-i3/autostart.sh - changed path to polybar-i3, changed feh option
+-README.md - added launch scripts for polybar and dmconf
+-.bash_aliases - added alias glog1 to display 1 line commits
+-autostart/conky.desktop - change delay from 15 sec to 10 sec
+-Initial commit - directorys and files for conky configuration.
+-.bash_aliases - added comments for aliases, added up() to move up N directories.
+-.bash_aliases - added new aliases from Chris Titus .bashrc
+-X11/ - initial commit, display configuration files
+-README.md - updated
+-polybar/ - copied from 20240505 backup of i3debian repository
+-README.md - added dunst, .imwheel, and resize settings for gedit window
+-i3/config - changed default resise of gedit window to 1440 800 for 1920x1080 displays.
+-i3/autostart.sh - changed sleep for feh to 600 seconds (10 minutes)
+-i3/config - added enable floating mode for Gedit
+-dunst/ - initial commit - dunstrc for notifications in i3wm.
+-.imwheelrc - initial commit
+-Initial commit - Fastfetch configuration and custom logo files.
+-.profile - added XDG_DATA_DIRS
+-.profile - updated, removed extra /usr/games from path
+-.bashrc - updated
+-.profile - updated and removed aaplication-specific environmental variables.
+-README.md - Rewrite with listing of all configuration files.
+-.profile - corrected XDG_DATA_DIRS, fixed lowercase s
+-Bumblebee-status themes removed.
+-.bash_aliases - added wrapper to used bat with command --help.
+-.inputrc - removed extra blank line.
+-.inputrc - re-added keybinding to prepend  to a command using Alt+S.
+-.inputrc - removed Bash keybinding to prepend sudo.
+-.bashrc - added  ti disable XON/XOFF flow control (Ctrl+s & Ctrl+q).
+-.bash_aliases - added ncommit & ncommitall aliases to make a git commit without pre-commit hook.
+-.bash_aliases - removed --exclude flag from sc and shellcheck aliases.
+-.bash_aliases - added source ~/.bashrc to bconf alias.
+-.bash_aliases - changed list-trash alias to be compatible with Debian 11 based systems.
+-i3/autostart.sh - removed incorrect feh command for random wallpapers.
+-micro/settings.json - added and enabled diffgutter and rmtrailingws
+-.bash_aliases - added dsh-all alias to execute a command on all systems via ssh.
+-i3/bindings.list - updated keybindings, added bindings for vertical/horizontal split.
+-i3/sxhkd/sxhkdrc - updated keybindings.
+-VSCodium/User/settings.json - Updated to add trim trailing whitespace.
+-.bash_aliases - Added dsh commands to run command on  all machines or by group.
+-.bash_aliases - Added aliases to manage trash folder using gio trash.
+-README.md - Added notes for .inputrc
+-.inputrc - Initial commit. Copied from Jake Pederson, Jake@Linux. Bash keybindings and shortcuts.
+-i3/sxhkd/sxhkdrc - Removed tab from Thunar keybinding.
+-i3/workspaces.conf - Corrected workspace variables and assignments for second monitor (commented by default).
+-i3/sxhkd/sxhkdrc - Added binding for dmconf.sh
+-.bash_aliases - Added aliases for git restore and git restore --staged
+-.bash_aliases - Added new alias to print random line from leave.txt.
+-.bash_aliases - Added gpush = git push
+-.bashrc - Removed commented lines for sourcing functionlib. Wasn't going to work.
+-.bash_aliases - Updated gcommit
+-.bash_aliases - Added prefixing 1st argument (filename) to commit comment. Renamed gcommita to gcommitall.
+-Added
+-Initial commit. Configuation files for DSH.
+-Added dcp function to copy text files using dsh and tee.
+-Added bindings for VSplit and HSplit.
+-Updated 28 Dec 2023
+-Added window settings for hp-850-g3 to set initial window height and width.
+-Added a window rule to enable floating for kitty on the hp-850-g3.
+-Removed blank line after custom prompt.
+-Moved parse_git_branch() to earlier in file. Moved custom PS1 prompt to after commented default user prompt.
+-Added feh commands to randomly select wallpaper at predetermined intervals.
+-Added notify send to reload sxhkd, i3 reload, and i3 restart. wmctrl with thunar.
+-Changed opacity from 0.8 to 0.9
+-removed old aliases for git commands.
+-Initial commit - Mark Text configuration file.
+-.bash_logout - Commented out line to clean up .bash_history bring .bash_logout to default configuration. History from SSH sessions was not being saved.
+-i3/sxhkd/sxhkdrc Incorporated wmctrl to open VSCodium, Brave, Chromium, Google Chrome, and Firefox to preven mutltiple instances of these programs running.
+-i3/workspaces.conf -Uncommented workspace assingment for Brave. Will be installing it on all i3 systems.
+-VSCodium/User/settings.json - made Fira Code the default font.
+-.bash_logout - Corrected sort -u -o command by removing && before ~/.bash_history.
+-terminator/config - added login_shell = False to config file.
+-Modified config files. Added keepassxc and nano config files.
+-.bash_logout - initial commit. Cleans up bash history and removes duplicate commands.
+-i3/logout - Changed the background for the i3 logout script to use the tux-linux-1920x1080.png image.
+-.bashrc - removed `history -c`
+-.bashrc - Added history -c before HISTCONTROL to clean history on login.
+-neofetch configuration files. Added default.conf and mosfanet.conf. default.conf is the default neofetch configuration. mosfanet.conf is the previous config file for my network. Current config.conf is based on TallJoe configuration. Set up for both i3 and DE systems, comment out or uncomment items as needed.
+-neofetch/config.conf - updated configuration settings.
+-.bash_aliases - added wifipass alias - extracts wifi passphrases.
+-.bash_aliases - Added findwifi alias to list available wireless networks. Updated yt & yta alias to use yt-dlp.
+-autoxrandr.sh - Script to configure dual monitors in a window manager. Modify to fit needs.
+-Added and commented out settings to support dual monitors. May need to individually configured as needed.
+-Updated configuration files.
+-Updated keybindings in sxhkdrc. Updated bindings.txt. Updated workspaces.conf
+-kitty/kitty.conf - removed extra background_opacity line and set background_opacity 0.8
+-bindings.list - renamed file.
+-kitty/kitty-bindings.list - Added ctrl+shift+l to bindings list.
+-.bash_aliases - Added cleancat alias to grep a file without comments or blank lines.
+-i3/sxhkd/sxhkdrc - added keybindings for monitor brightness up and down.
+-i3/config - added `focus_follows_mouse yes` to configuration.
+-i3/config - added `focus_on_window_activation focus` to focus new window on activation.
+-.bash_aliases - corrected dir declaration in cdls function.
+-updated configs
+-kitty/kitty-bindings.list - Split into 4 columns instead of two.
+-kitty/kitty-bindings.list - Added keybindings for tabs.
+-kitty/kitty.conf - changed default font to JetBrainsMono Nerd Font, and font size to 12.0
+-.bash_aliases - Added function to decrypt PDF files.
+-i3/sxhkd/sxhkdrc - Fixed keybindings for second monitor.
+-kitty/kitty-bindings.list - list of kitty keybindings.
+-removed face, added .face
+-i3/bindings.list - changed bindings for dmenu_run and rofi -show
+-i3/sxhkd/sxhkdrc changed bindings for dmenu_run and rofi -show
+-i3/bindings.list - i3 keybindings for i3kb.sh
+-i3/sxhkd/sxhkdrc - changed super + d and alt + d keybindings for dmenu & rofi due to conflict with audio keybdingins. Now using p instead of d.
+-i3/sxhkd/sxhkdrc - removed -b flag from dmenu_run so dmenu displays at top of screen.
+-i3/bar.conf - Changed bar to dipslay on bottom of screen.
+-VSCodium/User/settings.json - Changed theme to Default High Contrast. Added autoClosingQuotes.
+-i3/sxhkd/sxhkdrc - added -b flag to dmenu_run to display at the bottome of the screen since status bar is a the top.
+-.bash_aliases - ukpdated from main system.
+-Updated from i3debian reposistory.
+-.bash_aliases - added check-nala alias to check for updates on systems with nala installed.
+-.profile - XDG_DATA_DIRS modification.
+-i3/bar.conf - added title module
+-.profile - added XDG_DATA_DIR environmental variable
+-sxhkdrc - changed keybindings for kill window, reload i3, logout menu
+-bumblebee-status - initial commit of themes
+-i3/logout - set to use a .png image instead of a black screen.
+-sxhkdrc - added keybinding to call up logout script.
+-workspaces.conf - added app assgnments to specific workspaces.
+-logout - script with logout options for i3 using rofi and dmenu
+-bar.conf - added apt to module list.
+-bar.conf - replaced nord-colorful theme with dracula-powerline.
+-bar.conf - added hostname module & removed apt module.
+-workspaces.conf - Assigned Google Chrome to WS 4 and moved Writer & Calc to WS 5 & 6.
+-workspaces.conf - fixed assign of libreoffice writer and calc to workspaces 4 and 5, respectively.
+-workspaces.conf - added application assignments to workspaces.
+-.bash_aliases - removed cdup and overview functions. Don't use them.
+-bar.conf - added date format yyyy-mm-dd
+-bar.conf - add date format yyyy-mm-dd
+-updated. bar.conf - added military time format.
+-.profile - removed ATOM_HOME environmental variable
+-.bash_aliases - added todo10 alias to copy todo.lst to 800-G2-SFF
+-added configs for scratchpads and keychords.
+-Updated to i3-gaps configurations.
+-.bashrc, .bash_aliases - modified ls aliases.
+-.bashrc - removed space after current directory.
+-.bash_aliases - changed an alias function
+-i3 config - clarified comments for toggling scratchpads.
+-.bashrc - added bracket after time.
+-fixed color in bash prompt.
+-.bashrc - replaced PS1 with custom PS1
+-.bashrc - replaced PS1 with custom PS1
+-Fixed command that initializes scratchpads.
+-initial commit
+-Initial commit
