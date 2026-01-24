@@ -1,3 +1,13 @@
+-Revert "renamed dsh/group to dsh/groups"
+-renamed dsh/group to dsh/groups
+-renamed groups directory to group
+-dsh/groups/desktops: added 192.168.0.19 to list
+-CHANGELOG.md: remove some backgrounds
+-removed backgrounds
+-removed backgrounds
+-mint/keybindings-backup.dconf: updated keybindings
+-added backgrounds
+-CHANGELOG.md: added Tux backgrounds
 -Tux backgrounds
 -CHANGELOG.md: initial commit - Changelog from git log
 -renamed image files
