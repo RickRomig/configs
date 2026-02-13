@@ -25,6 +25,7 @@ alias free='free -h'	# Memory status
 alias fu='~/bin/iru-fastfetch -u'	# update Fastfetch
 alias getclip="xclip -selection clipboard -o"	# paste clipboard to terminal
 alias glow='glow -p'
+alias go-finance='cd ~/Documents/Finance/CY2026/;ls -lhF --time-style=long-iso'
 # alias grep='grep --color=auto'
 # alias fgrep='fgrep --color=auto'
 # alias egrep='egrep --color=auto'
@@ -105,6 +106,7 @@ alias treed='tree -CAFd'	# directories only tree
 
 # git aliases
 alias batdiff='bat --diff'
+alias chlog='git log --pretty="-%s" > CHANGELOG.md'
 alias gc="git clone"	# clone a git repository
 alias gdiff='git diff'	# show the difference with committed file
 alias gcop='git checkout .;git pull'	# restore unstaged files then pull from repo
