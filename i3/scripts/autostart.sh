@@ -7,8 +7,8 @@
 # Author       : Copyright © 2025, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 18 Nov 2021
-# Last updated : 22 Aug 2025
-# Version      : 2.1.25234
+# Last updated : 14 Feb 2026
+# Version      : 2.2.26045
 # Comments     : New installs - sxhkdrc will be in i3 directory not sxhkd subdirectory
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
@@ -33,7 +33,7 @@ nm-applet &
 start volumeicon &
 killall -q xfce4-power-manager
 xfce4-power-manager --daemon
-lsusb | grep -iq blue && blueman-applet &
+grep -iq blue <(lsusb) && blueman-applet &
 picom -b &
 numlockx off &
 dunst &
