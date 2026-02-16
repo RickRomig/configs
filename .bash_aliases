@@ -29,26 +29,26 @@ alias go-finance='cd ~/Documents/Finance/CY2026/;ls -lhF --time-style=long-iso'
 # alias grep='grep --color=auto'
 # alias fgrep='fgrep --color=auto'
 # alias egrep='egrep --color=auto'
-alias histg="history | grep " # search bash history
 alias install="sudo apt install"	# install package
 alias icat="kitten icat"	# display an image in the terminal
 alias ip='ip -color'	# show color in ip results
 alias jdate="date +'%A, %d %b %Y (%y%j)'"	# show current and Juiian date
 alias k9='kill -9'
 alias killall='killall -v'
-alias kernels="dpkg -l | grep -E 'linux-headers|linux-image' | cut -d' ' -f1,3"	# list currently installed kernels
+alias kernels="awk '/linux-image/ {print $2}' <(dpkg -l);grep 'linux-h' <(ls /usr/src)"	# list currently installed kernels/headers
 alias list-tar="tar tvf"	# list contents of a tar archive
 alias list-zip="unzip -l"	# list contents of a zip archive
-alias lsmount="mount | column -t"	# show mounted file systems in column format
+alias lsmount="column -t <(mount)"	# show mounted file systems in column format
 alias m='micro'	# launch micro
-alias mcalias="${EDITOR} ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with micro and source on exit
-alias mcbash="${EDITOR} ~/.bashrc && source ~/.bashrc"	# Edit .bashrc and source on exit
+alias mcalias="${EDITOR} $HOME/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with micro and source on exit
+alias mcbash="${EDITOR} $HOME/.bashrc && source ~/.bashrc"	# Edit .bashrc and source on exit
 alias mem5="ps auxf | sort -nr -k 4 | head -5"	# top 5 processes in memory
 alias motd="echo $(shuf -n 1 ~/.local/share/doc/leave.txt)"	# display a random line from leave.txt file
 alias move='mv -iv'	# interactive, verbose move
 alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
-alias nanoalias="nano ~/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
-alias path='echo $PATH | sed "s,:,\n,g"'	# show current exectuble paths
+alias nanoalias="nano $HOME/.bash_aliases && source ~/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
+alias path='sed "s,:,\n,g" <<< $PATH'	# show current exectuble paths
+alias PH-time='TZ="Asia/Manila" date +"%F %R"'	# date and time in the Philippines
 alias ps='ps auxf'
 alias push='pushd'
 alias rbt='sudo systemctl reboot'
@@ -59,8 +59,6 @@ alias sc='shellcheck'	# Run Shellcheck ignoring SC1091 error when sourcing funct
 alias sdn='sudo systemctl poweroff'
 alias setclip="xclip -o -selection clipboard"	# Copy to clipboard
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
-alias sshi='~/bin/sshin'	# call script to connect SSH via IP address
-alias sshl='~/bin/sshlocal'	# call script to connect SSH via local hostname
 alias tb='nc termbin.com 9999'	# Share a file on Termbin
 alias termsize='echo "Rows=$(tput lines) Cols=$(tput cols)"'	# show size of terminal
 alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share/doc/"	# Send todo list to main system
@@ -95,11 +93,10 @@ alias lsal='ls -AlhF --time-style=long-iso'	#all, long listing, human readable
 alias lsr='ls -RF'	# list recursively
 alias lst='ls -trF'	# list by time, oldest first
 alias lslt='ls -lhtrF --time-style=long-iso'	# list by time, oldest first
-alias lf="ls -l | egrep -v '^d'"  # files only (not hidden)
-alias ldir="ls -l | egrep '^d'"   # directories only (not hidden)
+alias lf="grep -Ev '^d' <(ls -l)"  # files only (not hidden)
+alias ldir="grep -E '^d' <(ls -l)"   # directories only (not hidden)
 alias mkdir="mkdir -p"	# create parent if it does not exist
 alias mkd='mkdir -pv'	# create parent if it does not exist with verbose
-alias PH-time='TZ="Asia/Manila" date +"%F %R"'	# date and time in the Philippines
 alias tree='tree -CAhF --dirsfirst'	# list directories first
 alias treea='tree -CAahF --dirsfirst'	# list all files
 alias treed='tree -CAFd'	# directories only tree
@@ -149,7 +146,7 @@ exist() {
 }
 
 inrepos() {
-	pkg=$(apt-cache show "$1" 2>/dev/null | awk '/Package:/ {print $NF}')
+	pkg=$(awk '/Package:/ {print $NF}' <(apt-cache show "$1" 2>/dev/null))
 	[[ "$pkg" ]] && echo "$1 found in repos" || echo "$1 not found in repos"
 }
 
@@ -192,15 +189,15 @@ cdlh() {
 # Goes up a specified number of directories  (i.e. up 4)
 cdup() {
 	local d=""
-	limit=$1
+	limit="$1"
 	for ((i = 1; i <= limit; i++)); do
-		d=$d/..
+		d="$d/.."
 	done
-	d=$(echo $d | sed 's/^\///')
-	if [ -z "$d" ]; then
+	d=$(sed 's/^\///' <<< "$d")
+	if [[ -z "$d" ]]; then
 		d=..
 	fi
-	cd $d
+	cd "$d"
 }
 
 # copy with a progress bar
@@ -250,7 +247,7 @@ mkcd() {
 # Copy a text file to remote hosts using DSH
 # $1 = filename $2 = dsh group $3 = target directory on remote host
 dcp() {
-	cat "$1" | dsh -g "$2" -i -c "tee $3/$(basename "$1")"
+	dsh -g "$2" -i -c "tee $3/${1##*/}" <<< "$1"
 }
 
 # Execute a command to remote hosts using DSH
@@ -305,26 +302,26 @@ ncommitall() {
 
 # Extract compressed files
 ex() {
-  if [ -f $1 ]; then
-    case $1 in
-      *.tar.bz )    tar xjf $1  ;;
-      *.tar.gz )    tar xzf $1  ;;
-      *.bz2 )       bunzip2 $1  ;;
-      *.rar )       unrar  $1   ;;
-      *.gz )        gunzip $1   ;;
-      *.tar )       tar xf $1   ;;
-      *.tbz2 )      tar xjf $1  ;;
-      *.tgz )       tar xzf $1  ;;
-      *.zip )       unzip $1    ;;
-      *.Z )         uncompress $1 ;;
-      *.7z )        7z x $1     ;;
-      *.deb )       ar x $1     ;;
-      *.tar.xz )    tar xf $1   ;;
-      *.tar.zst )   unzstd $1   ;;
-      * )           echo "'$1' cannot be extracted via ex()" ;;
+  if [ -f "$1" ]; then
+    case "$1" in
+      *.tar.bz )    tar xjf "$1"  ;;
+      *.tar.gz )    tar xzf "$1"  ;;
+      *.bz2 )       bunzip2 "$1"  ;;
+      *.rar )       unrar  "$1"   ;;
+      *.gz )        gunzip "$1"   ;;
+      *.tar )       tar xf "$1"   ;;
+      *.tbz2 )      tar xjf "$1"  ;;
+      *.tgz )       tar xzf "$1"  ;;
+      *.zip )       unzip "$1"    ;;
+      *.Z )         uncompress "$1" ;;
+      *.7z )        7z x "$1"     ;;
+      *.deb )       ar x "$1"     ;;
+      *.tar.xz )    tar xf "$1"   ;;
+      *.tar.zst )   unzstd "$1"  ;;
+      * )           echo "$1 cannot be extracted via ex function"
     esac
   else
-    echo "'$1' is not a valid file."
+    echo "$1 is not a valid file."
   fi
 }
 
@@ -335,7 +332,7 @@ help() {
 }
 
 cheat() {
-	curl -s cheat.sh/$1 | bat -p
+	bat -p <(curl -s cheat.sh/$1)
 }
 
 tsl() {
