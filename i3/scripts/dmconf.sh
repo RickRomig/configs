@@ -7,8 +7,8 @@
 # Author       : Copyright © 2023, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 22 Nov 2023
-# Last updated : 14 Feb 2026
-# Version      : 2.0.26045
+# Last updated : 17 Feb 2026
+# Version      : 2.1.26048
 # Comments     :
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
@@ -46,8 +46,7 @@ declare -rA config_files=(
 
 main() {
 	local choice cfg_path
-	# Pipe the array into dmenu
-	choice=$(printf '%s\n' "${!config_files[@]}" | dmenu -i -l 16 -p 'Edit config:')
+	choice=$(printf '%s ' "${!config_files[@]}" | dmenu -i -p 'Edit config:')
 	[[ "$choice" == "quit" || -z "$choice" ]] && { printf "No configuration file selected.\n"; exit; }
 	cfg_path="${config_files[$choice]}"
 	[[ -f "$cfg_path" ]] || { printf "%s: %s not found.\n" "$choice" "${cfg_path##*/}" >&2; exit 2; }
