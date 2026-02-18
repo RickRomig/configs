@@ -7,8 +7,8 @@
 # Author       : Copyright © 2023, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 22 Nov 2023
-# Last updated : 17 Feb 2026
-# Version      : 2.2.26048
+# Last updated : 18 Feb 2026
+# Version      : 2.3.26049
 # Comments     :
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
@@ -47,9 +47,9 @@ declare -rA config_files=(
 main() {
 	local choice cfg_path
 	choice=$(printf '%s\n' "${!config_files[@]}" | dmenu -i -p 'Edit config:')
-	[[ "$choice" == "quit" || -z "$choice" ]] && { printf "No configuration file selected.\n"; exit; }
+	[[ "$choice" == "quit" || -z "$choice" ]] && { notify-send -t 3600 "DMCONF" "No configuration file selected."; exit; }
 	cfg_path="${config_files[$choice]}"
-	[[ -f "$cfg_path" ]] || { printf "%s: %s not found.\n" "$choice" "${cfg_path##*/}" >&2; exit 2; }
+	[[ -f "$cfg_path" ]] || { notify-send -t 3600 "DMCONF" "$choice: ${cfg_path##*/} not found." >&2; exit 2; }
 	"$DMENUEDITOR" "$cfg_path"
 	exit
 }
