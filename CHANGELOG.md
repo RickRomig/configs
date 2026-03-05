@@ -1,17 +1,30 @@
--Revert "CHANGELOG.md: updated - install-dsh"
--CHANGELOG.md: updated - install-dsh
+-.bash_aliases: updated chlog alias to remove CHANGELOG commits from list
+-local/leave.txt: new phrases
+-local/leave.txt: added a new phrase
+-.bash_aliases: removed kernels alias - list full line instead of field 2
+-i3/scripts/dmconf.sh: replaced printf with notify-send
+-local/leave.txt: new phrase added
+-i3/scripts/dmconf.sh: correct sxhkdrc path; reinserted newline choice assignment
+-i3/scripts/dmconf.sh: display dmenu choices on one line instead of multiple lines
+-.bash_aliases: removed 'echo' from motd; added leave.txt to ff alias
+-.bash_aliases: refactored
+-dmconf.sh: refactored. Implemented associative array and main()
+-i3/scripts/check_updates.sh: changed hashbang from sh to bash; implemented process substitution
+-i3/scripts/autostart.sh: process substitution to launc blueman-applet
+-local/leave.txt: added another phrase
+-local/leave.txt: added phrases
+-.bash_aliases: added go-finance to cd to current year finance directory
+-local/leave.txt: added phrases
+-fastfetch/config.jsonc: added 'localip'
 -Revert "renamed dsh/group to dsh/groups"
 -renamed dsh/group to dsh/groups
 -renamed groups directory to group
 -dsh/groups/desktops: added 192.168.0.19 to list
--CHANGELOG.md: remove some backgrounds
 -removed backgrounds
 -removed backgrounds
 -mint/keybindings-backup.dconf: updated keybindings
 -added backgrounds
--CHANGELOG.md: added Tux backgrounds
 -Tux backgrounds
--CHANGELOG.md: initial commit - Changelog from git log
 -renamed image files
 -dsh/machines.list: added 192.168.0.19
 -.bash_aliases: cdls() & cdlh() - added -A flag to ls command to show hidden files
