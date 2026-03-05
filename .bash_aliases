@@ -102,7 +102,7 @@ alias treed='tree -CAFd'	# directories only tree
 
 # git aliases
 alias batdiff='bat --diff'
-alias chlog='git log --pretty="-%s" > CHANGELOG.md'
+alias chlog="sed '/CHANGELOG.md/d' <(git log --pretty="-%s") > CHANGELOG.md"
 alias gc="git clone"	# clone a git repository
 alias gdiff='git diff'	# show the difference with committed file
 alias gcop='git checkout .;git pull'	# restore unstaged files then pull from repo
