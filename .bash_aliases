@@ -21,6 +21,7 @@ alias ff='clear;fastfetch;shuf -n 1 ~/.local/share/doc/leave.txt'
 alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"	# Dectect Wi-Fi networks
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"	# change .jpeg to .jpt in Pictures directory
 alias freshclam='sudo freshclam'
+alias freshenup='~/bin/iru-fresh-editor -u'	# update Fresh Editor
 alias free='free -h'	# Memory status
 alias fu='~/bin/iru-fastfetch -u'	# update Fastfetch
 alias getclip="xclip -selection clipboard -o"	# paste clipboard to terminal
