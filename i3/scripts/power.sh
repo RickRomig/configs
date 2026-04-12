@@ -31,7 +31,7 @@ declare -rA tux_image=(
     [e-475m]="tux-1280x800.png"
     [hp-2560p]="tux-1366x768.png"
     [probook-6570b]="tux-1366x768.png"
-    [gitea]="tux-1680x1050.png"
+    [hp-8300-usdt]="tux-1680x1050.png"
     [hp-850-g3]="tux-1920x1080.png"
 )
 
