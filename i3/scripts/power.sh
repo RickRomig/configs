@@ -40,7 +40,7 @@ case $option in
     suspend)
         sudo /usr/bin/systemctl suspend ;;
     'lock screen')
-        i3lock -i ~/.config/backgrounds/lockscreen/"${tux_image[$local_host]}" ;;
+        i3lock -c 000000 -i ~/.config/backgrounds/lockscreen/"${tux_image[$local_host]}" ;;
     logout)
         i3-nagbar -t warning -m 'Are you sure you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' ;;
     reboot)
