@@ -26,13 +26,13 @@
 local_host="${HOSTNAME:-$(hostname)}"
 
 declare -rA tux_image=(
-    [hp-850-g3]="tux-1920x1080"
-    [e6500-deb]="tux-1280x800"
-    [e-475m]="tux-1280x800"
-    [hp-2560p]="tux-1366x768"
-    [probook-6570b]="tux-1366x768"
-    [gitea]="tux-1680x1050"
-    [hp-850-g3]="tux-1920x1080"
+    [hp-850-g3]="tux-1920x1080.png"
+    [e6500-deb]="tux-1280x800.png"
+    [e-475m]="tux-1280x800.png"
+    [hp-2560p]="tux-1366x768.png"
+    [probook-6570b]="tux-1366x768.png"
+    [gitea]="tux-1680x1050.png"
+    [hp-850-g3]="tux-1920x1080.png"
 )
 
 option=$(echo -e "suspend\nlock screen\nlogout\nreboot\npoweroff\nKill user $USER" | rofi -width 600 -dmenu -p system)
@@ -40,8 +40,7 @@ case $option in
     suspend)
         sudo /usr/bin/systemctl suspend ;;
     'lock screen')
-        # i3lock -c 000000 ;;
-        i3lock  -i ~/.config/backgrounds/lockscreen/"${tux_image[$local_host]}".png ;;
+        i3lock -i ~/.config/backgrounds/lockscreen/"${tux_image[$local_host]}" ;;
     logout)
         i3-nagbar -t warning -m 'Are you sure you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' ;;
     reboot)
