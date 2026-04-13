@@ -188,6 +188,7 @@ I'm kicking my ass!
 I’m limited by the technology of my time.
 I'm not a homosexual, but I'm willing to learn.
 I'm not dead!
+I'm not quite dead.
 I'm not wearing any pants. Film at 11.
 I'm on a specific diet, no toxic waste.
 I move for no man.
@@ -242,6 +243,7 @@ It's a waste of time to explain badly written code. ~ Linus Torvalds
 It's good to be the king.
 It's hard to hear you with that pity dick in your mouth.
 It's hard to write good code. ~ Linus Torvalds
+It's harder to read code than to write it. - Joel Spolsky
 It's not a bug, it's an undocumented feature.
 It's only a flesh wound.
 It's only a model.
@@ -303,6 +305,7 @@ My nipples explode with the light!
 My penis shouldn't be lonely tonight.
 Naked and defeated, just like I entered the world.
 Never let a computer know you're in a hurry.
+Never rewrite code from scratch. - Joel Spolsky
 Never surrender! Never give up!
 Never underestimate a man with a mustache.
 Nice beaver. Thanks, I just had it stuffed.
