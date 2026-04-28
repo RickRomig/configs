@@ -47,6 +47,9 @@ if [[ -x /usr/bin/bat ]]; then
 elif [[ -x /usr/bin/batcat ]]; then
 	export MANPAGER="sh -c 'col -bx | /usr/bin/batcat -l man -p'"
 	export MANROFFOPT="-c"
+else
+	export MANPAGER="less -R"
+	export MANROFFOPT="-c"
 fi
 
 # set variable identifying the chroot you work in (used in the prompt below)
