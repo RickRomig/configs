@@ -17,11 +17,11 @@ alias df='df -h -x tmpfs -x fuse.portal' # ignore tmpfs and fuse.portal
 alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'	# send command to all systems using DSH
 alias du='du -h'
-alias fcd='cd "./$(find -maxdepth 1 -type d | fzf)"'
+alias fcd='cd "./$(fzf < <(find -maxdepth 1 -type d))"'	# use fzf to cd to a directory
 alias ff='clear;fastfetch;shuf -n 1 ~/.local/share/doc/leave.txt'
-alias findwifi="nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi | sed '/SSID/d;/^--/d'"	# Dectect Wi-Fi networks
+alias findwifi="sed '/SSID/d;/^--/d' < <(nmcli -f SSID,SECURITY,SIGNAL,BARS dev wifi)"	# Dectect Wi-Fi networks
 alias fixjpeg="find ~/Pictures -type f -name "*.jpeg" -exec rename -v 's/.jpeg$/.jpg/i' {} \;"	# change .jpeg to .jpt in Pictures directory
-alias freshclam='sudo freshclam'
+alias freshclam='sudo freshclam'	# update clamAV signatures
 alias freshenup='~/bin/iru-fresh-editor -u'	# update Fresh Editor
 alias free='free -h'	# Memory status
 alias fu='~/bin/iru-fastfetch -u'	# update Fastfetch
@@ -39,14 +39,14 @@ alias k9='kill -9'
 alias killall='killall -v'
 alias list-tar="tar tvf"	# list contents of a tar archive
 alias list-zip="unzip -l"	# list contents of a zip archive
-alias lsmount="column -t <(mount)"	# show mounted file systems in column format
+alias lsmount="column -t < <(mount)"	# show mounted file systems in column format
 alias m='micro'	# launch micro
 alias mcalias="${EDITOR} $HOME/.bash_aliases && source $HOME/.bash_aliases"	# Edit .bash_aliases with micro and source on exit
 alias mcbash="${EDITOR} $HOME/.bashrc && source $HOME/.bashrc"	# Edit .bashrc and source on exit
 alias mem5="ps auxf | sort -nr -k 4 | head -5"	# top 5 processes in memory
 alias motd='shuf -n 1 ~/.local/share/doc/leave.txt'	# display a random line from leave.txt file
 alias move='mv -iv'	# interactive, verbose move
-alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
+alias myip=" awk '{print $1}' < <(hostname -I); curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
 alias nanoalias="nano $HOME/.bash_aliases && source $HOME/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
 alias path='sed "s,:,\n,g" <<< $PATH'	# show current exectuble paths
 alias PH-time='TZ="Asia/Manila" date +"%F %R"'	# date and time in the Philippines
@@ -147,7 +147,7 @@ exist() {
 }
 
 inrepos() {
-	pkg=$(awk '/Package:/ {print $NF}' <(apt-cache show "$1" 2>/dev/null))
+	pkg=$(awk '/Package:/ {print $NF}' < <(apt-cache show "$1" 2>/dev/null))
 	[[ "$pkg" ]] && echo "$1 found in repos" || echo "$1 not found in repos"
 }
 
@@ -223,7 +223,7 @@ cpp() {
 
 # Copy a file to a directory and cd to that directory
 cpcd() {
-  if [ -d "$2" ]; then
+  if [[ -d "$2" ]]; then
     cp $1 $2 && cd $2
   else
     cp $1 $2
@@ -232,7 +232,7 @@ cpcd() {
 
 # Move a file to a directory and cd to that directory
 mvcd() {
-  if [ -d "$2" ]; then
+  if [[ -d "$2" ]]; then
     mv $1 $2 && cd $2
   else
     mv $1 $2
@@ -303,7 +303,7 @@ ncommitall() {
 
 # Extract compressed files
 ex() {
-  if [ -f "$1" ]; then
+  if [[ -f "$1" ]]; then
     case "$1" in
       *.tar.bz )    tar xjf "$1"  ;;
       *.tar.gz )    tar xzf "$1"  ;;
@@ -329,7 +329,7 @@ ex() {
 # bat help wrapper (requires bat)
 alias bathelp='bat --plain --language=help'
 Help() {
-	"$@" --help 2>&1 | bathelp
+	bathelp < <("$@" --help 2>&1)
 }
 
 cheat() {
@@ -337,7 +337,7 @@ cheat() {
 }
 
 tsl() {
-	if dpkg -l timeshift >/dev/null 2>&1; then sudo timeshift --list | awk 'NR!=1 && NR!=3'; else echo "Timeshift not installed."; fi
+	if dpkg -l timeshift &>/dev/null; then awk 'NR!=1 && NR!=3' < <(sudo timeshift --list); else echo "Timeshift not installed."; fi
 }
 
 preview-file() {
