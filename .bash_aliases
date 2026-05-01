@@ -349,12 +349,23 @@ field() {
 	awk -F "${2:- }" "{print \$${1:-1} }"
 }
 
-pushto() {
+pushdir() {
 	local re="^[0-9]+$"
 	if [[ $1 =~ $re ]]; then
 		pushd +"$1"
 	elif [[ -d $1 ]]; then
 		pushd $1
+	else
+		printf "%s not found\n" "$1" >&2
+	fi
+}
+
+popdir() {
+	local re="^[0-9]+$"
+	if [[ $1 =~ $re ]]; then
+		popd +"$1"
+	elif [[ -d $1 ]]; then
+		popd $1
 	else
 		printf "%s not found\n" "$1" >&2
 	fi
