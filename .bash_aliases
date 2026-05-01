@@ -362,11 +362,5 @@ pushdir() {
 
 popdir() {
 	local re="^[0-9]+$"
-	if [[ $1 =~ $re ]]; then
-		popd +"$1"
-	elif [[ -d $1 ]]; then
-		popd $1
-	else
-		printf "%s not found\n" "$1" >&2
-	fi
+	[[ $1 =~ $re ]] && popd +"$1"
 }
