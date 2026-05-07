@@ -349,7 +349,7 @@ field() {
 	awk -F "${2:- }" "{print \$${1:-1} }"
 }
 
-pushdir() {
+pud() {
 	local re="^[0-9]+$"
 	if [[ $1 =~ $re ]]; then
 		pushd +"$1"
@@ -360,7 +360,7 @@ pushdir() {
 	fi
 }
 
-popdir() {
+pod() {
 	local re="^[0-9]+$"
 	[[ $1 =~ $re ]] && popd +"$1"
 }
