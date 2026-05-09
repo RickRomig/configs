@@ -11,6 +11,8 @@
   "editor.autoClosingQuotes": "always",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "files.trimTrailingWhitespace": true,
+  "files.autoSave": "onFocusChange",
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": 1.2
+  "window.zoomLevel": 1.2,
+  "workbench.startupEditor": "none"
 }
