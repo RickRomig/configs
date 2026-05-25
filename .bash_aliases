@@ -6,6 +6,7 @@ alias check-clones='bat -p ~/.local/share/logs/repo-update.log'	# read update lo
 alias check-nala='if command -v nala >/dev/null; then sudo nala update && nala list --upgradeable;else echo "Nala not installed";fi'	# check for updates with Nala
 alias cleancat="grep -Ev '^(#|$)'"	# display a file, ignoring commented and blank lines
 alias cleantmp='/usr/bin/find /tmp -type f \( ! -user root \) -atime +2 -delete 2>/dev/null'	# non-root temp files > 2 days
+alias clr="printf '\e[H\e[2J\e[3J'"	# clears screen without scrollback
 alias cls='history -w && history -c && clear'	# Clear bash history and clear screen
 alias copy='cp -iv'	# interactive & verbose copy
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"	# top 5 CPU processes
