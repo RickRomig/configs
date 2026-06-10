@@ -148,7 +148,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 # Alias ssh if terminal is kitty
-[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+# [[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
