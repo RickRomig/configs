@@ -1,4 +1,5 @@
 # aliases
+# updated 10 Jun 2026
 alias bp='bat -p'	# bat plain style without line numbers
 alias bpp='bat -pp'	# bat plain style without line numbers or paging like cat
 alias chkcmd="type -t"	# Check if a command is alias, builtin, or file
@@ -38,6 +39,7 @@ alias ip='ip -color'	# show color in ip results
 alias jdate="date +'%A, %d %b %Y (%y%j)'"	# show current and Juiian date
 alias k9='kill -9'
 alias killall='killall -v'
+alias kssh="kitty +kitten ssh"	# use kitty features when connecting to remote server with ssh
 alias list-tar="tar tvf"	# list contents of a tar archive
 alias list-zip="unzip -l"	# list contents of a zip archive
 alias lsmount="column -t < <(mount)"	# show mounted file systems in column format
@@ -56,7 +58,8 @@ alias push='pushd'
 alias rbt='sudo systemctl reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
-alias sc='shellcheck'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
+alias sc="shellcheck"	# Run Shellcheck using default tty format
+alias scg='shellcheck -f gcc'	# Run Shellcheck using gcc format
 # alias shellcheck='shellcheck -x'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 alias sdn='sudo systemctl poweroff'
 alias setclip="xclip -o -selection clipboard"	# Copy to clipboard
@@ -329,7 +332,7 @@ ex() {
 
 # bat help wrapper (requires bat)
 alias bathelp='bat --plain --language=help'
-Help() {
+hlp() {
 	bathelp < <("$@" --help 2>&1)
 }
 
@@ -364,4 +367,8 @@ pud() {
 pod() {
 	local re="^[0-9]+$"
 	[[ $1 =~ $re ]] && popd +"$1"
+}
+
+scgl() {
+	tee ./shellcheck.log < <(shellcheck -f gcc "$1")
 }
