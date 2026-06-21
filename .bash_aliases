@@ -70,6 +70,7 @@ alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share
 alias top='btop || htop || top'
 alias txt2pdf='libreoffice --convert-to pdf'	# convert a LibreOffice .odt file to PDF
 alias upgrade="sudo apt update && sudo apt dist-upgrade"	# update apt cache and install updates
+alias webcamcheck="grep -iw webcam < <(/usr/bin/lsusb) || echo 'No webcam found.'"	# Checks for USB webcam
 alias wifipass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | cut -d'/' -f5 | sed 's/.nmconnection:psk=/ = /'"	# show WiFi passwords
 alias yt='yt-dlp --add-metadata -ic'		# download video
 alias yta='yt-dlp --add-metadata -xic'	# download audio
