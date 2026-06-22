@@ -60,7 +60,6 @@ alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
 alias sc="shellcheck"	# Run Shellcheck using default tty format
 alias scg='shellcheck -f gcc'	# Run Shellcheck using gcc format
-# alias shellcheck='shellcheck -x'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 alias sdn='sudo systemctl poweroff'
 alias setclip="xclip -o -selection clipboard"	# Copy to clipboard
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
