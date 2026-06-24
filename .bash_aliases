@@ -15,6 +15,8 @@ alias dc="date +'%A %d %B %Y %R' && cal -3"	# date with 3-month calendar
 alias deb-keyring='gpg --recv-key --keyserver keyring.debian.org 6294BE9B'
 alias deb-verify256='gpg --verify SHA256SUMS.sign SHA256SUMS'
 alias deb-verify512='gpg --verify SHA512SUMS.sign SHA512SUMS'
+alias devglow='glow ~/Documents/mosfanet/devnotes.md'	# View developer notes
+alias devnotes="$EDITOR ~/Documents/mosfanet/devnotes.md"	# Edit developer notes
 alias df='df -h -x tmpfs -x fuse.portal' # ignore tmpfs and fuse.portal
 alias dirs="dirs -v"
 alias dsh-all='dsh -aM -c'	# send command to all systems using DSH
@@ -58,11 +60,12 @@ alias push='pushd'
 alias rbt='sudo systemctl reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
-alias sc="shellcheck"	# Run Shellcheck using default tty format
+# alias sc="shellcheck"	# Run Shellcheck using default tty format
 alias scg='shellcheck -f gcc'	# Run Shellcheck using gcc format
+alias shellcheck='shellcheck --color=always'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 alias sdn='sudo systemctl poweroff'
 alias setclip="xclip -o -selection clipboard"	# Copy to clipboard
-alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+alias speedtest="curl -s https://raw.githubusercontent.com/PeterLinuxOSS/speedtest-cli/master/speedtest.py | python -"
 alias tb='nc termbin.com 9999'	# Share a file on Termbin
 alias termsize='echo "Rows=$(tput lines) Cols=$(tput cols)"'	# show size of terminal
 alias todo10="scp $HOME/.local/share/doc/todo.lst rick@192.168.0.10:.local/share/doc/"	# Send todo list to main system
