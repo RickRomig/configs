@@ -1,0 +1,4 @@
+--js-runtimes node:/usr/bin/nodejs
+--js-runtimes bun:~/bun/bin/bun
+--js-runtimes quickjs:/usr/bin/qjs
+--js-runtimes quickjs:~/deno/bin/deno
