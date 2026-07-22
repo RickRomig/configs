@@ -45,3 +45,6 @@ fi
 
 # Source deno environment variables
 [[ -d "/home/rick/.deno/env" ]] && . "/home/rick/.deno/env"
+if [[ -x ~/.deno/bin/deno ]]; then
+  grep -q '.deno/bin' <<< $PATH || PATH="$PATH:$HOME/.deno/bin"
+fi
