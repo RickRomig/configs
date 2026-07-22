@@ -161,6 +161,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Source deno js-runtime if installed. Needed for yt-dlp
+if [[ -d ~/.deno ]]; then
+	. "/home/rick/.deno/env"
+	source /home/rick/.local/share/bash-completion/completions/deno.bash
+fi
+
 # Disable XON/XOFF flow control (that is, Ctrl-S/Ctrl-Q). May be negated.
 stty -ixon
 
