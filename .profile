@@ -42,3 +42,6 @@ else
   export VISUAL="/usr/bin/nano"
   export SUDO_EDITOR="/usr/bin/nano"
 fi
+
+# Source deno environment variables
+[[ -d "/home/rick/.deno/env" ]] && . "/home/rick/.deno/env"
