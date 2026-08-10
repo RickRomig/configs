@@ -342,7 +342,7 @@ hlp() {
 }
 
 cheat() {
-	bat -p <(curl -s cheat.sh/$1)
+	bat -p < <(curl -s cheat.sh/$1)
 }
 
 tsl() {
@@ -375,6 +375,6 @@ pod() {
 }
 
 scgl() {
-	tee ./shellcheck.log < <(shellcheck -f gcc "$1")
-	[[ -s ./shellcheck.log ]] || tee -a ./shellcheck.log <<< "$1: No shellcheck issues found."
+	tee ./.shellcheck.log < <(shellcheck -f gcc "$1")
+	[[ -s ./.shellcheck.log ]] || tee -a ./.shellcheck.log <<< "$1: No shellcheck issues found."
 }
