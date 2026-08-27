@@ -337,7 +337,7 @@ ex() {
 
 # bat help wrapper (requires bat)
 alias bathelp='bat --plain --language=help'
-hlp() {
+Help() {
 	bathelp < <("$@" --help 2>&1)
 }
 
