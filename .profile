@@ -37,14 +37,18 @@ if [ -x /usr/bin/micro ]; then
   export EDITOR="/usr/bin/micro"
   export VISUAL="/usr/bin/micro"
   export SUDO_EDITOR="/usr/bin/micro"
+elif [[ -x /usr/bin/fresh ]]; then
+  export EDITOR="/usr/bin/fresh"
+  export VISUAL="/usr/bin/fresh"
+  export SUDO_EDITOR="/usr/bin/fresh"
 else
   export EDITOR="/usr/bin/nano"
   export VISUAL="/usr/bin/nano"
   export SUDO_EDITOR="/usr/bin/nano"
 fi
 
-# Source deno environment variables
+# Source deno environment variables for yt-dlp
 [[ -d "/home/rick/.deno/env" ]] && . "/home/rick/.deno/env"
 if [[ -x ~/.deno/bin/deno ]]; then
-  grep -q '.deno/bin' <<< $PATH || PATH="$PATH:$HOME/.deno/bin"
+  grep -q '.deno/bin' <<< "$PATH" || PATH="$PATH:$HOME/.deno/bin"
 fi
