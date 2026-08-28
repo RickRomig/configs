@@ -62,7 +62,6 @@ alias push='pushd'
 alias rbt='sudo systemctl reboot'
 alias sba='source ~/.bash_aliases'
 alias sbrc='source ~/.bashrc'
-# alias sc="shellcheck"	# Run Shellcheck using default tty format
 alias scg='shellcheck -f gcc'	# Run Shellcheck using gcc format
 alias shellcheck='shellcheck --color=always'	# Run Shellcheck ignoring SC1091 error when sourcing functionlib
 alias sdn='sudo systemctl poweroff'
@@ -374,7 +373,7 @@ pod() {
 	[[ $1 =~ $re ]] && popd +"$1"
 }
 
-scgl() {
+sc() {
 	tee ./.shellcheck.log < <(shellcheck -f gcc "$1")
 	[[ -s ./.shellcheck.log ]] || tee -a ./.shellcheck.log <<< "$1: No shellcheck issues found."
 }
