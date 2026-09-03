@@ -1,6 +1,6 @@
 {
   "workbench.colorTheme": "Default High Contrast",
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Iosevka Nerd Font', 'JetBrains Mono', 'monospace'",
   "editor.fontLigatures": true,
   "terminal.integrated.fontFamily": "'JetBrains Mono'",
