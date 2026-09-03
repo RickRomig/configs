@@ -1,7 +1,7 @@
 {
   "theme": "dark",
   "editor": {
-    "tab_size": 2,
+    "tab_size": 4,
     "line_wrap": true
   },
   "file_explorer": {
