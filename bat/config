@@ -4,8 +4,8 @@
 # Show line numbers, Git modifications and file header (but no grid)
 --style="numbers,changes,header,grid"
 
-# Set tabs to 2 spaces
---tabs 2
+# Set tabs to 4 spaces
+--tabs 4
 
 # Use italic text on the terminal (not supported on all terminals)
 # --italic-text=always
