@@ -14,5 +14,6 @@
   "files.autoSave": "onFocusChange",
   "window.titleBarStyle": "custom",
   "workbench.startupEditor": "none",
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "editor.detectIndentation": false
 }
