@@ -7,8 +7,8 @@
 # Author       : Copyright © 2025, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 18 Nov 2021
-# Last updated : 06 Aug 2026
-# Version      : 3.1.26218
+# Last updated : 12 Sep 2026
+# Version      : 3.2.26255
 # Comments     :
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
@@ -23,15 +23,14 @@
 # FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 ###############################################################################
 
-local_host="${HOSTNAME:-$(hostname)}"
+screen=$(awk '/connected primary/ {print $4}' < <(xrandr) | cut -d'x' -f1); declare -ri screen
 
 declare -rA tux_image=(
-    [hp-850-g3]="tux-1920x1080.png"
-    [e6500-deb]="tux-1280x800.png"
-    [e-475m]="tux-1280x800.png"
-    [hp-2560p]="tux-1366x768.png"
-    [probook-6570b]="tux-1366x768.png"
-    [hp-8300-usdt]="tux-1680x1050.png"
+    [1280]="tux-1280x800.png"
+    [1366]="tux-1366x768.png"
+    [1680]="tux-1680x1050.png"
+	[1440]="tux-1440x900.png"
+    [1920]="tux-1920x1080.png"
 )
 
 option=$(echo -e "suspend\nlock-screen\nlogout\nreboot\npoweroff\nKill user $USER" | rofi -width 600 -dmenu -p system)
@@ -39,7 +38,7 @@ case $option in
     suspend)
         sudo /usr/bin/systemctl suspend ;;
     'lock-screen')
-        /usr/bin/i3lock -c 000000 -i ~/.config/backgrounds/lockscreen/"${tux_image[$local_host]}" ;;
+        /usr/bin/i3lock -c 000000 -i ~/.config/backgrounds/lockscreen/"${tux_image[$screen]}" ;;
     logout)
         /usr/bin/i3-nagbar -t warning -m 'Are you sure you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' ;;
     reboot)
