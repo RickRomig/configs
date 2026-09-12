@@ -106,9 +106,9 @@ alias lf="grep -Ev '^d' <(ls -l)"  # files only (not hidden)
 alias ldir="grep -E '^d' <(ls -l)"   # directories only (not hidden)
 alias mkdir="mkdir -p"	# create parent if it does not exist
 alias mkd='mkdir -pv'	# create parent if it does not exist with verbose
-alias tree='tree -CAhF --dirsfirst'	# list directories first
-alias treea='tree -CAahF --dirsfirst'	# list all files
-alias treed='tree -CAFd'	# directories only tree
+alias tree="tree -CAhF -I '.git' --charset X --dirsfirst"	# list directories first
+alias treea="tree -CAahF -I '.git' --charset X --dirsfirst"	# list all files
+alias treed="tree -CAFd -I '.git' --charset X"	# directories only tree
 
 # git aliases
 alias batdiff='bat --diff'
