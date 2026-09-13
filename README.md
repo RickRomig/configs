@@ -83,6 +83,7 @@ Configuration files used for Linux computers and virtual machines on Mosfanet. S
 - `arc_dark_colors.rasi` - Arc Dark theme.
 - `arc_dark_transparent_colors.rasi` - Transparent colors for Arc Dark theme.
 - `config.rasi` - i3 Rofi configuration.
+- `keybindings.rasi` - Rofi configuration for i3 keybindings help.
 #### sudoers
 - `0pwfeedback` - enables password feedback with asterisks.
 - `10timeout` - sets default sudo timeout to 30 minutes.
@@ -110,4 +111,4 @@ Configuration files used for Linux computers and virtual machines on Mosfanet. S
 ### sleep.conf
 - `/etc/systemd/sleep.conf` - SystemD configuration file, disables sleep/suspend/hibernation.
 #### Rick Romig (*The Luddite Geek*)
-##### 25 June 2025
+##### 13 September 2026
