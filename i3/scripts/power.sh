@@ -12,6 +12,7 @@
 # Comments     :
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
+# License URL  : https://github.com/RickRomig/i3wm-debian/blob/main/LICENSE
 ###############################################################################
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -46,5 +47,5 @@ case $option in
     poweroff)
         /usr/bin/systemctl poweroff ;;
     "kill user $USER")
-        /usr/bin/loginctl kill-user "$USER" ;;
+        /usr/bin/loginctl kill-user "$USER"
 esac
