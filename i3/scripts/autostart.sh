@@ -28,20 +28,27 @@ start() {
 	[[ -z "$(pgrep -f "$1")" ]] && ${2:-$1} &
 }
 
+# Applicatonns
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# Status bar
 ~/.config/polybar/polybar-i3 &
+# Systray applications
 nm-applet &
 start volumeicon &
 killall -q xfce4-power-manager
 xfce4-power-manager --daemon
 grep -iq blue <(lsusb) && blueman-applet &
+# comppositor, numlock, notifications
 picom -b &
 numlockx off &
 dunst &
+# i3 keybindings
 # sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
 sxhkd -c ~/.config/i3/sxhkdrc &
+# Backhground utilities
 pgrep -f udiskie &>/dev/null || udiskie &
 pgrep -f redshift | xargs -n1 kill -9
 redshift -c ~/.config/redshift.conf &
+# Wallpapers
 # pgrep -f backgrounds.sh &>/dev/null || ~/.config/i3/backgrounds.sh
 pgrep -f backgrounds.sh &>/dev/null || ~/.config/i3/scripts/backgrounds.sh
