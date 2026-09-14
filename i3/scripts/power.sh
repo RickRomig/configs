@@ -7,8 +7,8 @@
 # Author       : Copyright © 2025, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 18 Nov 2021
-# Last updated : 12 Sep 2026
-# Version      : 3.2.26255
+# Last updated : 14 Sep 2026
+# Version      : 3.3.26257
 # Comments     :
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
