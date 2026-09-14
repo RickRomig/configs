@@ -1,14 +1,14 @@
 #!/bin/bash
 ###############################################################################
-# Script Name  : help
+# Script Name  : help.sh
 # Description  : Help with i3 keybindings
 # Dependencies : rofi, sxhkd
 # Arguments    : None
 # Author       : Copyright © 2025, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 22 Aug 2025
-# Last updated : 13 Sep 2026
-# Version      : 2.0.26256
+# Last updated : 14 Sep 2026
+# Version      : 2.1.26257
 # Comments     : Original script by Drew Grif @ https://github.com/drewgrif
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2
@@ -25,6 +25,7 @@
 ###############################################################################
 
 i3_help() {
+	local -r rofi_theme=~/.config/rofi/keybinds.rasi
 	local keybindings formatted_keybindings selected command
 	# Extract keybindings and descriptions and format into fixed-width columns
 	keybindings=$(awk '
@@ -42,8 +43,8 @@ i3_help() {
 	)
 
 	# Show in rofi and capture the selected line
-	# selected=$(echo "$formatted_keybindings" | rofi -dmenu -i -p "Keybindings" -line-padding 4 -hide-scrollbar -theme ~/.config/i3/rofi/keybinds.rasi)
-	selected=$(rofi -dmenu -i -p "Keybindings" -line-padding 4 -hide-scrollbar -theme ~/.config/i3/rofi/keybinds.rasi <<< "$formatted_keybindings")
+	# selected=$(echo "$formatted_keybindings" | rofi -dmenu -i -p "Keybindings" -line-padding 4 -hide-scrollbar -theme "$rofi_theme")
+	selected=$(rofi -dmenu -i -p "Keybindings" -line-padding 4 -hide-scrollbar -theme "$rofi_theme" <<< "$formatted_keybindings")
 
 	# Execute the selected keybinding's command (if needed)
 	if [ -n "$selected" ]; then
