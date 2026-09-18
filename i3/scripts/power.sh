@@ -31,6 +31,7 @@ screen=$(awk '/connected primary/ {print $4}' < <(xrandr) | cut -d'x' -f1); decl
 declare -rA tux_image=(
     [1280]="tux-1280x800.png"
     [1366]="tux-1366x768.png"
+    [1600]="tux-1600x900.png"
     [1680]="tux-1680x1050.png"
 	[1440]="tux-1440x900.png"
     [1920]="tux-1920x1080.png"
