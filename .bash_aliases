@@ -364,6 +364,8 @@ pud() {
 		pushd +"$1"
 	elif [[ -d $1 ]]; then
 		pushd $1
+	elif [[ $# -eq 0 ]]; then
+		pushd
 	else
 		printf "%s not found\n" "$1" >&2
 	fi
