@@ -371,7 +371,13 @@ pud() {
 
 pod() {
 	local re="^[0-9]+$"
-	[[ $1 =~ $re ]] && popd +"$1"
+	if [[ $1 =~ $re ]]; then
+		popd +"$1"
+	elif [[ $# -eq 0 ]]; then
+		popd +0
+	else
+		echo "Invalid input." >&2
+	fi
 }
 
 sc() {
