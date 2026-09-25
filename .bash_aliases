@@ -378,3 +378,9 @@ sc() {
 	tee ./.shellcheck.log < <(shellcheck -f gcc "$1")
 	[[ -s ./.shellcheck.log ]] || tee -a ./.shellcheck.log <<< "$1: No shellcheck issues found."
 }
+
+qwik-script() {
+	echo "#!/usr/bin/env bash" > $1
+	chmod 755 $1
+	$EDITOR $1
+}
