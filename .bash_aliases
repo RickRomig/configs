@@ -1,5 +1,5 @@
 # aliases
-# updated 10 Jun 2026
+# updated 27 Sep 2026
 alias bp='bat -p'	# bat plain style without line numbers
 alias bpp='bat -pp'	# bat plain style without line numbers or paging like cat
 alias chkcmd="type -t"	# Check if a command is alias, builtin, or file
@@ -358,7 +358,7 @@ field() {
 	awk -F "${2:- }" "{print \$${1:-1} }"
 }
 
-pud() {
+dpush() {
 	local re="^[0-9]+$"
 	if [[ $1 =~ $re ]]; then
 		pushd +"$1"
@@ -371,7 +371,7 @@ pud() {
 	fi
 }
 
-pod() {
+dpop() {
 	local re="^[0-9]+$"
 	if [[ $1 =~ $re ]]; then
 		popd +"$1"
