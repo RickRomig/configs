@@ -28,8 +28,9 @@ start() {
 	[[ -z "$(pgrep -f "$1")" ]] && ${2:-$1} &
 }
 
-# Applicatonns
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# Policy kit
+# /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+/usr/bin/lxpolkit &
 # Status bar
 ~/.config/polybar/polybar-i3 &
 # Systray applications
@@ -45,7 +46,7 @@ dunst &
 # i3 keybindings
 # sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
 sxhkd -c ~/.config/i3/sxhkdrc &
-# Backhground utilities
+# Utilities
 pgrep -f udiskie &>/dev/null || udiskie &
 pgrep -f redshift | xargs -n1 kill -9
 redshift -c ~/.config/redshift.conf &
