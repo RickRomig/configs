@@ -7,8 +7,8 @@
 # Author       : Copyright © 2021, Richard B. Romig, Mosfanet
 # Email        : rick.romig@gmail.com | rick.romig@mymetronet.com
 # Created      : 18 Nov 2021
-# Last updated : 13 Sep 2026
-# Version      : 2.3.26256
+# Last updated : 29 Sep 2026
+# Version      : 2.4.26272
 # Comments     : New installs - sxhkdrc will be in i3 directory not sxhkd subdirectory
 # TODO (Rick)  :
 # License      : GNU General Public License, version 2.0
