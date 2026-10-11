@@ -392,3 +392,8 @@ qwik-script() {
 	chmod 755 $1
 	$EDITOR $1
 }
+
+j2cal() {
+	day="$1"
+	date -d "`date +%Y`-01-01 +$(( ${day} - 1 ))days" +%Y-%m-%d
+}
