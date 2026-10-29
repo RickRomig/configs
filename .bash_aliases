@@ -129,8 +129,8 @@ alias grestore='git restore'
 alias gunstage='git restore --staged'
 
 # ping aliases
-alias ping='ping -c 10'								# standard ping
-alias p8='ping -4 -c 8 8.8.8.8'				# ping Google DNS server
+alias ping='ping -c 10'					# standard ping
+alias p8='ping -4 -c 8 8.8.8.8'			# ping Google DNS server
 alias pho='ping -4 -c 8 127.0.0.1'		# ping home
 alias pig='ping -4 -c 8 google.com'		# ping Google DNS server
 alias pro='ping -4 -c 8 192.168.0.1'	# ping local gateway
