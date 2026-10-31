@@ -1,5 +1,5 @@
 # aliases
-# updated 27 Sep 2026
+# updated 25 Oct 2026
 alias bp='bat -p'	# bat plain style without line numbers
 alias bpp='bat -pp'	# bat plain style without line numbers or paging like cat
 alias chkcmd="type -t"	# Check if a command is alias, builtin, or file
@@ -55,10 +55,10 @@ alias motd='shuf -n 1 ~/.local/share/doc/leave.txt'	# display a random line from
 alias move='mv -iv'	# interactive, verbose move
 alias myip=" awk '{print $1}' < <(hostname -I); curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
 alias nanoalias="nano $HOME/.bash_aliases && source $HOME/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
+alias open='command -v xdg_open &>dev/null && xdg_open'
 alias path='sed "s,:,\n,g" <<< $PATH'	# show current exectuble paths
 alias PH-time='TZ="Asia/Manila" date +"%F %R"'	# date and time in the Philippines
 alias ps='ps auxf'
-alias push='pushd'
 alias rbt='sudo systemctl reboot'
 alias restore-bg='~/.config/i3/backgrounds.sh'
 alias sba='source ~/.bash_aliases'
@@ -382,18 +382,31 @@ dpop() {
 	fi
 }
 
+# Send shellcheck results to a hidden log file
 sc() {
 	tee ./.shellcheck.log < <(shellcheck -f gcc "$1")
 	[[ -s ./.shellcheck.log ]] || tee -a ./.shellcheck.log <<< "$1: No shellcheck issues found."
 }
 
-qwik-script() {
-	echo "#!/usr/bin/env bash" > $1
+# Create a bash script on the fly
+qscript() {
+	cat <<- 'EOF' > $1
+	#!/usr/bin/env bash
+	# shellcheck source=/home/rick/bin/files/functionlib.bash
+	. ~/bin/files/functionlib.bash || { printf "\e[91mERROR:\e[0m Unable to source functionlib.bash\n"; exit 1; }
+	EOF
 	chmod 755 $1
 	$EDITOR $1
 }
 
+# Convert Juian date to YY-MM-DD
 j2cal() {
 	day="$1"
 	date -d "`date +%Y`-01-01 +$(( ${day} - 1 ))days" +%Y-%m-%d
+}
+
+# Convert epoch date to human readable (print current date if no args)
+epoch() {
+	local num=${1:--1}
+	printf '%(%B %d, %Y %-I:%M:%S %p %Z)T\n' "$num"
 }
