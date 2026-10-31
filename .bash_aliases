@@ -55,7 +55,6 @@ alias motd='shuf -n 1 ~/.local/share/doc/leave.txt'	# display a random line from
 alias move='mv -iv'	# interactive, verbose move
 alias myip=" awk '{print $1}' < <(hostname -I); curl -s ifconfig.me && echo ' '"	# display local & public IP addresses
 alias nanoalias="nano $HOME/.bash_aliases && source $HOME/.bash_aliases"	# Edit .bash_aliases with nano and source on exit
-alias open='command -v xdg_open &>dev/null && xdg_open'
 alias path='sed "s,:,\n,g" <<< $PATH'	# show current exectuble paths
 alias PH-time='TZ="Asia/Manila" date +"%F %R"'	# date and time in the Philippines
 alias ps='ps auxf'
